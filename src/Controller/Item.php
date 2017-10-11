@@ -12,10 +12,10 @@ namespace Controller;
 class Item extends AbstractController
 {
     public function index(){
-        return 'Un item';
+        return 'L\'item';
 
     }
     public function details($id){
-        return 'Item numero ' . $id;
+        return 'Item numéro ' . $id;
     }
 }

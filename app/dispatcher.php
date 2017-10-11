@@ -3,14 +3,9 @@
  * Created by PhpStorm.
  * User: root
  * Date: 11/10/17
- * Time: 14:01
+ * Time: 17:20
  */
 
-
-require 'vendor/autoload.php';
-
-
-define('APP_CONTROLLER_NAMESPACE', '\Controller\\');
 
 $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
     $r->addRoute('GET', '/items', 'Item/index');
@@ -40,8 +35,6 @@ switch ($routeInfo[0]) {
     case FastRoute\Dispatcher::FOUND:
         $handler = $routeInfo[1];
         $vars = $routeInfo[2];
-        var_dump($handler);
-        var_dump($vars);
         list($class, $method) = explode("/", $handler, 2);
         $class = APP_CONTROLLER_NAMESPACE . $class;
         echo call_user_func_array(array(new $class, $method), $vars);
