@@ -1,0 +1,12 @@
+{
+    "name": "aurel/simple-mvc",
+    "description": "Simple from scratch PHP MVC",
+    "authors": [
+        {
+            "name": "Aurelien",
+            "email": "barbier.aurelien@wildcodeschool.fr"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
