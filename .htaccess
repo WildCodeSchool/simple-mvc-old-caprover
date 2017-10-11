@@ -1,0 +1,8 @@
+# This will prevent generating "Not Found" error in browser
+# Then we will manually do the rest to produce page for user
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule . index.php [L]
+</IfModule>
