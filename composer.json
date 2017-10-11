@@ -9,7 +9,8 @@
     ],
     "minimum-stability": "stable",
     "require": {
-        "nikic/fast-route": "^1.2"
+        "nikic/fast-route": "^1.2",
+        "twig/twig": "^2.4"
     },
     "autoload": {
         "psr-4": {

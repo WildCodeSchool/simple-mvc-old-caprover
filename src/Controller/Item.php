@@ -12,10 +12,12 @@ namespace Controller;
 class Item extends AbstractController
 {
     public function index(){
-        return 'L\'item';
+
+        return $this->_twig->render('layout.html', ['foo' => 'Les items']);
 
     }
     public function details($id){
-        return 'Item numéro ' . $id;
+
+        return $this->_twig->render('layout.html', ['foo' => 'Item numéro ' . $id]);
     }
 }
