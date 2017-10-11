@@ -6,10 +6,11 @@
  * Time: 14:01
  */
 
+
 require 'vendor/autoload.php';
 
 
-define('APP_CONTROLLER_NAMESPACE', 'Controller\\');
+define('APP_CONTROLLER_NAMESPACE', '\Controller\\');
 
 $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
     $r->addRoute('GET', '/items', 'Item/index');
