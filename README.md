@@ -1,12 +1,12 @@
-# My first MVC
+# My simple MVC
 
 ## Description
 
-Just a simple MVC template for Wild Code Schools's students projetc.
+Just a simple MVC template for Wild Code Schools's students project.
 
 ## Steps
 
-1. Init composer.
-2. Install composer.
-3. Build skeleton.
-4. Init autoload (composer + custom).
+1. Clone the repos from Github.
+2. Run `composer install`.
+3. Test on your localhost defaults URL `/items` and `/item/NUMBER` (where NUMBER is any digit),
+4. From this starter kit, create your own web application.
