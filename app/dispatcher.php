@@ -8,7 +8,7 @@
 
 
 $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
-    $r->addRoute('GET', '/items', 'Item/index');
+    $r->addRoute('GET', '/', 'Item/index');
     // {id} must be a number (\d+)
     $r->addRoute('GET', '/item/{id:\d+}', 'Item/details');
 });
@@ -36,7 +36,7 @@ switch ($routeInfo[0]) {
         $handler = $routeInfo[1];
         $vars = $routeInfo[2];
         list($class, $method) = explode("/", $handler, 2);
-        $class = APP_CONTROLLER_NAMESPACE . $class;
+        $class = APP_CONTROLLER_NAMESPACE . $class . APP_CONTROLLER_SUFFIX;
         echo call_user_func_array(array(new $class, $method), $vars);
         break;
 }
