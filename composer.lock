@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "68642dc779218ff343f13ada9306abea",
-    "content-hash": "f2a828f3fa1231dc9ecba476142f5bbd",
+    "hash": "bd0dcf4ede6a0a7e6c86a7ea4ca84ae9",
+    "content-hash": "38866adaef1c28fb56c5447efeb91ac7",
     "packages": [
         {
             "name": "nikic/fast-route",
@@ -49,6 +49,57 @@
                 "routing"
             ],
             "time": "2017-01-19 11:35:12"
+        },
+        {
+            "name": "squizlabs/php_codesniffer",
+            "version": "3.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
+                "reference": "d667e245d5dcd4d7bf80f26f2c947d476b66213e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/d667e245d5dcd4d7bf80f26f2c947d476b66213e",
+                "reference": "d667e245d5dcd4d7bf80f26f2c947d476b66213e",
+                "shasum": ""
+            },
+            "require": {
+                "ext-simplexml": "*",
+                "ext-tokenizer": "*",
+                "ext-xmlwriter": "*",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.0 || ^5.0 || ^6.0"
+            },
+            "bin": [
+                "bin/phpcs",
+                "bin/phpcbf"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.x-dev"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Greg Sherwood",
+                    "role": "lead"
+                }
+            ],
+            "description": "PHP_CodeSniffer tokenizes PHP, JavaScript and CSS files and detects violations of a defined set of coding standards.",
+            "homepage": "http://www.squizlabs.com/php-codesniffer",
+            "keywords": [
+                "phpcs",
+                "standards"
+            ],
+            "time": "2017-10-16 22:40:25"
         },
         {
             "name": "symfony/polyfill-mbstring",
