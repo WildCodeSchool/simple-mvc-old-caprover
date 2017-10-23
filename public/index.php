@@ -6,7 +6,7 @@
  * Time: 14:01
  */
 
-require __DIR__ . '/../vendor/autoload.php';
-require __DIR__ . '/../app/config.php';
-require __DIR__ . '/../app/dispatcher.php';
-
+require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/../app/config.php';
+require_once __DIR__ . '/../app/dispatcher.php';
+require_once __DIR__ . '/../app/db.php';
