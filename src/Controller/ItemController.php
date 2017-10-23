@@ -8,6 +8,8 @@
 
 namespace Controller;
 
+use Model\Item;
+
 /**
  * Class ItemController
  * @package Controller
@@ -20,9 +22,12 @@ class ItemController extends AbstractController
      */
     public function index()
     {
+        $itemsManager = new Item();
 
-        $foo = 'Les items';
-        return $this->_twig->render('Item/index.html.twig', ['foo' => $foo]);
+        $items = $itemsManager->selectItems();
+
+        $foo = 'Les items :';
+        return $this->_twig->render('Item/index.html.twig', ['foo' => $foo, 'items' => $items]);
     }
 
 

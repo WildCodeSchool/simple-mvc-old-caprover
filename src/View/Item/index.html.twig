@@ -2,4 +2,12 @@
 
 {% block content %}
     {{ foo }}
+    <ul>
+
+    {% for item in items %}
+        <li>{{ item.id }}. {{ item.title }}</li>
+    {% else %}
+        <li>Nothing to display</li>
+    {% endfor %}
+    </ul>
 {% endblock %}

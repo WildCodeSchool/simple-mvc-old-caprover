@@ -7,6 +7,9 @@
  */
 
 namespace Model;
+
+use \PDO;
+
 /**
  * Classe Connexion
  *

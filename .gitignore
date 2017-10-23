@@ -1,2 +1,4 @@
 /vendor/
 /temp/*
+
+app/db\.php

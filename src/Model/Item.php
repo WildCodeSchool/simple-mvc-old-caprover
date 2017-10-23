@@ -17,19 +17,20 @@ use Model\Connexion;
 class Item
 {
 
-    private $con; //variable de connexion
+    private $conn; //variable de connexion
 
     public function __construct()
     {
         $db = Connexion::getInstance();
-        $this->con = $db->getDbh();
+        $this->conn = $db->getDbh();
     }
     /**
      *
      */
     public function selectItems()
     {
-        //TODO : Implements SQL SELECT ALL request
+        $items = $this->conn->query('SELECT * FROM `items`', \PDO::FETCH_ASSOC)->fetchAll();
+        return $items;
     }
 
     /**
