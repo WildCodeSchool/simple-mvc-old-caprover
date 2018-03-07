@@ -19,9 +19,4 @@ class ItemManager extends EntityManager
         parent::__construct(self::TABLE);
     }
 
-    public function customItemRequest()
-    {
-        // TODO with custom request on item if necessary.
-    }
-
 }

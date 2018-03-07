@@ -13,11 +13,6 @@ use \PDO;
 /**
  *
  * Database connection
- * <ul>
- *     <li>le type de base de donnée (mysql, sqllite, ...)</li>
- *     <li>le nom de la base de donnée</li>
- *     <li>le login et le mot de passe utilisateur du serveur SQL</li>
- * </ul>
  *
  * You need :
  * - type of database (mysql, sqlite...)
