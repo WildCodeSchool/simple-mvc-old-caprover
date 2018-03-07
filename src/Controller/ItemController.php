@@ -9,6 +9,7 @@
 namespace Controller;
 
 use Model\Item;
+use Model\ItemManager;
 
 /**
  * Class ItemController
@@ -22,32 +23,32 @@ class ItemController extends AbstractController
      */
     public function index()
     {
-        $itemsManager = new Item();
+        $itemManager = new ItemManager();
+        $items = $itemManager->findAll();
 
-        $items = $itemsManager->selectItems();
-
-        $foo = 'Les items :';
-        return $this->_twig->render('Item/index.html.twig', ['foo' => $foo, 'items' => $items]);
-    }
-
-
-    /**
-     * @param $id
-     * @return string
-     */
-    public function details($id)
-    {
-
-        return $this->_twig->render('Item/details.html.twig', ['foo' => 'Item number ' . $id]);
+        return $this->twig->render('Item/index.html.twig', ['items' => $items]);
     }
 
     /**
      * @param $id
      * @return string
      */
-    public function edit($id)
+    public function show(int $id)
     {
-        return $this->_twig->render('Item/edit.html.twig', ['foo' => 'Edit item number ' . $id]);
+        $itemManager = new ItemManager();
+        $item = $itemManager->findOneById($id);
+
+        return $this->twig->render('Item/show.html.twig', ['item' => $item]);
+    }
+
+    /**
+     * @param $id
+     * @return string
+     */
+    public function edit(int $id)
+    {
+        // TODO : edit item with id $id
+        return $this->twig->render('Item/edit.html.twig', ['item', $id]);
     }
 
     /**
@@ -56,6 +57,17 @@ class ItemController extends AbstractController
      */
     public function add()
     {
-        return $this->_twig->render('Item/add.html.twig', ['foo' => 'Create new Item']);
+        // TODO : add a new item
+        return $this->twig->render('Item/add.html.twig');
+    }
+
+    /**
+     * @param $id
+     * @return string
+     */
+    public function delete(int $id)
+    {
+        // TODO : delete the item with id $id
+        return $this->twig->render('Item/index.html.twig');
     }
 }

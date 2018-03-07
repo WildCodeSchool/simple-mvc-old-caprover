@@ -16,53 +16,10 @@ use Model\Connexion;
  */
 class Item
 {
+    private $id;
 
-    private $conn; //variable de connexion
-
-    public function __construct()
-    {
-        $db = Connexion::getInstance();
-        $this->conn = $db->getDbh();
-    }
-    /**
-     *
-     */
-    public function selectItems()
-    {
-        $items = $this->conn->query('SELECT * FROM `items`', \PDO::FETCH_ASSOC)->fetchAll();
-        return $items;
-    }
-
-    /**
-     * @param $id
-     */
-    public function selectItemById($id)
-    {
-        //TODO : Implements SQL SELECT BY ID request
-    }
-
-    /**
-     *
-     */
-    public function deleteItem($id)
-    {
-        //TODO : Implements SQL DELETE request
-    }
-
-    /**
-     *
-     */
-    public function insertItem($data)
-    {
-        //TODO : Implements SQL INSERT request
-    }
+    private $title;
 
 
-    /**
-     *
-     */
-    public function updateItem($id, $data)
-    {
-        //TODO : Implements SQL UPDATE request
-    }
+
 }

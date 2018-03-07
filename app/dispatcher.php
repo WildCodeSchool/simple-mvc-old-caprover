@@ -10,7 +10,7 @@
 $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
     $r->addRoute('GET', '/', 'Item/index');
     // {id} must be a number (\d+)
-    $r->addRoute('GET', '/item/{id:\d+}', 'Item/details');
+    $r->addRoute('GET', '/item/{id:\d+}', 'Item/show');
 });
 
 // Fetch method and URI from somewhere
