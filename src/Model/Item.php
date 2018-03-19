@@ -8,61 +8,54 @@
 
 namespace Model;
 
-use Model\Connexion;
-
 /**
  * Class Item
  * @package Model
  */
 class Item
 {
+    private $id;
 
-    private $conn; //variable de connexion
+    private $title;
 
-    public function __construct()
-    {
-        $db = Connexion::getInstance();
-        $this->conn = $db->getDbh();
-    }
     /**
-     *
+     * @return mixed
      */
-    public function selectItems()
+    public function getId()
     {
-        $items = $this->conn->query('SELECT * FROM `items`', \PDO::FETCH_ASSOC)->fetchAll();
-        return $items;
+        return $this->id;
     }
 
     /**
-     * @param $id
+     * @param mixed $id
+     * @return Item
      */
-    public function selectItemById($id)
+    public function setId($id)
     {
-        //TODO : Implements SQL SELECT BY ID request
+        $this->id = $id;
+
+        return $this;
     }
 
     /**
-     *
+     * @return mixed
      */
-    public function deleteItem($id)
+    public function getTitle()
     {
-        //TODO : Implements SQL DELETE request
+        return $this->title;
     }
 
     /**
-     *
+     * @param mixed $title
+     * @return Item
      */
-    public function insertItem($data)
+    public function setTitle($title)
     {
-        //TODO : Implements SQL INSERT request
+        $this->title = $title;
+
+        return $this;
     }
 
 
-    /**
-     *
-     */
-    public function updateItem($id, $data)
-    {
-        //TODO : Implements SQL UPDATE request
-    }
+
 }

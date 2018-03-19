@@ -1,13 +1,13 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-    {{ foo }}
-    <ul>
+    <h1>Items</h1>
 
-    {% for item in items %}
-        <li>{{ item.id }}. {{ item.title }}</li>
-    {% else %}
-        <li>Nothing to display</li>
-    {% endfor %}
+    <ul>
+        {% for item in items %}
+            <li>{{ item.id }}. {{ item.title }}</li>
+        {% else %}
+            <li>Nothing to display</li>
+        {% endfor %}
     </ul>
 {% endblock %}
