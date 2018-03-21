@@ -9,7 +9,7 @@
 namespace Model;
 
 
-abstract class EntityManager
+abstract class AbstractManager
 {
     protected $conn; //variable de connexion
 
@@ -25,7 +25,7 @@ abstract class EntityManager
     /**
      * @return array
      */
-    public function findAll()
+    public function selectAll()
     {
         return $this->conn->query('SELECT * FROM ' . $this->table, \PDO::FETCH_ASSOC)->fetchAll();
     }
@@ -34,7 +34,7 @@ abstract class EntityManager
      * @param $id
      * @return array
      */
-    public function findOneById(int $id)
+    public function selectOneById(int $id)
     {
         // prepared request
         $statement = $this->conn->prepare("SELECT * FROM $this->table WHERE id=:id");

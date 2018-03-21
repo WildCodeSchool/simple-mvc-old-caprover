@@ -24,7 +24,7 @@ class ItemController extends AbstractController
     public function index()
     {
         $itemManager = new ItemManager();
-        $items = $itemManager->findAll();
+        $items = $itemManager->selectAll();
 
         return $this->twig->render('Item/index.html.twig', ['items' => $items]);
     }
@@ -36,7 +36,7 @@ class ItemController extends AbstractController
     public function show(int $id)
     {
         $itemManager = new ItemManager();
-        $item = $itemManager->findOneById($id);
+        $item = $itemManager->selectOneById($id);
 
         return $this->twig->render('Item/show.html.twig', ['item' => $item]);
     }
