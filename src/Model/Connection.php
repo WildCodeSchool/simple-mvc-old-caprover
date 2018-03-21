@@ -22,8 +22,8 @@ use \PDO;
  * This class only make a PDO object instanciation. Use it as below :
  *
  * <pre>
- *  $db = new Connexion();
- *  $conn = $db->getPdo();
+ *  $db = new Connection();
+ *  $conn = $db->getPdoConnection();
  * </pre>
  *
  * @link http://fr3.php.net/manual/fr/book.pdo.php classe PDO
@@ -34,45 +34,10 @@ use \PDO;
 class Connection
 {
     /**
-     * Database type
-     * @access private
-     * @var string
-     */
-    private $type = "mysql";
-
-    /**
-     * Host
-     * @access private
-     * @var string
-     */
-    private $host = APP_DB_HOST;
-
-    /**
-     * Database name.
-     * @access private
-     * @var string
-     */
-    private $dbname = APP_DB_NAME;
-
-    /**
-     * Login for database connection
-     * @access private
-     * @var string
-     */
-    private $username = APP_DB_USER;
-
-    /**
-     * Password for database connexion
-     * @access private
-     * @var string
-     */
-    private $password = APP_DB_PWD;
-
-    /**
      * @var PDO
      * @access private
      */
-    private $pdo;
+    private $pdoConnection;
 
     /**
      * Initialize connection
@@ -81,21 +46,18 @@ class Connection
     public function __construct()
     {
         try {
-            $this->pdo = new PDO(
-                $this->type.':host='.$this->host.'; dbname='.$this->dbname . '; charset=utf8',
-                $this->username,
-                $this->password
+            $this->pdoConnection = new PDO('mysql:host=' . APP_DB_HOST . '; dbname=' . APP_DB_NAME . '; charset=utf8',
+                APP_DB_USER,
+                APP_DB_PWD
             );
 
             // show errors in DEV environment
             if (APP_DEV) {
-                $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                $this->pdoConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             }
         }
-
         catch(\PDOException $e){
-            echo '<div class="error">Error !: ' . $e->getMessage() . '</div>';
-            die();
+            die('<div class="error">Error !: ' . $e->getMessage() . '</div>');
         }
     }
 
@@ -103,8 +65,8 @@ class Connection
     /**
      * @return $pdo
      */
-    public function getPdo() :PDO
+    public function getPdoConnection() :PDO
     {
-        return $this->pdo;
+        return $this->pdoConnection;
     }
 }
