@@ -51,6 +51,8 @@ class Connection
                 APP_DB_PWD
             );
 
+            $this->pdoConnection->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_CLASS);
+
             // show errors in DEV environment
             if (APP_DEV) {
                 $this->pdoConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

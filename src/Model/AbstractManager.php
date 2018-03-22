@@ -14,12 +14,14 @@ abstract class AbstractManager
     protected $pdoConnection; //variable de connexion
 
     protected $table;
+    protected $className;
 
     public function __construct($table)
     {
         $connexion = new Connection();
         $this->pdoConnection = $connexion->getPdoConnection();
         $this->table = $table;
+        $this->className = __NAMESPACE__ . '\\' . ucfirst($table);
     }
 
     /**
@@ -27,7 +29,7 @@ abstract class AbstractManager
      */
     public function selectAll()
     {
-        return $this->pdoConnection->query('SELECT * FROM ' . $this->table, \PDO::FETCH_ASSOC)->fetchAll();
+        return $this->pdoConnection->query('SELECT * FROM ' . $this->table, \PDO::FETCH_CLASS, $this->className)->fetchAll();
     }
 
     /**
@@ -38,10 +40,10 @@ abstract class AbstractManager
     {
         // prepared request
         $statement = $this->pdoConnection->prepare("SELECT * FROM $this->table WHERE id=:id");
+        $statement->setFetchMode( \PDO::FETCH_CLASS, $this->className);
         $statement->bindValue('id', $id, \PDO::PARAM_INT);
         $statement->execute();
-
-        return $statement->fetch(\PDO::FETCH_ASSOC);
+        return $statement->fetch(\PDO::FETCH_CLASS);
     }
 
     /**

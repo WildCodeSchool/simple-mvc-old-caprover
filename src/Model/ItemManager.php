@@ -13,7 +13,6 @@ class ItemManager extends AbstractManager
 {
     const TABLE = 'item';
 
-
     public function __construct()
     {
         parent::__construct(self::TABLE);
