@@ -4,7 +4,7 @@
     <h1>Items</h1>
     <ul>
         {% for item in items %}
-            <li>{{ item.id }}. {{ item.title }}</li>
+            <li><a href="/item/{{ item.id }}">{{ item.id }}. {{ item.title }}</a></li>
         {% else %}
             <li>Nothing to display</li>
         {% endfor %}
