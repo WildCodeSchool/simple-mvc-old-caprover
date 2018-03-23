@@ -9,10 +9,9 @@
 namespace Model;
 
 
-class ItemManager extends EntityManager
+class ItemManager extends AbstractManager
 {
-    const TABLE = 'items';
-
+    const TABLE = 'item';
 
     public function __construct()
     {

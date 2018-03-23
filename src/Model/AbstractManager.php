@@ -9,39 +9,41 @@
 namespace Model;
 
 
-abstract class EntityManager
+abstract class AbstractManager
 {
-    protected $conn; //variable de connexion
+    protected $pdoConnection; //variable de connexion
 
     protected $table;
+    protected $className;
 
     public function __construct($table)
     {
-        $db = new Connection();
-        $this->conn = $db->getPdo();
+        $connexion = new Connection();
+        $this->pdoConnection = $connexion->getPdoConnection();
         $this->table = $table;
+        $this->className = __NAMESPACE__ . '\\' . ucfirst($table);
     }
 
     /**
      * @return array
      */
-    public function findAll()
+    public function selectAll()
     {
-        return $this->conn->query('SELECT * FROM ' . $this->table, \PDO::FETCH_ASSOC)->fetchAll();
+        return $this->pdoConnection->query('SELECT * FROM ' . $this->table, \PDO::FETCH_CLASS, $this->className)->fetchAll();
     }
 
     /**
      * @param $id
      * @return array
      */
-    public function findOneById(int $id)
+    public function selectOneById(int $id)
     {
         // prepared request
-        $statement = $this->conn->prepare("SELECT * FROM $this->table WHERE id=:id");
+        $statement = $this->pdoConnection->prepare("SELECT * FROM $this->table WHERE id=:id");
+        $statement->setFetchMode( \PDO::FETCH_CLASS, $this->className);
         $statement->bindValue('id', $id, \PDO::PARAM_INT);
         $statement->execute();
-
-        return $statement->fetch(\PDO::FETCH_ASSOC);
+        return $statement->fetch(\PDO::FETCH_CLASS);
     }
 
     /**
