@@ -2,6 +2,7 @@
 
 {% block content %}
     <h1>Item {{ item.title }}</h1>
-    <p>{{ item.id }} {{ item.title }}</p>
+    <p>{{ item.id }}. {{ item.title }}</p>
     <a href="/item/edit/{{ item.id }}">Edit</a>
+    <a href="/">Back</a>
 {% endblock %}
