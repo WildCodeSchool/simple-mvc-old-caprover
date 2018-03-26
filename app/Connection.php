@@ -6,7 +6,7 @@
  * Time: 11:20
  */
 
-namespace Model;
+namespace App;
 
 use \PDO;
 

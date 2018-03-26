@@ -23,19 +23,19 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Structure de la table `items`
+-- Structure de la table `item`
 --
 
-CREATE TABLE `items` (
+CREATE TABLE `item` (
   `id` int(11) UNSIGNED NOT NULL,
   `title` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `items`
+-- Contenu de la table `item`
 --
 
-INSERT INTO `items` (`id`, `title`) VALUES
+INSERT INTO `item` (`id`, `title`) VALUES
 (1, 'Stuff'),
 (2, 'Doodads');
 
@@ -44,9 +44,9 @@ INSERT INTO `items` (`id`, `title`) VALUES
 --
 
 --
--- Index pour la table `items`
+-- Index pour la table `item`
 --
-ALTER TABLE `items`
+ALTER TABLE `item`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -54,9 +54,9 @@ ALTER TABLE `items`
 --
 
 --
--- AUTO_INCREMENT pour la table `items`
+-- AUTO_INCREMENT pour la table `item`
 --
-ALTER TABLE `items`
+ALTER TABLE `item`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

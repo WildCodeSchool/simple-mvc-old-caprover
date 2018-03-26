@@ -9,6 +9,8 @@
 namespace Model;
 
 
+use App\Connection;
+
 abstract class AbstractManager
 {
     protected $pdoConnection; //variable de connexion
@@ -40,10 +42,11 @@ abstract class AbstractManager
     {
         // prepared request
         $statement = $this->pdoConnection->prepare("SELECT * FROM $this->table WHERE id=:id");
-        $statement->setFetchMode( \PDO::FETCH_CLASS, $this->className);
+        $statement->setFetchMode(\PDO::FETCH_CLASS, $this->className);
         $statement->bindValue('id', $id, \PDO::PARAM_INT);
         $statement->execute();
-        return $statement->fetch(\PDO::FETCH_CLASS);
+
+        return $statement->fetch();
     }
 
     /**

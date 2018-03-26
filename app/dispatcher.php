@@ -8,12 +8,12 @@
 
 
 require_once __DIR__ . '/routing.php';
-$dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) use ($routes) {
-  foreach ($routes as $controller => $actions) {
-    foreach ($actions as $action) {
-        $r->addRoute($action[2], $action[1], $controller.'/' . $action[0]);
+$dispatcher = FastRoute\simpleDispatcher(function (FastRoute\RouteCollector $r) use ($routes) {
+    foreach ($routes as $controller => $actions) {
+        foreach ($actions as $action) {
+            $r->addRoute($action[2], $action[1], $controller . '/' . $action[0]);
+        }
     }
-  }
 });
 
 // Fetch method and URI from somewhere
