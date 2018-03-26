@@ -16,7 +16,7 @@ $routesCollection = function (FastRoute\RouteCollector $r) use ($routes) {
             $r->addRoute($action[2], $action[1], $controller.'/' . $action[0]);
         }
     }
-}
+};
 
 $dispatcher = FastRoute\simpleDispatcher($routesCollection);
 
