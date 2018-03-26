@@ -13,6 +13,7 @@ use Model\ItemManager;
 
 /**
  * Class ItemController
+ *
  * @package Controller
  */
 class ItemController extends AbstractController
@@ -37,7 +38,7 @@ class ItemController extends AbstractController
     {
         $itemManager = new ItemManager();
         $item = $itemManager->selectOneById($id);
-        
+
         return $this->twig->render('Item/show.html.twig', ['item' => $item]);
     }
 

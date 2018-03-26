@@ -11,7 +11,6 @@ namespace Model;
 use \PDO;
 
 /**
- *
  * Database connection
  *
  * You need :
@@ -41,12 +40,14 @@ class Connection
 
     /**
      * Initialize connection
+     *
      * @access public
      */
     public function __construct()
     {
         try {
-            $this->pdoConnection = new PDO('mysql:host=' . APP_DB_HOST . '; dbname=' . APP_DB_NAME . '; charset=utf8',
+            $this->pdoConnection = new PDO(
+                'mysql:host=' . APP_DB_HOST . '; dbname=' . APP_DB_NAME . '; charset=utf8',
                 APP_DB_USER,
                 APP_DB_PWD
             );

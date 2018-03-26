@@ -10,6 +10,7 @@ namespace Model;
 
 /**
  * Class Item
+ *
  * @package Model
  */
 class Item
