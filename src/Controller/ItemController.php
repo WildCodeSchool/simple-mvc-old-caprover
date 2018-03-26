@@ -4,6 +4,7 @@
  * User: root
  * Date: 11/10/17
  * Time: 16:07
+ * PHP version 7
  */
 
 namespace Controller;
@@ -14,12 +15,13 @@ use Model\ItemManager;
 /**
  * Class ItemController
  *
- * @package Controller
  */
 class ItemController extends AbstractController
 {
 
     /**
+     * Display item listing
+     *
      * @return string
      */
     public function index()
@@ -31,7 +33,10 @@ class ItemController extends AbstractController
     }
 
     /**
-     * @param $id
+     * Display item informations specified by $id
+     *
+     * @param  int $id
+     *
      * @return string
      */
     public function show(int $id)
@@ -43,7 +48,10 @@ class ItemController extends AbstractController
     }
 
     /**
-     * @param $id
+     * Display item edition page specified by $id
+     *
+     * @param  int $id
+     *
      * @return string
      */
     public function edit(int $id)
@@ -53,7 +61,8 @@ class ItemController extends AbstractController
     }
 
     /**
-     * @param $id
+     * Display item creation page
+     *
      * @return string
      */
     public function add()
@@ -63,7 +72,10 @@ class ItemController extends AbstractController
     }
 
     /**
-     * @param $id
+     * Display item delete page
+     *
+     * @param  int $id
+     *
      * @return string
      */
     public function delete(int $id)

@@ -4,13 +4,16 @@
  * User: sylvain
  * Date: 07/03/18
  * Time: 20:52
+ * PHP version 7
  */
 
 namespace Model;
 
-
 use App\Connection;
 
+/**
+ * Abstract class handling default manager.
+ */
 abstract class AbstractManager
 {
     protected $pdoConnection; //variable de connexion
@@ -18,27 +21,37 @@ abstract class AbstractManager
     protected $table;
     protected $className;
 
-    public function __construct($table)
+    /**
+     *  Initializes Manager Abstract class.
+     *
+     * @param string $table Table name of current model
+     */
+    public function __construct(string $table)
     {
         $connexion = new Connection();
         $this->pdoConnection = $connexion->getPdoConnection();
         $this->table = $table;
-        $this->className = __NAMESPACE__ . '\\' . ucfirst($table);
+        $this->className = __NAMESPACE__.'\\'.ucfirst($table);
     }
 
     /**
+     * Get all row from database.
+     *
      * @return array
      */
-    public function selectAll()
+    public function selectAll(): array
     {
-        return $this->pdoConnection->query('SELECT * FROM ' . $this->table, \PDO::FETCH_CLASS, $this->className)->fetchAll();
+        return $this->pdoConnection->query('SELECT * FROM '.$this->table, \PDO::FETCH_CLASS, $this->className)->fetchAll();
     }
 
     /**
-     * @param $id
+     * Get one row from database by ID.
+     *
+     * @param  int $id
+     *
      * @return array
      */
-    public function selectOneById(int $id)
+    public function selectOneById(int $id):string
     {
         // prepared request
         $statement = $this->pdoConnection->prepare("SELECT * FROM $this->table WHERE id=:id");
@@ -50,29 +63,33 @@ abstract class AbstractManager
     }
 
     /**
+     * DELETE on row in dataase by ID
      *
+     * @param int $id
      */
-    public function delete($id)
+    public function delete(int $id)
     {
         //TODO : Implements SQL DELETE request
     }
 
+
     /**
+     * INSERT one row in dataase
      *
+     * @param Array $data
      */
-    public function insert($data)
+    public function insert(array $data)
     {
         //TODO : Implements SQL INSERT request
     }
 
 
     /**
-     *
+     * @param int   $id   Id of the row to update
+     * @param array $data $data to update
      */
-    public function update($id, $data)
+    public function update(int $id, array $data)
     {
         //TODO : Implements SQL UPDATE request
     }
-
-
 }
