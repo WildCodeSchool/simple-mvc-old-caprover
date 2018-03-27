@@ -51,7 +51,7 @@ abstract class AbstractManager
      *
      * @return array
      */
-    public function selectOneById(int $id):string
+    public function selectOneById(int $id)
     {
         // prepared request
         $statement = $this->pdoConnection->prepare("SELECT * FROM $this->table WHERE id=:id");
