@@ -39,17 +39,17 @@ class Connection
     public function __construct()
     {
         try {
-            $this->_pdoConnection = new PDO(
+            $this->pdoConnection = new PDO(
                 'mysql:host='.APP_DB_HOST.'; dbname='.APP_DB_NAME.'; charset=utf8',
                 APP_DB_USER,
                 APP_DB_PWD
             );
 
-            $this->_pdoConnection->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_CLASS);
+            $this->pdoConnection->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_CLASS);
 
             // show errors in DEV environment
             if (APP_DEV) {
-                $this->_pdoConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                $this->pdoConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             }
         } catch (\PDOException $e) {
             die('<div class="error">Error !: '.$e->getMessage().'</div>');
@@ -62,6 +62,6 @@ class Connection
      */
     public function getPdoConnection() :PDO
     {
-        return $this->_pdoConnection;
+        return $this->pdoConnection;
     }
 }
