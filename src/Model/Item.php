@@ -4,13 +4,14 @@
  * User: wcs
  * Date: 23/10/17
  * Time: 10:57
+ * PHP version 7
  */
 
 namespace Model;
 
 /**
  * Class Item
- * @package Model
+ *
  */
 class Item
 {
@@ -19,18 +20,19 @@ class Item
     private $title;
 
     /**
-     * @return mixed
+     * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->id;
     }
 
     /**
      * @param mixed $id
+     *
      * @return Item
      */
-    public function setId($id)
+    public function setId($id): Item
     {
         $this->id = $id;
 
@@ -40,21 +42,20 @@ class Item
     /**
      * @return mixed
      */
-    public function getTitle()
+    public function getTitle(): string
     {
         return $this->title;
     }
 
     /**
      * @param mixed $title
+     *
      * @return Item
      */
-    public function setTitle($title)
+    public function setTitle($title):Item
     {
         $this->title = $title;
 
         return $this;
     }
-
-
 }

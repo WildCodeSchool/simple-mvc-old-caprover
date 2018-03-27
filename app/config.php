@@ -1,4 +1,14 @@
 <?php
+/**
+ * This file define app constants .
+ *
+ * PHP version 7
+ *
+ * @author   WCS <contact@wildcodeschool.fr>
+ *
+ * @link     https://github.com/WildCodeSchool/simple-mvc
+ */
+
 
 define('APP_DEV', true);
 
