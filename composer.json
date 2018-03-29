@@ -10,7 +10,9 @@
     "minimum-stability": "stable",
     "require": {
         "nikic/fast-route": "^1.2",
-        "twig/twig": "^2.4",
+        "twig/twig": "^2.4"
+    },
+    "require-dev": {
         "squizlabs/php_codesniffer": "*"
     },
     "autoload": {
