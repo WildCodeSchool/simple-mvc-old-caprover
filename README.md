@@ -11,7 +11,7 @@ For this one, just a simple example where users can chose one of their databases
 
 1. Clone the repos from Github.
 2. Run `composer install`.
-3. Create *app/db.php* from *app/db.php.dist* file and add your DB parameters.
+3. Create *app/db.php* from *app/db.php.dist* file and add your DB parameters. Don't delete the *.dist* file, it must be kept.
 ```php
 define('APP_DB_HOST', 'your_db_host');
 define('APP_DB_NAME', 'your_db_name');
@@ -19,7 +19,7 @@ define('APP_DB_USER', 'your_db_user_wich_is_not_root');
 define('APP_DB_PWD', 'your_db_password');
 ```
 4. Import `simple-mvc.sql` in your SQL server,
-5. Go to *public* directory (`cd public`) and run internal PHP webserver with `php -S localhost:8000` inside.
+5. Run the internal PHP webserver with `php -S localhost:8000 -t public/`. The option `-t` with `public` as parameter, mean your localhost will target the `/public` folder.
 6. Test on your localhost default URL : `localhost:8000`.
 7. From this starter kit, create your own web application.
 
