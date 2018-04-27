@@ -20,7 +20,7 @@ define('APP_DB_PWD', 'your_db_password');
 ```
 4. Import `simple-mvc.sql` in your SQL server,
 5. Run the internal PHP webserver with `php -S localhost:8000 -t public/`. The option `-t` with `public` as parameter, mean your localhost will target the `/public` folder.
-6. Test on your localhost default URL : `localhost:8000`.
+6. Go to `localhost:8000` with your favorite browser.
 7. From this starter kit, create your own web application.
 
 
