@@ -9,7 +9,6 @@
 
 namespace Controller;
 
-use Model\Item;
 use Model\ItemManager;
 
 /**
