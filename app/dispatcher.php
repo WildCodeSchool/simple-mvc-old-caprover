@@ -43,7 +43,6 @@ switch ($routeInfo[0]) {
         header("HTTP/1.0 405 Method Not Allowed");
         break;
     case FastRoute\Dispatcher::FOUND:
-        $handler = $routeInfo[1];
         $vars = $routeInfo[2];
         [$class, $method] = $routeInfo[1];
         $class = APP_CONTROLLER_NAMESPACE . $class . APP_CONTROLLER_SUFFIX;
