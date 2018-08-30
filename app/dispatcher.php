@@ -14,7 +14,7 @@ require_once __DIR__ . '/routing.php';
 $routesCollection = function (FastRoute\RouteCollector $r) use ($routes) {
     foreach ($routes as $controller => $actions) {
         foreach ($actions as $action) {
-            $r->addRoute($action[2], $action[1], $controller . '/' . $action[0]);
+            $r->addRoute($action[2], $action[1], [$controller,$action[0]]);
         }
     }
 };
@@ -45,7 +45,7 @@ switch ($routeInfo[0]) {
     case FastRoute\Dispatcher::FOUND:
         $handler = $routeInfo[1];
         $vars = $routeInfo[2];
-        list($class, $method) = explode("/", $handler, 2);
+        [$class, $method] = $routeInfo[1];
         $class = APP_CONTROLLER_NAMESPACE . $class . APP_CONTROLLER_SUFFIX;
         echo call_user_func_array([new $class(), $method], $vars);
         break;
