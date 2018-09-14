@@ -62,34 +62,11 @@ abstract class AbstractManager
         return $statement->fetch();
     }
 
-    /**
-     * DELETE on row in dataase by ID
-     *
-     * @param int $id
-     */
-    public function delete(int $id)
-    {
-        //TODO : Implements SQL DELETE request
-    }
-
 
     /**
      * INSERT one row in dataase
      *
      * @param Array $data
      */
-    public function insert(array $data)
-    {
-        //TODO : Implements SQL INSERT request
-    }
-
-
-    /**
-     * @param int   $id   Id of the row to update
-     * @param array $data $data to update
-     */
-    public function update(int $id, array $data)
-    {
-        //TODO : Implements SQL UPDATE request
-    }
+    abstract public function insert(array $data);
 }

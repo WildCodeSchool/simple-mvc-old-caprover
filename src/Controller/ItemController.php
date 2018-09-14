@@ -53,20 +53,37 @@ class ItemController extends AbstractController
      *
      * @return string
      */
-    public function edit(int $id)
+    public function edit(int $id): string
     {
-        // TODO : edit item with id $id
-        return $this->twig->render('Item/edit.html.twig', ['item', $id]);
+        $itemManager = new ItemManager();
+        $item = $itemManager->selectOneById($id);
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            if ($itemManager->update($id, $_POST['title'])) {
+                $item->setTitle($_POST['title']);
+            }
+        }
+
+        return $this->twig->render('Item/edit.html.twig', ['item' => $item]);
     }
 
     /**
      * Display item creation page
      *
+     * @throws
      * @return string
      */
     public function add()
     {
-        // TODO : add a new item
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $itemManager = new ItemManager();
+
+            if (false !== $id = $itemManager->insert($_POST)) {
+                header('Location:/item/' . $id);
+            }
+        }
+
         return $this->twig->render('Item/add.html.twig');
     }
 
@@ -79,7 +96,8 @@ class ItemController extends AbstractController
      */
     public function delete(int $id)
     {
-        // TODO : delete the item with id $id
-        return $this->twig->render('Item/index.html.twig');
+        $itemManager = new ItemManager();
+        $itemManager->delete($id);
+        header('Location:/');
     }
 }
