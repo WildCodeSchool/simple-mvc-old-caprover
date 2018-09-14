@@ -14,6 +14,9 @@ namespace Model;
  */
 class ItemManager extends AbstractManager
 {
+    /**
+     *
+     */
     const TABLE = 'item';
 
     /**
@@ -25,6 +28,10 @@ class ItemManager extends AbstractManager
     }
 
 
+    /**
+     * @param array $data
+     * @return int
+     */
     public function insert(array $data): int
     {
 
@@ -41,6 +48,9 @@ class ItemManager extends AbstractManager
     }
 
 
+    /**
+     * @param int $id
+     */
     public function delete(int $id): void
     {
         // prepared request
@@ -50,6 +60,11 @@ class ItemManager extends AbstractManager
     }
 
 
+    /**
+     * @param int $id
+     * @param string $title
+     * @return int
+     */
     public function update(int $id, string $title):int
     {
 

@@ -18,10 +18,14 @@ use Model\ItemManager;
 class ItemController extends AbstractController
 {
 
+
     /**
      * Display item listing
      *
      * @return string
+     * @throws \Twig_Error_Loader
+     * @throws \Twig_Error_Runtime
+     * @throws \Twig_Error_Syntax
      */
     public function index()
     {
@@ -31,12 +35,15 @@ class ItemController extends AbstractController
         return $this->twig->render('Item/index.html.twig', ['items' => $items]);
     }
 
+
     /**
      * Display item informations specified by $id
      *
-     * @param  int $id
-     *
+     * @param int $id
      * @return string
+     * @throws \Twig_Error_Loader
+     * @throws \Twig_Error_Runtime
+     * @throws \Twig_Error_Syntax
      */
     public function show(int $id)
     {
@@ -46,12 +53,15 @@ class ItemController extends AbstractController
         return $this->twig->render('Item/show.html.twig', ['item' => $item]);
     }
 
+
     /**
      * Display item edition page specified by $id
      *
-     * @param  int $id
-     *
+     * @param int $id
      * @return string
+     * @throws \Twig_Error_Loader
+     * @throws \Twig_Error_Runtime
+     * @throws \Twig_Error_Syntax
      */
     public function edit(int $id): string
     {
@@ -67,11 +77,14 @@ class ItemController extends AbstractController
         return $this->twig->render('Item/edit.html.twig', ['item' => $item]);
     }
 
+
     /**
      * Display item creation page
      *
-     * @throws
      * @return string
+     * @throws \Twig_Error_Loader
+     * @throws \Twig_Error_Runtime
+     * @throws \Twig_Error_Syntax
      */
     public function add()
     {
@@ -87,12 +100,11 @@ class ItemController extends AbstractController
         return $this->twig->render('Item/add.html.twig');
     }
 
+
     /**
-     * Display item delete page
+     * Handle item deletion
      *
-     * @param  int $id
-     *
-     * @return string
+     * @param int $id
      */
     public function delete(int $id)
     {

@@ -16,9 +16,18 @@ use App\Connection;
  */
 abstract class AbstractManager
 {
+    /**
+     * @var \PDO
+     */
     protected $pdoConnection; //variable de connexion
 
+    /**
+     * @var string
+     */
     protected $table;
+    /**
+     * @var string
+     */
     protected $className;
 
     /**
@@ -64,9 +73,10 @@ abstract class AbstractManager
 
 
     /**
-     * INSERT one row in dataase
+     * INSERT one row in database
      *
-     * @param Array $data
+     * @param array $data
+     * @return mixed
      */
     abstract public function insert(array $data);
 }
