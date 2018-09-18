@@ -29,17 +29,14 @@ class ItemManager extends AbstractManager
 
 
     /**
-     * @param array $data
+     * @param Item $item
      * @return int
      */
-    public function insert(array $data): int
+    public function insert(Item $item): int
     {
-
-        extract($data);
-
         // prepared request
         $statement = $this->pdoConnection->prepare("INSERT INTO $this->table (`title`) VALUES (:title)");
-        $statement->bindValue('title', $title, \PDO::PARAM_STR);
+        $statement->bindValue('title', $item->getTitle(), \PDO::PARAM_STR);
 
 
         if ($statement->execute()) {
@@ -61,17 +58,16 @@ class ItemManager extends AbstractManager
 
 
     /**
-     * @param int $id
-     * @param string $title
+     * @param Item $item
      * @return int
      */
-    public function update(int $id, string $title):int
+    public function update(Item $item):int
     {
 
         // prepared request
         $statement = $this->pdoConnection->prepare("UPDATE $this->table SET `title` = :title WHERE id=:id");
-        $statement->bindValue('id', $id, \PDO::PARAM_INT);
-        $statement->bindValue('title', $title, \PDO::PARAM_STR);
+        $statement->bindValue('id', $item->getId(), \PDO::PARAM_INT);
+        $statement->bindValue('title', $item->getTitle(), \PDO::PARAM_STR);
 
 
         return $statement->execute();

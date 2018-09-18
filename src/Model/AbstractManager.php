@@ -70,13 +70,4 @@ abstract class AbstractManager
 
         return $statement->fetch();
     }
-
-
-    /**
-     * INSERT one row in database
-     *
-     * @param array $data
-     * @return mixed
-     */
-    abstract public function insert(array $data);
 }

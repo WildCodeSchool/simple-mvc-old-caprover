@@ -9,6 +9,7 @@
 
 namespace Controller;
 
+use Model\Item;
 use Model\ItemManager;
 
 /**
@@ -69,9 +70,8 @@ class ItemController extends AbstractController
         $item = $itemManager->selectOneById($id);
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            if ($itemManager->update($id, $_POST['title'])) {
-                $item->setTitle($_POST['title']);
-            }
+            $item->setTitle($_POST['title']);
+            $itemManager->update($item);
         }
 
         return $this->twig->render('Item/edit.html.twig', ['item' => $item]);
@@ -91,8 +91,9 @@ class ItemController extends AbstractController
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $itemManager = new ItemManager();
-
-            if (false !== $id = $itemManager->insert($_POST)) {
+            $item = new Item();
+            $item->setTitle($_POST['title']);
+            if (false !== $id = $itemManager->insert($item)) {
                 header('Location:/item/' . $id);
             }
         }
