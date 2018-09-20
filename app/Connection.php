@@ -62,6 +62,10 @@ class Connection
      */
     public function getPdoConnection() :PDO
     {
-        return $this->pdoConnection;
+        if (!self::$instance instanceof self)
+        {
+            self::$instance = new self;
+        }
+        return self::$instance;
     }
 }

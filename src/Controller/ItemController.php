@@ -30,7 +30,7 @@ class ItemController extends AbstractController
      */
     public function index()
     {
-        $itemManager = new ItemManager();
+        $itemManager = new ItemManager($this->pdo);
         $items = $itemManager->selectAll();
 
         return $this->twig->render('Item/index.html.twig', ['items' => $items]);
@@ -48,7 +48,7 @@ class ItemController extends AbstractController
      */
     public function show(int $id)
     {
-        $itemManager = new ItemManager();
+        $itemManager = new ItemManager($this->pdo);
         $item = $itemManager->selectOneById($id);
 
         return $this->twig->render('Item/show.html.twig', ['item' => $item]);
@@ -66,7 +66,7 @@ class ItemController extends AbstractController
      */
     public function edit(int $id): string
     {
-        $itemManager = new ItemManager();
+        $itemManager = new ItemManager($this->pdo);
         $item = $itemManager->selectOneById($id);
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -90,7 +90,7 @@ class ItemController extends AbstractController
     {
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $itemManager = new ItemManager();
+            $itemManager = new ItemManager($this->pdo);
             $item = new Item();
             $item->setTitle($_POST['title']);
             if (false !== $id = $itemManager->insert($item)) {
@@ -109,7 +109,7 @@ class ItemController extends AbstractController
      */
     public function delete(int $id)
     {
-        $itemManager = new ItemManager();
+        $itemManager = new ItemManager($this->pdo);
         $itemManager->delete($id);
         header('Location:/');
     }

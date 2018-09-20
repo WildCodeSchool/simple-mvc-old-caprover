@@ -22,9 +22,9 @@ class ItemManager extends AbstractManager
     /**
      *  Initializes this class.
      */
-    public function __construct()
+    public function __construct($pdo)
     {
-        parent::__construct(self::TABLE);
+        parent::__construct(self::TABLE, $pdo);
     }
 
 

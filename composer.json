@@ -9,6 +9,8 @@
     ],
     "minimum-stability": "stable",
     "require": {
+        "php" : ">=7",
+        "ext-pdo" : "*",
         "nikic/fast-route": "^1.2",
         "twig/twig": "^2.4"
     },

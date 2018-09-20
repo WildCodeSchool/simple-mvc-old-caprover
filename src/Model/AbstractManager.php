@@ -9,7 +9,7 @@
 
 namespace Model;
 
-use App\Connection;
+use \PDO;
 
 /**
  * Abstract class handling default manager.
@@ -19,7 +19,7 @@ abstract class AbstractManager
     /**
      * @var \PDO
      */
-    protected $pdoConnection; //variable de connexion
+    protected $pdo; //variable de connexion
 
     /**
      * @var string
@@ -30,17 +30,17 @@ abstract class AbstractManager
      */
     protected $className;
 
+
     /**
-     *  Initializes Manager Abstract class.
-     *
-     * @param string $table Table name of current model
+     * Initializes Manager Abstract class.
+     * @param string $table
+     * @param PDO $pdo
      */
-    public function __construct(string $table)
+    public function __construct(string $table, PDO $pdo)
     {
-        $connexion = new Connection();
-        $this->pdoConnection = $connexion->getPdoConnection();
         $this->table = $table;
         $this->className = __NAMESPACE__ . '\\' . ucfirst($table);
+        $this->pdo = $pdo;
     }
 
     /**
@@ -50,7 +50,7 @@ abstract class AbstractManager
      */
     public function selectAll(): array
     {
-        return $this->pdoConnection->query('SELECT * FROM ' . $this->table, \PDO::FETCH_CLASS, $this->className)->fetchAll();
+        return $this->pdo->query('SELECT * FROM ' . $this->table, \PDO::FETCH_CLASS, $this->className)->fetchAll();
     }
 
     /**
@@ -63,7 +63,7 @@ abstract class AbstractManager
     public function selectOneById(int $id)
     {
         // prepared request
-        $statement = $this->pdoConnection->prepare("SELECT * FROM $this->table WHERE id=:id");
+        $statement = $this->pdo->prepare("SELECT * FROM $this->table WHERE id=:id");
         $statement->setFetchMode(\PDO::FETCH_CLASS, $this->className);
         $statement->bindValue('id', $id, \PDO::PARAM_INT);
         $statement->execute();
