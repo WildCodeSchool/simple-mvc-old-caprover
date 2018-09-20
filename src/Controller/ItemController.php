@@ -93,9 +93,8 @@ class ItemController extends AbstractController
             $itemManager = new ItemManager($this->pdo);
             $item = new Item();
             $item->setTitle($_POST['title']);
-            if (false !== $id = $itemManager->insert($item)) {
-                header('Location:/item/' . $id);
-            }
+            $id = $itemManager->insert($item);
+            header('Location:/item/' . $id);
         }
 
         return $this->twig->render('Item/add.html.twig');

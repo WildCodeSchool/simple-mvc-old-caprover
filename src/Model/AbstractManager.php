@@ -9,8 +9,6 @@
 
 namespace Model;
 
-use \PDO;
-
 /**
  * Abstract class handling default manager.
  */
@@ -36,7 +34,7 @@ abstract class AbstractManager
      * @param string $table
      * @param PDO $pdo
      */
-    public function __construct(string $table, PDO $pdo)
+    public function __construct(string $table, \PDO $pdo)
     {
         $this->table = $table;
         $this->className = __NAMESPACE__ . '\\' . ucfirst($table);
