@@ -22,7 +22,7 @@ class ItemManager extends AbstractManager
     /**
      *  Initializes this class.
      */
-    public function __construct($pdo)
+    public function __construct(\PDO $pdo)
     {
         parent::__construct(self::TABLE, $pdo);
     }
@@ -35,12 +35,12 @@ class ItemManager extends AbstractManager
     public function insert(Item $item): int
     {
         // prepared request
-        $statement = $this->pdoConnection->prepare("INSERT INTO $this->table (`title`) VALUES (:title)");
+        $statement = $this->pdo->prepare("INSERT INTO $this->table (`title`) VALUES (:title)");
         $statement->bindValue('title', $item->getTitle(), \PDO::PARAM_STR);
 
 
         if ($statement->execute()) {
-            return $this->pdoConnection->lastInsertId();
+            return $this->pdo->lastInsertId();
         }
     }
 
@@ -51,7 +51,7 @@ class ItemManager extends AbstractManager
     public function delete(int $id): void
     {
         // prepared request
-        $statement = $this->pdoConnection->prepare("DELETE FROM $this->table WHERE id=:id");
+        $statement = $this->pdo->prepare("DELETE FROM $this->table WHERE id=:id");
         $statement->bindValue('id', $id, \PDO::PARAM_INT);
         $statement->execute();
     }
@@ -65,7 +65,7 @@ class ItemManager extends AbstractManager
     {
 
         // prepared request
-        $statement = $this->pdoConnection->prepare("UPDATE $this->table SET `title` = :title WHERE id=:id");
+        $statement = $this->pdo->prepare("UPDATE $this->table SET `title` = :title WHERE id=:id");
         $statement->bindValue('id', $item->getId(), \PDO::PARAM_INT);
         $statement->bindValue('title', $item->getTitle(), \PDO::PARAM_STR);
 

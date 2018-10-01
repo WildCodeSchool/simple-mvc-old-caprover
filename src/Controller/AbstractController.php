@@ -47,4 +47,13 @@ abstract class AbstractController
         $connection = new Connection();
         $this->pdo = $connection->getPdoConnection();
     }
+
+    /**
+     * @return \PDO
+     */
+    public function getPdo(): \PDO
+    {
+        return $this->pdo;
+    }
+
 }
