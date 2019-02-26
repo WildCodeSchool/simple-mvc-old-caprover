@@ -7,12 +7,10 @@
  * PHP version 7
  */
 
-namespace Controller;
+namespace App\Controller;
 
 use Twig_Loader_Filesystem;
 use Twig_Environment;
-
-use App\Connection;
 
 /**
  *
@@ -24,10 +22,6 @@ abstract class AbstractController
      */
     protected $twig;
 
-    /**
-     * @var \PDO
-     */
-    protected $pdo;
 
     /**
      *  Initializes this class.
@@ -43,16 +37,5 @@ abstract class AbstractController
             ]
         );
         $this->twig->addExtension(new \Twig_Extension_Debug());
-
-        $connection = new Connection();
-        $this->pdo = $connection->getPdoConnection();
-    }
-
-    /**
-     * @return \PDO
-     */
-    public function getPdo(): \PDO
-    {
-        return $this->pdo;
     }
 }

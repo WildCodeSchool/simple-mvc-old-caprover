@@ -7,10 +7,9 @@
  * PHP version 7
  */
 
-namespace Controller;
+namespace App\Controller;
 
-use Model\Item;
-use Model\ItemManager;
+use App\Model\ItemManager;
 
 /**
  * Class ItemController
@@ -30,7 +29,7 @@ class ItemController extends AbstractController
      */
     public function index()
     {
-        $itemManager = new ItemManager($this->getPdo());
+        $itemManager = new ItemManager();
         $items = $itemManager->selectAll();
 
         return $this->twig->render('Item/index.html.twig', ['items' => $items]);
@@ -48,7 +47,7 @@ class ItemController extends AbstractController
      */
     public function show(int $id)
     {
-        $itemManager = new ItemManager($this->getPdo());
+        $itemManager = new ItemManager();
         $item = $itemManager->selectOneById($id);
 
         return $this->twig->render('Item/show.html.twig', ['item' => $item]);
@@ -66,11 +65,11 @@ class ItemController extends AbstractController
      */
     public function edit(int $id): string
     {
-        $itemManager = new ItemManager($this->getPdo());
+        $itemManager = new ItemManager();
         $item = $itemManager->selectOneById($id);
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $item->setTitle($_POST['title']);
+            $item['title'] = $_POST['title'];
             $itemManager->update($item);
         }
 
@@ -90,11 +89,12 @@ class ItemController extends AbstractController
     {
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $itemManager = new ItemManager($this->getPdo());
-            $item = new Item();
-            $item->setTitle($_POST['title']);
+            $itemManager = new ItemManager();
+            $item = [
+                'title' => $_POST['title'],
+            ];
             $id = $itemManager->insert($item);
-            header('Location:/item/' . $id);
+            header('Location:/item/show/' . $id);
         }
 
         return $this->twig->render('Item/add.html.twig');
@@ -108,8 +108,8 @@ class ItemController extends AbstractController
      */
     public function delete(int $id)
     {
-        $itemManager = new ItemManager($this->getPdo());
+        $itemManager = new ItemManager();
         $itemManager->delete($id);
-        header('Location:/');
+        header('Location:/item/index');
     }
 }

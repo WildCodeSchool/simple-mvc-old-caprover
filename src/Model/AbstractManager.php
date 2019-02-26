@@ -7,7 +7,9 @@
  * PHP version 7
  */
 
-namespace Model;
+namespace App\Model;
+
+use App\Model\Connection;
 
 /**
  * Abstract class handling default manager.
@@ -32,13 +34,13 @@ abstract class AbstractManager
     /**
      * Initializes Manager Abstract class.
      * @param string $table
-     * @param PDO $pdo
+     * @param \PDO $pdo
      */
-    public function __construct(string $table, \PDO $pdo)
+    public function __construct(string $table)
     {
         $this->table = $table;
         $this->className = __NAMESPACE__ . '\\' . ucfirst($table);
-        $this->pdo = $pdo;
+        $this->pdo = (new Connection())->getPdoConnection();
     }
 
     /**
@@ -48,7 +50,7 @@ abstract class AbstractManager
      */
     public function selectAll(): array
     {
-        return $this->pdo->query('SELECT * FROM ' . $this->table, \PDO::FETCH_CLASS, $this->className)->fetchAll();
+        return $this->pdo->query('SELECT * FROM ' . $this->table)->fetchAll();
     }
 
     /**
@@ -62,7 +64,6 @@ abstract class AbstractManager
     {
         // prepared request
         $statement = $this->pdo->prepare("SELECT * FROM $this->table WHERE id=:id");
-        $statement->setFetchMode(\PDO::FETCH_CLASS, $this->className);
         $statement->bindValue('id', $id, \PDO::PARAM_INT);
         $statement->execute();
 
