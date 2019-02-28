@@ -9,9 +9,8 @@
     ],
     "minimum-stability": "stable",
     "require": {
-        "php" : ">=7",
+        "php" : ">=7.2",
         "ext-pdo" : "*",
-        "nikic/fast-route": "^1.2",
         "twig/twig": "^2.4"
     },
     "require-dev": {
@@ -19,8 +18,8 @@
     },
     "autoload": {
         "psr-4": {
-            "": "src/",
-            "App\\": "app/"
+            "App\\": "src/",
+            "Utils\\": "utils/"
         }
     }
 }

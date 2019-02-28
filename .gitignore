@@ -1,4 +1,4 @@
 /vendor/
 /temp/*
 *.cache
-app/db.php
+db.php

@@ -7,7 +7,7 @@
  * PHP version 7
  */
 
-namespace Model;
+namespace App\Model;
 
 /**
  *
@@ -22,22 +22,21 @@ class ItemManager extends AbstractManager
     /**
      *  Initializes this class.
      */
-    public function __construct(\PDO $pdo)
+    public function __construct()
     {
-        parent::__construct(self::TABLE, $pdo);
+        parent::__construct(self::TABLE);
     }
 
 
     /**
-     * @param Item $item
+     * @param array $item
      * @return int
      */
-    public function insert(Item $item): int
+    public function insert(array $item): int
     {
         // prepared request
         $statement = $this->pdo->prepare("INSERT INTO $this->table (`title`) VALUES (:title)");
-        $statement->bindValue('title', $item->getTitle(), \PDO::PARAM_STR);
-
+        $statement->bindValue('title', $item['title'], \PDO::PARAM_STR);
 
         if ($statement->execute()) {
             return $this->pdo->lastInsertId();
@@ -58,17 +57,16 @@ class ItemManager extends AbstractManager
 
 
     /**
-     * @param Item $item
+     * @param array $item
      * @return int
      */
-    public function update(Item $item):int
+    public function update(array $item):int
     {
 
         // prepared request
         $statement = $this->pdo->prepare("UPDATE $this->table SET `title` = :title WHERE id=:id");
-        $statement->bindValue('id', $item->getId(), \PDO::PARAM_INT);
-        $statement->bindValue('title', $item->getTitle(), \PDO::PARAM_STR);
-
+        $statement->bindValue('id', $item['id'], \PDO::PARAM_INT);
+        $statement->bindValue('title', $item['title'], \PDO::PARAM_STR);
 
         return $statement->execute();
     }
