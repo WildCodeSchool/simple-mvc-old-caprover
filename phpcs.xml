@@ -12,5 +12,6 @@
     <rule ref="PSR2"/>
 
     <file>config/</file>
+    <file>public/</file>
     <file>src/</file>
 </ruleset>
