@@ -39,7 +39,7 @@ class ItemManager extends AbstractManager
         $statement->bindValue('title', $item['title'], \PDO::PARAM_STR);
 
         if ($statement->execute()) {
-            return $this->pdo->lastInsertId();
+            return (int)$this->pdo->lastInsertId();
         }
     }
 
@@ -58,9 +58,9 @@ class ItemManager extends AbstractManager
 
     /**
      * @param array $item
-     * @return int
+     * @return bool
      */
-    public function update(array $item):int
+    public function update(array $item):bool
     {
 
         // prepared request

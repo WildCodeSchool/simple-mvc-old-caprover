@@ -22,4 +22,3 @@ if (class_exists($controller) && method_exists(new $controller(), $method)) {
     echo '404 - Page not found';
     exit();
 }
-
