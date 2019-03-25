@@ -36,7 +36,6 @@ abstract class AbstractManager
      */
     public function __construct(string $table)
     {
-        $a = AAD;
         $this->table = $table;
         $this->className = __NAMESPACE__ . '\\' . ucfirst($table);
         $this->pdo = (new Connection())->getPdoConnection();
