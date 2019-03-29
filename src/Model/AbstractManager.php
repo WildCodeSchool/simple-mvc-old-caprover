@@ -6,7 +6,6 @@
  * Time: 20:52
  * PHP version 7
  */
-
 namespace App\Model;
 
 use App\Model\Connection;
@@ -34,7 +33,6 @@ abstract class AbstractManager
     /**
      * Initializes Manager Abstract class.
      * @param string $table
-     * @param \PDO $pdo
      */
     public function __construct(string $table)
     {

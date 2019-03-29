@@ -58,7 +58,7 @@ class Connection
 
 
     /**
-     * @return $pdo
+     * @return PDO $pdo
      */
     public function getPdoConnection(): PDO
     {

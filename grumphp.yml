@@ -1,0 +1,12 @@
+parameters:
+    git_dir: .
+    bin_dir: vendor/bin
+    tasks:
+        phpcs:
+            standard: ./phpcs.xml
+        phpstan:
+            autoload_file:
+              config
+              ./vendor/autoload.php
+            configuration: ./phpstan.neon
+            level: 5
