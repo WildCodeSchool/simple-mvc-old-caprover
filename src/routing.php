@@ -9,8 +9,7 @@
  * @link     https://github.com/WildCodeSchool/simple-mvc
  */
 
-$routeParts = explode('/', ltrim($_SERVER['PATH_INFO'] ?? '', '/'));
-
+$routeParts = explode('/', ltrim($_SERVER['REQUEST_URI'] ?? '', '/'));
 $controller = 'App\Controller\\' . ucfirst($routeParts[0] ?? '') . 'Controller';
 $method = $routeParts[1] ?? '';
 $vars = array_slice($routeParts, 2);
