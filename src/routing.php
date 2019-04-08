@@ -10,10 +10,16 @@
  */
 
 $routeParts = explode('/', ltrim($_SERVER['REQUEST_URI'] ?? '', '/'));
-$controller = 'App\Controller\\' . ucfirst($routeParts[0] ?: 'Home') . 'Controller';
-$method = $routeParts[1] ?: 'index';
+$controllerName = $routeParts[0] ?? '';
+$method = $routeParts[1] ?? '';
+if(empty($controllerName) && empty($method))
+{
+    $controllerName = 'home';
+    $method = 'index';
+}
 $vars = array_slice($routeParts, 2);
 
+$controller = 'App\Controller\\' . ucfirst($controllerName) . 'Controller';
 
 if (class_exists($controller) && method_exists(new $controller(), $method)) {
     echo call_user_func_array([new $controller(), $method], $vars);
