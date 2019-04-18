@@ -34,6 +34,6 @@ define('APP_DB_PWD', 'your_db_password');
 
 ## How URL routing work ?
 
-![Simple MVC.png](/WildCodeSchool/simple-mvc/blob/master/Simple%20-%20MVC.png?raw=true)
+![Simple MVC.png](https://raw.githubusercontent.com/WildCodeSchool/simple-mvc/master/Simple%20-%20MVC.png)
 
 03/07/2018 @wildcodeschool.fr
