@@ -10,3 +10,8 @@ parameters:
               ./vendor/autoload.php
             configuration: ./phpstan.neon
             level: 5
+        phpmd:
+            whitelist_patterns:
+                - 'src'
+            ruleset:
+                - 'phpmd.xml'
