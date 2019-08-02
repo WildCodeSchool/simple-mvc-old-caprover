@@ -1,0 +1,22 @@
+language: php
+php:
+    - '7.2'
+before_install:
+    - if [ -d "./.idea" ]; then echo "Forbidden idea folder found ! Please, ignore them globaly..."; exit 2; fi
+    - if [ -d "./.vscode" ]; then echo "Forbidden vscode folder found ! Please, ignore them globaly..."; exit 2; fi
+    - if [ -d "./vendor" ]; then echo "Forbidden external libs folder found !"; exit 2; fi
+    - if [ $(find ./ -name .DS_Store) ]; then echo "Forbidden MacOS boring file found ! Please, ignore them globaly..."; exit 2; fi
+install:
+    - composer install
+script:
+    - ./vendor/bin/phpcs
+    - ./vendor/bin/phpstan analyse src --level 5
+    - ./vendor/bin/phpmd src text phpmd.xml
+notifications:
+    email:
+        - TRAINER@wildcodeschool.fr
+        - STUDENT_MAIL
+branches:
+    only:
+        - master
+        - dev
