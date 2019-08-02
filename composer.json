@@ -14,9 +14,11 @@
         "twig/twig": "^2.4"
     },
     "require-dev": {
+        "phpmd/phpmd": "^2.7",
         "phpro/grumphp": "^0.15.0",
         "phpstan/phpstan": "^0.11.2",
-        "squizlabs/php_codesniffer": "*"
+        "squizlabs/php_codesniffer": "*",
+        "filp/whoops": "^2.4"
     },
     "autoload": {
         "psr-4": {
