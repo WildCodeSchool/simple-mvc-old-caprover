@@ -20,15 +20,17 @@ class MovieManager extends AbstractManager
      *
      */
     const URL_API = 'https://hackathon-wild-hackoween.herokuapp.com/movies/';
-
+    const TABLE = 'universe';
     protected $response;
     protected $client;
+    protected $content = [];
 
       /**
      *  Initializes this class.
      */
     public function __construct()
     {
+        parent::__construct(self::TABLE);
         $this->client = HttpClient::create();
     }
 
@@ -36,11 +38,10 @@ class MovieManager extends AbstractManager
     {
         $this->response = $this->client->request('GET', self::URL_API);
         $statusCode = $this->response->getStatusCode();
-        $content = [];
         if ($statusCode === 200) {
-            $content = $this->response->toArray();
+            $this->content = $this->response->toArray();
         }
-        return $content;
+        return $this->content;
     }
 
     public function selectOneById(int $id): array
@@ -53,6 +54,11 @@ class MovieManager extends AbstractManager
             $content = $this->response->toArray();
         }
         return $content;
+    }
+
+    public function getRandomMovie()
+    {
+        $rand = rand(0, count($this->content));
     }
 
 }
