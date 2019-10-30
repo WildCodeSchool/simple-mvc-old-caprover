@@ -8,16 +8,15 @@
 
     <title>{% block title %}{% endblock %}</title>
 
-    <link href="https://fonts.googleapis.com/css?family=Nosifer&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/style.css">
-
+    <link rel="stylesheet" href="/assets/css/styleRoom.css">
     {% block stylesheet %}{% endblock %}
     <link rel="icon" href="/assets/images/favicon.png">
-
+    <link href="https://fonts.googleapis.com/css?family=Nosifer&display=swap" rel="stylesheet">
 </head>
 
 <body>
-
+<script src="/assets/opendoorHome.js"></script>
 <script src="/assets/openDoor.js"></script>
 
 {% block content %}{% endblock %}

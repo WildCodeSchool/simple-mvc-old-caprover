@@ -1,0 +1,90 @@
+body
+{
+    background-color: black;
+    background-image: url("/assets/images/home-page.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+}
+
+.title-home {
+    display: flex;
+    justify-content: center;
+    margin-top: 150px;
+    margin-right: 7%;
+    font-family: "Nosifer", cursive;
+    color: #75120c;
+    font-size: 40px;
+}
+
+.home-page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container
+{
+    margin:0 auto;
+    width:90%;
+}
+
+.page {
+    transition-duration: 4s;
+}
+
+.perspective-home
+{
+
+    position: relative;
+    display: inline;
+    float: left;
+    height: 600px;
+    width: 147px;
+    margin: 20px;
+    margin-left: 0px;
+    -webkit-perspective: 450;
+    border-radius: 3px;
+    box-sizing: border-box;
+    }
+
+.part-thumb{
+    display: flex;
+    justify-content: center;
+}
+
+.thumb-home
+{
+    background: url("/assets/images/home-door.jpeg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    width: 60%;
+    height: 30%;
+    position: absolute;
+    box-sizing: border-box;
+    border-radius: 3px;
+    box-shadow: 0 0 0 10px rgba(255, 255, 255, .0) inset;
+    transition: 0.5s transform linear;
+    transform-origin: left;
+    cursor: pointer;
+    margin-right: 60%;
+    margin-top: 100%;
+    box-shadow: -1px 10px 10px 10px #000000 inset;
+}
+
+.thumbOpened
+{
+    transform: rotateY(-90deg);
+    transform-origin: 8px;
+    transition: 3.5s linear;
+}
+
+
+@keyframes go {
+    100%{
+        opacity:1;
+        transform:rotateY(0deg);
+    }
+}
