@@ -9,7 +9,7 @@ function opendoorHome(field) {
         y.addClass("thumbOpened");
         setTimeout(() => {
             console.log('aaa')
-            window.location.href = "https://pixabay.com/fr/images/search/horor/"
+            window.location.pathname = "/room/index"
         }, 3500)
     }
 }
