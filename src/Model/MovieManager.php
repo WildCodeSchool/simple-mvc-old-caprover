@@ -103,5 +103,4 @@ class MovieManager extends AbstractManager
         }
         return $content;
     }
-
 }

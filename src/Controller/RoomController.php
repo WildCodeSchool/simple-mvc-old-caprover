@@ -8,7 +8,7 @@
 
 namespace App\Controller;
 
-use App\Model\RoomManager;
+use App\Model\MovieManager;
 
 class RoomController extends AbstractController
 {
@@ -23,17 +23,16 @@ class RoomController extends AbstractController
      */
     public function index()
     {
-        $roomManager = new RoomManager();
+        $roomManager = new MovieManager();
         $movies = $roomManager->selectAll();
-
-        return $this->twig->render('Room/index.html.twig', ['moviesTable' => $movies]);
+        return $this->twig->render('Room/index.html.twig', ['movies' => $movies]);
     }
 
-//    public function show(int $id)
-//    {
-//        $itemManager = new ItemManager();
-//        $item = $itemManager->selectOneById($id);
-//
-//        return $this->twig->render('Item/show.html.twig', ['item' => $item]);
-//    }
+    public function showById(int $id)
+    {
+        $movieManager = new MovieManager();
+        $movie = $movieManager->selectOneById($id);
+        return $this->twig->render('Room/index.html.twig', ['movies' => $movie]);
+    }
+
 }
