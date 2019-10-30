@@ -90,3 +90,35 @@ body {
         transform: rotateY(0deg);
     }
 }
+
+/************************************ PAGE WINNER ********************************/
+* {
+    font-family: 'Pacifico', cursive;
+    font-size: 3em;
+    color: green;
+}
+
+h1 {font-family: 'Pacifico', cursive;
+    color:green}
+
+video#myVideo {
+    position: fixed; right: 0; bottom: 0; top: 2px;
+    min-width: 100%; min-height: 100%;
+    width: auto; height: auto; z-index: -100;
+    background-color: #333;
+    background-size: cover;
+}
+
+.win {
+    margin-top: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.retry {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

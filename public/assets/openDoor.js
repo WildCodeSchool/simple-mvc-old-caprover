@@ -9,7 +9,7 @@ function openDoor(field) {
         $(".door").removeClass("doorOpened");
         y.addClass("doorOpened");
         setTimeout(() => {
-            window.location.href = "https://pixabay.com/fr/images/search/horor/"
+            window.location.pathname = "Final/success"
         }, 2000)
     }
 }
