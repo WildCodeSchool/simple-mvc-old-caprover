@@ -36,20 +36,21 @@ class RoomController extends AbstractController
         session_start();
 
         if (array_key_exists('counter', $_SESSION)) {
-            $_SESSION['counter']++;
+           $counter = $_SESSION['counter'];
         } else {
-            $_SESSION['counter'] = 0;
+            $counter = 0;
         }
 
-        $counter = $_SESSION['counter'];
+        $_SESSION['counter'] = $counter + 1;
 
         if ($counter == 7) {
-            header('Location: http://localhost:8000/Quizz/index'); // tout doux : adapter l'url
+            die('coucou');
+            header('Location: http://localhost:8000/final/lose');
         }
 
-        if($counter < 0 || $counter > 7){
+        if($counter < 0 || $counter > 6){
             session_destroy();
-            header('Location: http://localhost:8000/showMovie');
+            header('Location: http://localhost:8000/Room/showMovie');
         }
 
 
@@ -60,13 +61,14 @@ class RoomController extends AbstractController
 
 
         $responseElements = [
-            ['imgUrl' => "/assets/images/blair_witch.png", 'statut' => true, 'class' => "blair"],
-            ['imgUrl' => "/assets/images/scream.png", 'statut' => false, 'class' => "scream"],
-            ['imgUrl' => "/assets/images/paranormal.png", 'statut' => false, 'class' => "paranormal"],
-            ['imgUrl' => "/assets/images/destination-finale.png", 'statut' => false, 'class' => "destination"],
-            ['imgUrl' => "/assets/images/moon.png", 'statut' => false, 'class' => "moon"],
-            ['imgUrl' => "/assets/images/exocist.png", 'statut' => false, 'class' => "exocist"],
-            ['imgUrl' => "/assets/images/saw.png", 'statut' => false, 'class' => "saw"],
+            ['imgUrl' => "/assets/images/blair_witch.png", 'statut' => $counter == 6, 'class' => "blair"],
+            ['imgUrl' => "/assets/images/scream.png", 'statut' => $counter == 0, 'class' => "scream"],
+            ['imgUrl' => "/assets/images/paranormal.png", 'statut' => $counter == 1, 'class' => "paranormal"],
+            ['imgUrl' => "/assets/images/destination-finale.png", 'statut' => $counter == 3, 'class' => "destination"],
+            ['imgUrl' => "/assets/images/moon.png", 'statut' => $counter == 4, 'class' => "moon"],
+            ['imgUrl' => "/assets/images/exocist.png", 'statut' => $counter == 5, 'class' => "exocist"],
+            ['imgUrl' => "/assets/images/saw.png", 'statut' => $counter == 2, 'class' => "saw"],
+
         ];
 
 
