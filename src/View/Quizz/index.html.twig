@@ -1,0 +1,11 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <ul>
+        {% for quizz in quizzs %}
+            {% for movie in quizz %}
+                <li>{{ movie.title }}</li>
+            {% endfor %}
+        {%  endfor %}
+    </ul>
+{% endblock %}
