@@ -60,5 +60,4 @@ class MovieManager extends AbstractManager
     {
         $rand = rand(0, count($this->content));
     }
-
 }
