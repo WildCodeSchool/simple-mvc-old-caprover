@@ -55,4 +55,53 @@ class MovieManager extends AbstractManager
         return $content;
     }
 
+
+    public function selectByTitle(string $title): array
+    {
+        $url = self::URL_API . "search/title/" . $title;
+        $this->response = $this->client->request('GET', $url);
+        $statusCode = $this->response->getStatusCode();
+        $content = [];
+        if ($statusCode === 200) {
+            $content = $this->response->toArray();
+        }
+        return $content;
+    }
+
+    public function selectByYear(string $year): array
+    {
+        $url = self::URL_API . "search/year/" . $year;
+        $this->response = $this->client->request('GET', $url);
+        $statusCode = $this->response->getStatusCode();
+        $content = [];
+        if ($statusCode === 200) {
+            $content = $this->response->toArray();
+        }
+        return $content;
+    }
+
+    public function selectByCountry(string $country): array
+    {
+        $url = self::URL_API . "search/country/" . $country;
+        $this->response = $this->client->request('GET', $url);
+        $statusCode = $this->response->getStatusCode();
+        $content = [];
+        if ($statusCode === 200) {
+            $content = $this->response->toArray();
+        }
+        return $content;
+    }
+
+    public function selectByDirector(string $director): array
+    {
+        $url = self::URL_API . "search/director/" . $director;
+        $this->response = $this->client->request('GET', $url);
+        $statusCode = $this->response->getStatusCode();
+        $content = [];
+        if ($statusCode === 200) {
+            $content = $this->response->toArray();
+        }
+        return $content;
+    }
+
 }

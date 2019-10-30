@@ -26,7 +26,7 @@ class RoomController extends AbstractController
         $roomManager = new RoomManager();
         $movies = $roomManager->selectAll();
 
-        return $this->twig->render('Room/index.html.twig' , ['moviesTable' => $movies]);
+        return $this->twig->render('Room/index.html.twig', ['moviesTable' => $movies]);
     }
 
 //    public function show(int $id)
