@@ -19,7 +19,7 @@
 
 
 
-input{
+.position{
     position: relative;
     height: 70px;
 }
@@ -45,15 +45,24 @@ input{
     left: 300px;
 }
 
+.moon{
+    top: 150px;
+    left: 650px;
+}
+
+.exocist{
+    top: 400px;
+    left: 900px;
+}
+
+.saw{
+    top: 400px;
+    left: 1px;
+}
+
 
 h1 {
     font-family: var(--font-title);
     color: var(--font-color);
     text-align: center;
 }
-
-/*.container{*/
-/*    display: grid;*/
-/*    grid-template-columns: 40px auto 40px;*/
-/*    grid-template-rows: 100px 100px 100px;*/
-/*}*/
