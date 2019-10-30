@@ -60,7 +60,8 @@ class QuizzController extends AbstractController
         return $this->twig->render('Quizz/index.html.twig', ['quizzs' => $quizzs]);
     }
 
-    public function createListQuestion() {
+    public function createListQuestion()
+    {
         $quizzManager = new MovieManager();
         $movies = $quizzManager->getQuestions();
         $directors = $quizzManager->getAllDirectors();
@@ -68,7 +69,7 @@ class QuizzController extends AbstractController
         $countries = $quizzManager->getAllCountries();
         $titles = $quizzManager->getAllTitles();
 
-        if($_SERVER['REQUEST_METHOD'] === 'POST') {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $score = $quizzManager->getScore($_POST);
             return $this->twig->render('Quizz/final.html.twig', ['score' => $score]);
         }

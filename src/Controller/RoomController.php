@@ -8,7 +8,7 @@
 
 namespace App\Controller;
 
-use App\Model\RoomManager;
+use App\Model\MovieManager;
 
 class RoomController extends AbstractController
 {
@@ -23,7 +23,7 @@ class RoomController extends AbstractController
      */
     public function index()
     {
-        $roomManager = new RoomManager();
+        $roomManager = new MovieManager();
         $movies = $roomManager->selectAll();
 
         return $this->twig->render('Room/index.html.twig', ['moviesTable' => $movies]);

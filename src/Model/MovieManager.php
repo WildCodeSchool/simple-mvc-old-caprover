@@ -26,7 +26,7 @@ class MovieManager extends AbstractManager
     protected $content = [];
     protected $listQuestion = [];
 
-      /**
+    /**
      *  Initializes this class.
      */
     public function __construct()
@@ -69,7 +69,7 @@ class MovieManager extends AbstractManager
         return $content;
     }
 
-    public function selectByYear(string $year): array
+    public function selectByYear(int $year): array
     {
         $url = self::URL_API . "search/year/" . $year;
         $this->response = $this->client->request('GET', $url);
@@ -118,7 +118,7 @@ class MovieManager extends AbstractManager
 
     public function getQuestions(): array
     {
-        for ($i = 0 ; $i < 4 ; $i++) {
+        for ($i = 0; $i < 4; $i++) {
             $this->listQuestion[] = $this->getRandomMovie();
         }
         return $this->listQuestion;
@@ -127,9 +127,15 @@ class MovieManager extends AbstractManager
     public function getScore($answers): int
     {
         $score = 0;
-        if ($answers['director'] == $answers['directorAnswer']) $score++;
-        if ($answers['year'] == $answers['yearAnswer']) $score++;
-        if ($answers['country'] == $answers['countryAnswer']) $score++;
+        if ($answers['director'] == $answers['directorAnswer']) {
+            $score++;
+        }
+        if ($answers['year'] == $answers['yearAnswer']) {
+            $score++;
+        }
+        if ($answers['country'] == $answers['countryAnswer']) {
+            $score++;
+        }
         return $score;
     }
 
@@ -137,7 +143,7 @@ class MovieManager extends AbstractManager
     {
         $movies = $this->selectAll();
         $directors = [];
-        foreach ($movies['movies'] as $movie){
+        foreach ($movies['movies'] as $movie) {
             $directors[] = $movie['director'];
         }
         $directors = array_unique($directors);
@@ -149,7 +155,7 @@ class MovieManager extends AbstractManager
     {
         $movies = $this->selectAll();
         $years = [];
-        foreach ($movies['movies'] as $movie){
+        foreach ($movies['movies'] as $movie) {
             $years[] = $movie['year'];
         }
         $years = array_unique($years);
@@ -161,7 +167,7 @@ class MovieManager extends AbstractManager
     {
         $movies = $this->selectAll();
         $countries = [];
-        foreach ($movies['movies'] as $movie){
+        foreach ($movies['movies'] as $movie) {
             $countries[] = $movie['country'];
         }
         $countries = array_unique($countries);
@@ -173,7 +179,7 @@ class MovieManager extends AbstractManager
     {
         $movies = $this->selectAll();
         $titles = [];
-        foreach ($movies['movies'] as $movie){
+        foreach ($movies['movies'] as $movie) {
             $titles[] = $movie['title'];
         }
         $titles = array_unique($titles);
