@@ -1,0 +1,59 @@
+:root {
+    --font-title: 'Nosifer', cursive;
+    --font-color: crimson;
+}
+
+
+.bg-img {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+
+}
+
+.container{
+    position: relative;
+}
+
+
+
+input{
+    position: relative;
+    height: 70px;
+}
+
+
+.blair{
+    top: 250px;
+    left: 50px;
+}
+
+.scream{
+    top: 650px;
+    left: 400px;
+}
+
+.paranormal{
+    top: 20px;
+    left: 20px;
+}
+
+.destination{
+    top: 200px;
+    left: 300px;
+}
+
+
+h1 {
+    font-family: var(--font-title);
+    color: var(--font-color);
+    text-align: center;
+}
+
+/*.container{*/
+/*    display: grid;*/
+/*    grid-template-columns: 40px auto 40px;*/
+/*    grid-template-rows: 100px 100px 100px;*/
+/*}*/
