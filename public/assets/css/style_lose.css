@@ -1,0 +1,36 @@
+* {
+    font-family: 'Nosifer', cursive;
+    font-size: 3em;
+    color: crimson;
+}
+
+video#myVideo {
+    position: fixed; right: 0; bottom: 0;
+    min-width: 100%; min-height: 100%;
+    width: auto; height: auto; z-index: -100;
+    background-color: #333;
+    background-size: cover;
+}
+
+.lose {
+    margin-top: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.retry {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    background-color: crimson;
+}
+
+.btn:hover {
+    background-color: crimson;
+    color: #400a11;
+}
