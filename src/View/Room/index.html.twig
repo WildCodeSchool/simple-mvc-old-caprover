@@ -1,0 +1,21 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+
+{#    <img class="bg-img" src="../assets/images/scene-crime2.jpg" alt="">#}
+
+{#    <button class="btn btn-primary" type="submit">Button</button>#}
+
+{#    <input type="image" id="image" alt="Login" src="../assets/images/blair_witch.png">#}
+
+
+
+    <ul>
+        {% for movies in moviesTable %}
+            {% for movie in movies %}
+                <li>{{ movie.title }}</li>
+            {% endfor %}
+        {% endfor %}
+    </ul>
+    
+{% endblock %}
