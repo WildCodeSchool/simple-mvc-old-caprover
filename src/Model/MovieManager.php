@@ -20,7 +20,7 @@ class MovieManager extends AbstractManager
      *
      */
     const URL_API = 'https://hackathon-wild-hackoween.herokuapp.com/movies/';
-    const TABLE = 'universe';
+    const TABLE = 'kaamelott';
     protected $response;
     protected $client;
     protected $content = [];

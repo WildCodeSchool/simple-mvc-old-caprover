@@ -9,7 +9,7 @@ function opendoorHome(field) {
         y.addClass("thumbOpened");
         setTimeout(() => {
             console.log('aaa')
-            window.location.pathname = "/room/index"
+            window.location.pathname = "/room/showmovie"
         }, 3500)
     }
 }
