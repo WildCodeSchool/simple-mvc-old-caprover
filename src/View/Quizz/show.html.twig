@@ -4,7 +4,7 @@
     <ul>
             {% for movie in quizz %}
                 <li>{{ movie.title }}</li>
-                <img src="{{ movie.posterUrl }}">
+                <img src="{{ movie.posterUrl }}" class="poster">
             {% endfor %}
     </ul>
 {% endblock %}

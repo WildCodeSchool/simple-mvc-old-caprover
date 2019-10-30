@@ -26,9 +26,8 @@ class RoomController extends AbstractController
     {
         $roomManager = new MovieManager();
         $movies = $roomManager->selectAll();
-        return $this->twig->render('Room/index.html.twig', ['movies' => $movies]);
-    }
 
+    }
     public function showMovie()
     {
 
@@ -56,8 +55,7 @@ class RoomController extends AbstractController
 
         $movieManager = new MovieManager();
         $movie = $movieManager->selectOneById($ids[$counter])['movie'];
-//        var_dump($movie);
-//        die('coucou');
+
 
 
         $responseElements = [
@@ -80,6 +78,4 @@ class RoomController extends AbstractController
 
 
     }
-
-
 }
