@@ -1,0 +1,10 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <ul>
+            {% for movie in quizz %}
+                <li>{{ movie.title }}</li>
+                <img src="{{ movie.posterUrl }}">
+            {% endfor %}
+    </ul>
+{% endblock %}
