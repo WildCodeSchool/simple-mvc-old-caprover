@@ -1,0 +1,17 @@
+{% extends 'layout.html.twig' %}
+
+{% block stylesheet %}<link rel="stylesheet" href="/assets/css/style_lose.css">{% endblock %}
+
+{% block content %}
+<section class="lose">
+    <video autoplay muted loop id="myVideo">
+        <source src="/assets/images/graveyard.mp4" type="video/mp4">
+    </video>
+
+    <div class="retry">
+        <h1>You Lose</h1>
+        <h2>Score : 7</h2>
+        <a href="http://localhost:8000/Room/showMovie"> <input type="button" class="btn btn-danger"  aria-pressed="false" autocomplete="off" /> Try Again ?</a>
+    </div>
+</section>
+{% endblock %}

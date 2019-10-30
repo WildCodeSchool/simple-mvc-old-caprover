@@ -1,23 +1,30 @@
 {% extends 'layout.html.twig' %}
 
-{#{% block stylesheet %}<link rel="stylesheet" href="/assets/css/styleRoom.css">{% endblock %}#}
+{% block stylesheet %}<link rel="stylesheet" href="/assets/css/styleRoom.css">{% endblock %}
 
 {% block content %}
 
     <img class="bg-img" src="/assets/images/scene-crime2.jpg" alt="">
     <div class="container">
-        {% for movieOne in movies %}
-            <h1>Quel élément appartient au film {{ movieOne.title }} ?</h1>
+
+            <h1>Quel élément appartient au film {{ movie.title }} ?</h1>
+            <h1>{{ counter }}</h1>
+        {% for image in responseElements %}
+            {% if image.statut %}
+                <a href="http://localhost:8000/room/showMovie/"><img class="{{ image.class }} position" src="{{image.imgUrl}}" alt=""></a>
+            {% else %}
+                <a href="/Final/lose"><img class="{{ image.class }} position" src="{{image.imgUrl}}" alt=""></a> {# Tout doux#}
+            {% endif %}
         {% endfor %}
 
-        <input type="image" class="blair" id="75" alt="bouton recherche de film" src="/assets/images/blair_witch.png">
-        <input type="image" class="scream" id="33" alt="bouton recherche de film" src="/assets/images/scream.png">
-        <input type="image" class="paranormal" id="6" alt="bouton recherche de film" src="/assets/images/paranormal.png">
-        <input type="image" class="destination" id="7" alt="bouton recherche de film" src="/assets/images/destination-finale.png">
-        <input type="image" id="37" alt="bouton recherche de film" src="/assets/images/moon.png">
-        <input type="image" id="43" alt="bouton recherche de film" src="/assets/images/exocist.png">
-        <input type="image" id="17" alt="bouton recherche de film" src="/assets/images/saw.png">
 
+{#        <input type="image" class="blair" id="75" alt="bouton recherche de film" src="{{responseElements[0].imgUrl}}">#}
+{#        <input type="image" class="scream" id="33" alt="bouton recherche de film" src="{{responseElements[1].imgUrl}}">#}
+{#        <input type="image" class="paranormal" id="6" alt="bouton recherche de film" src="{{responseElements[2].imgUrl}}">#}
+{#        <input type="image" class="destination" id="7" alt="bouton recherche de film" src="{{responseElements[3].imgUrl}}">#}
+{#        <input type="image" class="moon" id="37" alt="bouton recherche de film" src="{{responseElements[4].imgUrl}}">#}
+{#        <input type="image" class="exocist" id="43" alt="bouton recherche de film" src="{{responseElements[5].imgUrl}}">#}
+{#        <input type="image" class="saw" id="17" alt="bouton recherche de film" src="{{responseElements[6].imgUrl}}">#}
 
     </div>
 {% endblock %}
