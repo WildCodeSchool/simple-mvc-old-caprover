@@ -1,0 +1,25 @@
+:root {
+
+}
+
+
+.bg-img {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+}
+
+input{
+    position: relative;
+    top: 250px;
+    left: 250px;
+    height: 60px;
+}
+
+/*.container{*/
+/*    display: grid;*/
+/*    grid-template-columns: 40px auto 40px;*/
+/*    grid-template-rows: 100px 100px 100px;*/
+/*}*/
