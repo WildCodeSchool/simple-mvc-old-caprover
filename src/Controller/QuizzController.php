@@ -64,14 +64,28 @@ class QuizzController extends AbstractController
     {
         $quizzManager = new MovieManager();
         $movies = $quizzManager->getQuestions();
-        $directors = $quizzManager->getAllDirectors();
-        $years = $quizzManager->getAllYears();
-        $countries = $quizzManager->getAllCountries();
-        $titles = $quizzManager->getAllTitles();
+        $directors = $quizzManager->getListDirectors($movies[0]['movie']['director']);
+        $years = $quizzManager->getListYears($movies[1]['movie']['year']);
+        $countries = $quizzManager->getListCountries($movies[2]['movie']['country']);
+        $titles = $quizzManager->getListTitles($movies[3]['movie']['title']);
+
+        $directors[] = $movies[0]['movie']['director'];
+        $years[] = $movies[1]['movie']['year'];
+        $countries[] = $movies[2]['movie']['country'];
+        $titles[] = $movies[3]['movie']['title'];
+        sort($directors);
+        sort($years);
+        sort($countries);
+        sort($titles);
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $score = $quizzManager->getScore($_POST);
-            return $this->twig->render('Quizz/final.html.twig', ['score' => $score]);
+            if ($score == 4) {
+                return $this->twig->render('Final/success.html.twig', ['score' => $score]);
+            }else {
+                return $this->twig->render('Final/lose.html.twig', ['score' => $score]);
+            }
+
         }
 
         return $this->twig->render('Quizz/quizz.html.twig', ['movies' => $movies,
@@ -80,13 +94,6 @@ class QuizzController extends AbstractController
                                                                     'countries' => $countries,
                                                                     'titles' => $titles,
                                                                     ]);
-    }
-
-    public function showScore($answers)
-    {
-        $quizzManager = new MovieManager();
-        $score = $quizzManager->getScore($answers);
-        return $this->twig->render('Quizz/final.html.twig', ['score' => $score]);
     }
 
     public function showOnlyDirectors()
