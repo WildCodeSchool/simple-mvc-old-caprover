@@ -10,9 +10,12 @@
 
     <div class="retry">
         <h1>You Lose</h1>
-        <h2>Score : {{ score }}</h2>
-{#        <button type="button" class="btn btn-danger"  aria-pressed="false" autocomplete="off">Try Again ?</button>#}
-        <a href="createlistquestion" class="btn btn-danger">Try Again ?</a>
+        {% if score is not null %}
+            <h2>Score : {{ score }}</h2>
+            <a href="createlistquestion" class="btn btn-danger">Try Again ?</a>
+        {% else %}
+            <a href="../room/showmovie" class="btn btn-danger">Try Again ?</a>
+        {% endif %}
     </div>
 </section>
 {% endblock %}

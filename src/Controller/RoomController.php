@@ -42,9 +42,9 @@ class RoomController extends AbstractController
 
         $_SESSION['counter'] = $counter + 1;
 
-        if ($counter == 7) {
-            die('coucou');
-            header('Location: http://localhost:8000/final/lose');
+        if ($counter === 7) {
+            header('Location: http://localhost:8000/quizz/createListQuestion');
+            exit();
         }
 
         if($counter < 0 || $counter > 6){
