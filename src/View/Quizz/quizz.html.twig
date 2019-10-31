@@ -5,15 +5,17 @@
 {% endblock %}
 
 {% block content %}
-    <h1 class="titleForm"> Répondez à ces questions pour sortir de cet enfer !!</h1>
+
     {% spaceless %}
+        <div class="all">
     <div class="container">
+        <h1 class="titleForm col-12"> Répondez à ces questions pour sortir de cet enfer !!</h1>
         <form method="POST">
             <div>
             {% for movie in movies %}
                 {% if loop.index == 1 %}
                     <div class="row">
-                    <label for="director" class="col-6">Qui est le réalisateur de {{ movie.movie.title | replace({'_': " "}) }}</label>
+                    <label for="director" class="col-6 label_text">Qui est le réalisateur de {{ movie.movie.title | replace({'_': " "}) }}</label>
                     <SELECT id="director" name="director" size="1" class="list col-6">
                         {% for director in directors %}
                         <OPTION>{{ director }}</OPTION>
@@ -24,7 +26,7 @@
                 {% endif %}
                 {% if loop.index == 2 %}
                     <div class="row">
-                    <label for="year" class="col-6">Quelle est l'année de sortie de {{ movie.movie.title | replace({'_': " "}) }}</label>
+                    <label for="year" class="col-6 label_text">Quelle est l'année de sortie de {{ movie.movie.title | replace({'_': " "}) }}</label>
                         <SELECT id="year" name="year" size="1" class="list col-6">
                             {% for year in years %}
                             <OPTION>{{ year }}</OPTION>
@@ -35,7 +37,7 @@
                 {% endif %}
                 {% if loop.index == 3 %}
                     <div class="row">
-                    <label for="country" class="col-6">Quel est le pays d'origine de {{ movie.movie.title | replace({'_': " "}) }}</label>
+                    <label for="country" class="col-6 label_text">Quel est le pays d'origine de {{ movie.movie.title | replace({'_': " "}) }}</label>
                         <SELECT id="country" name="country" size="1" class="list col-6">
                             {% for country in countries %}
                             <OPTION>{{ country }}</OPTION>
@@ -46,7 +48,7 @@
                 {% endif %}
                 {% if loop.index == 4 %}
                     <div class="row row_img">
-                        <label for="title" class="col-6">Quel est ce film</label>
+                        <label for="title" class="col-6 label_text">Quel est ce film</label>
                         <SELECT id="title" name="title" size="1" class="list col-6">
                             {% for title in titles %}
                                 <OPTION>{{ title }}</OPTION>
@@ -61,5 +63,6 @@
             </div>
         </form>
     </div>
+        </div>
     {% endspaceless %}
 {% endblock %}
