@@ -136,6 +136,10 @@ class MovieManager extends AbstractManager
         if ($answers['country'] == $answers['countryAnswer']) {
             $score++;
         }
+        if ($answers['title'] == $answers['titleAnswer']) {
+            $score++;
+        }
+
         return $score;
     }
 

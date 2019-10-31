@@ -1,86 +1,65 @@
 {% extends 'layout.html.twig' %}
 
+{% block stylesheet %}
+    <link rel="stylesheet" href="/assets/css/form.css">
+{% endblock %}
+
 {% block content %}
-{#{% spaceless %}#}
-{#    <form method="POST">#}
-{#        {% for movie in movies %}#}
-{#            {% if loop.index == 1 %}#}
-{#                <div>#}
-{#                <label for="director">Qui est le réalisateur de {{ movie.movie.title }}</label>#}
-{#                <input type="text" id="director" name="director" autocomplete REQUIRED >#}
-{#                <input name='directorAnswer' type="hidden" value={{ movie.movie.director }}>#}
-{#                </div>#}
-{#            {% endif %}#}
-{#            {% if loop.index == 2 %}#}
-{#                <div>#}
-{#                <label for="year">Quelle est l'année de sortie de {{ movie.movie.title }}</label>#}
-{#                <input type="text" id="year" name="year" autocomplete REQUIRED >#}
-{#                <input name='yearAnswer' type="hidden" value={{ movie.movie.year }}>#}
-{#                </div>#}
-{#            {% endif %}#}
-{#            {% if loop.index == 3 %}#}
-{#                <div>#}
-{#                <label for="country">Quel est le pays d'origine de {{ movie.movie.title }}</label>#}
-{#                <input type="text" id="country" name="country" autocomplete REQUIRED >#}
-{#                <input name='countryAnswer' type="hidden" value={{ movie.movie.country }}>#}
-{#                </div>#}
-{#            {% endif %}#}
-{#        {% endfor %}#}
-{#        <button type="submit">Repondre</button>#}
-{#    </form>#}
-{#{% endspaceless %}#}
-
-{#{% spaceless %}#}
-    <form method="POST">
-        {% for movie in movies %}
-            {% if loop.index == 1 %}
-                <div>
-                <label for="director">Qui est le réalisateur de {{ movie.movie.title | replace({'_': " "}) }}</label>
-                <SELECT id="director" name="director" size="1">
-                    {% for director in directors %}
-                    <OPTION>{{ director }}</OPTION>
-                    {% endfor %}
-                </SELECT>
-                <input name='directorAnswer' type="hidden" value={{ movie.movie.director }}>
-                </div>
-            {% endif %}
-            {% if loop.index == 2 %}
-                <div>
-                <label for="year">Quelle est l'année de sortie de {{ movie.movie.title | replace({'_': " "}) }}</label>
-                    <SELECT id="year" name="year" size="1">
-                        {% for year in years %}
-                        <OPTION>{{ year }}</OPTION>
+    <h1 class="titleForm"> Répondez à ces questions pour sortir de cet enfer !!</h1>
+    {% spaceless %}
+    <div class="container">
+        <form method="POST">
+            <div>
+            {% for movie in movies %}
+                {% if loop.index == 1 %}
+                    <div class="row">
+                    <label for="director" class="col-6">Qui est le réalisateur de {{ movie.movie.title | replace({'_': " "}) }}</label>
+                    <SELECT id="director" name="director" size="1" class="list col-6">
+                        {% for director in directors %}
+                        <OPTION>{{ director }}</OPTION>
                         {% endfor %}
                     </SELECT>
-                    <input name='yearAnswer' type="hidden" value={{ movie.movie.year }}>
-                </div>
-            {% endif %}
-            {% if loop.index == 3 %}
-                <div>
-                <label for="country">Quel est le pays d'origine de {{ movie.movie.title | replace({'_': " "}) }}</label>
-                    <SELECT id="country" name="country" size="1">
-                        {% for country in countries %}
-                        <OPTION>{{ country }}</OPTION>
-                        {% endfor %}
-                    </SELECT>
-                    <input name='countryAnswer' type="hidden" value={{ movie.movie.country }}>
-                </div>
-            {% endif %}
-            {% if loop.index == 4 %}
-                <div>
-                    <label for="title">Quel est ce film</label>
-                    <img src="{{ movie.movie.posterUrl }}" class="poster">
-                    <SELECT id="title" name="title" size="1">
-                        {% for title in titles %}
-                            <OPTION>{{ title }}</OPTION>
-                        {% endfor %}
-                    </SELECT>
-                    <input name='titleAnswer' type="hidden" value={{ movie.movie.title }}>
-                </div>
-            {% endif %}
-        {% endfor %}
-        <button type="submit">Repondre</button>
-    </form>
-{#{% endspaceless %}#}
-
+                    <input name='directorAnswer' type="hidden" value={{ movie.movie.director }}>
+                    </div>
+                {% endif %}
+                {% if loop.index == 2 %}
+                    <div class="row">
+                    <label for="year" class="col-6">Quelle est l'année de sortie de {{ movie.movie.title | replace({'_': " "}) }}</label>
+                        <SELECT id="year" name="year" size="1" class="list col-6">
+                            {% for year in years %}
+                            <OPTION>{{ year }}</OPTION>
+                            {% endfor %}
+                        </SELECT>
+                        <input name='yearAnswer' type="hidden" value={{ movie.movie.year }}>
+                    </div>
+                {% endif %}
+                {% if loop.index == 3 %}
+                    <div class="row">
+                    <label for="country" class="col-6">Quel est le pays d'origine de {{ movie.movie.title | replace({'_': " "}) }}</label>
+                        <SELECT id="country" name="country" size="1" class="list col-6">
+                            {% for country in countries %}
+                            <OPTION>{{ country }}</OPTION>
+                            {% endfor %}
+                        </SELECT>
+                        <input name='countryAnswer' type="hidden" value={{ movie.movie.country }}>
+                    </div>
+                {% endif %}
+                {% if loop.index == 4 %}
+                    <div class="row row_img">
+                        <label for="title" class="col-6">Quel est ce film</label>
+                        <SELECT id="title" name="title" size="1" class="list col-6">
+                            {% for title in titles %}
+                                <OPTION>{{ title }}</OPTION>
+                            {% endfor %}
+                        </SELECT>
+                        <img src="{{ movie.movie.posterUrl }}" class="poster">
+                        <input name='titleAnswer' type="hidden" value={{ movie.movie.title }}>
+                    </div>
+                {% endif %}
+            {% endfor %}
+            <button type="submit" class="btn btn-danger col-12">Repondre</button>
+            </div>
+        </form>
+    </div>
+    {% endspaceless %}
 {% endblock %}

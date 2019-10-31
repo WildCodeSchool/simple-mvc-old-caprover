@@ -1,0 +1,17 @@
+
+.poster {
+    filter: blur(10px);
+    margin: 1rem;
+}
+
+.titleForm {
+    font-size: 2.5rem;
+}
+.row_img {
+    justify-content: center;
+}
+
+.container * {
+    padding: 0.5rem;
+    font-size: 1rem;
+}

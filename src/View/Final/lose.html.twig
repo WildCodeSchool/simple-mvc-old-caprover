@@ -10,8 +10,9 @@
 
     <div class="retry">
         <h1>You Lose</h1>
-        <h2>Score : 7</h2>
-        <button type="button" class="btn btn-danger"  aria-pressed="false" autocomplete="off">Try Again ?</button>
+        <h2>Score : {{ score }}</h2>
+{#        <button type="button" class="btn btn-danger"  aria-pressed="false" autocomplete="off">Try Again ?</button>#}
+        <a href="createlistquestion" class="btn btn-danger">Try Again ?</a>
     </div>
 </section>
 {% endblock %}

@@ -71,7 +71,12 @@ class QuizzController extends AbstractController
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $score = $quizzManager->getScore($_POST);
-            return $this->twig->render('Quizz/final.html.twig', ['score' => $score]);
+            if ($score == 4) {
+                return $this->twig->render('Final/success.html.twig', ['score' => $score]);
+            }else {
+                return $this->twig->render('Final/lose.html.twig', ['score' => $score]);
+            }
+
         }
 
         return $this->twig->render('Quizz/quizz.html.twig', ['movies' => $movies,
@@ -80,13 +85,6 @@ class QuizzController extends AbstractController
                                                                     'countries' => $countries,
                                                                     'titles' => $titles,
                                                                     ]);
-    }
-
-    public function showScore($answers)
-    {
-        $quizzManager = new MovieManager();
-        $score = $quizzManager->getScore($answers);
-        return $this->twig->render('Quizz/final.html.twig', ['score' => $score]);
     }
 
     public function showOnlyDirectors()
