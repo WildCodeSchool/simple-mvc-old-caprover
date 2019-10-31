@@ -1,6 +1,6 @@
 body {
     background-color: #000000;
-    background: url("https://zupimages.net/up/19/44/6437.jpg");
+    background: url("../images/bgwinner.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -20,8 +20,7 @@ body {
 }
 
 .perspective {
-    background: url("https://38.media.tumblr.com/6a57b4fd68936919daa408a7f86be281/tumblr_n3bk5wnpUp1ts7wm1o1_500.gif");
-    /**width: 100%;*/
+    background: url("../images/runaway.gif");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: bottom;
@@ -40,7 +39,7 @@ body {
 }
 
 .door {
-    background: url("https://zupimages.net/up/19/44/c2ix.png");
+    background: url("../images/porte.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -91,18 +90,22 @@ body {
     }
 }
 
-/************************************ PAGE WINNER ********************************/
+/************************************ PAGE SUCCESS ********************************/
 * {
-    font-family: 'Pacifico', cursive;
-    font-size: 3em;
+    font-family: 'Yeon Sung', cursive;
     color: green;
+    text-shadow: 1px 1px 5px white;
 }
 
-h1 {font-family: 'Pacifico', cursive;
+h1 {font-size: 8em;
+    font-family: 'Yeon Sung', cursive;
     color:green}
 
+h2 {text-align: center;
+    font-size: 3em;}
+
 video#myVideo {
-    position: fixed; right: 0; bottom: 0; top: 2px;
+    position: fixed; right: 0; bottom: 0; top: 0;
     min-width: 100%; min-height: 100%;
     width: auto; height: auto; z-index: -100;
     background-color: #333;
@@ -121,4 +124,18 @@ video#myVideo {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.btn {
+    background-color: green;
+    border:none;
+    text-shadow: none;
+    font-size: 3em;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.btn:hover {
+    background-color: green;
+    color: lightgreen;
 }
