@@ -64,10 +64,19 @@ class QuizzController extends AbstractController
     {
         $quizzManager = new MovieManager();
         $movies = $quizzManager->getQuestions();
-        $directors = $quizzManager->getAllDirectors();
-        $years = $quizzManager->getAllYears();
-        $countries = $quizzManager->getAllCountries();
-        $titles = $quizzManager->getAllTitles();
+        $directors = $quizzManager->getListDirectors($movies[0]['movie']['director']);
+        $years = $quizzManager->getListYears($movies[1]['movie']['year']);
+        $countries = $quizzManager->getListCountries($movies[2]['movie']['country']);
+        $titles = $quizzManager->getListTitles($movies[3]['movie']['title']);
+
+        $directors[] = $movies[0]['movie']['director'];
+        $years[] = $movies[1]['movie']['year'];
+        $countries[] = $movies[2]['movie']['country'];
+        $titles[] = $movies[3]['movie']['title'];
+        sort($directors);
+        sort($years);
+        sort($countries);
+        sort($titles);
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $score = $quizzManager->getScore($_POST);

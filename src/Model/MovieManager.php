@@ -118,9 +118,10 @@ class MovieManager extends AbstractManager
 
     public function getQuestions(): array
     {
-        for ($i = 0; $i < 4; $i++) {
-            $this->listQuestion[] = $this->getRandomMovie();
-        }
+        $this->listQuestion[] = $this->getRandomMovie();
+        $this->listQuestion[] = $this->getRandomMovie();
+        $this->listQuestion[] = $this->getRandomMovie();
+        $this->listQuestion[] = $this->getRandomMovie();
         return $this->listQuestion;
     }
 
@@ -151,7 +152,8 @@ class MovieManager extends AbstractManager
             $directors[] = $movie['director'];
         }
         $directors = array_unique($directors);
-        sort($directors);
+        shuffle($directors);
+        $directors = array_slice($directors, 0, 3);
         return $directors;
     }
 
@@ -163,7 +165,8 @@ class MovieManager extends AbstractManager
             $years[] = $movie['year'];
         }
         $years = array_unique($years);
-        sort($years);
+        shuffle($years);
+        $years = array_slice($years, 0, 3);
         return $years;
     }
 
@@ -175,7 +178,8 @@ class MovieManager extends AbstractManager
             $countries[] = $movie['country'];
         }
         $countries = array_unique($countries);
-        sort($countries);
+        shuffle($countries);
+        $countries = array_slice($countries, 0, 3);
         return $countries;
     }
 
@@ -187,7 +191,40 @@ class MovieManager extends AbstractManager
             $titles[] = $movie['title'];
         }
         $titles = array_unique($titles);
-        sort($titles);
+        shuffle($titles);
+        $titles = array_slice($titles, 0, 3);
+        return $titles;
+    }
+
+    public function getListDirectors($movieElement) {
+
+        do {
+            $directors = $this->getAllDirectors();
+        } while (in_array($movieElement, $directors));
+        return $directors;
+    }
+    
+    public function getListYears($movieElement) {
+
+        do {
+            $years = $this->getAllYears();
+        } while (in_array($movieElement, $years));
+        return $years;
+    }
+    
+    public function getListCountries($movieElement) {
+
+        do {
+            $countries = $this->getAllCountries();
+        } while (in_array($movieElement, $countries));
+        return $countries;
+    }
+    
+    public function getListTitles($movieElement) {
+
+        do {
+            $titles = $this->getAllTitles();
+        } while (in_array($movieElement, $titles));
         return $titles;
     }
 }
