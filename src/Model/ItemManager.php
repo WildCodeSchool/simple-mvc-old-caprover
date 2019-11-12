@@ -35,7 +35,7 @@ class ItemManager extends AbstractManager
     public function insert(array $item): int
     {
         // prepared request
-        $statement = $this->pdo->prepare("INSERT INTO $this->table (`title`) VALUES (:title)");
+        $statement = $this->pdo->prepare("INSERT INTO " . self::TABLE . " (`title`) VALUES (:title)");
         $statement->bindValue('title', $item['title'], \PDO::PARAM_STR);
 
         if ($statement->execute()) {
@@ -50,7 +50,7 @@ class ItemManager extends AbstractManager
     public function delete(int $id): void
     {
         // prepared request
-        $statement = $this->pdo->prepare("DELETE FROM $this->table WHERE id=:id");
+        $statement = $this->pdo->prepare("DELETE FROM " . self::TABLE . " WHERE id=:id");
         $statement->bindValue('id', $id, \PDO::PARAM_INT);
         $statement->execute();
     }
@@ -64,7 +64,7 @@ class ItemManager extends AbstractManager
     {
 
         // prepared request
-        $statement = $this->pdo->prepare("UPDATE $this->table SET `title` = :title WHERE id=:id");
+        $statement = $this->pdo->prepare("UPDATE " . self::TABLE . " SET `title` = :title WHERE id=:id");
         $statement->bindValue('id', $item['id'], \PDO::PARAM_INT);
         $statement->bindValue('title', $item['title'], \PDO::PARAM_STR);
 
