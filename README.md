@@ -9,20 +9,8 @@ For this one, just a simple example where users can choose one of their database
 
 ### Prerequisites
 
-Create a repository on Github in WildCodeSchool organization following this exemple :
+Use this template repository to a new Github repository in WildCodeSchool organization following this exemple :
 **ville-session-language-project** as **bordeaux-0219-php-servyy**
-
-### Get starter kit
-
-1. Clone this project
-2. Remove `.git` folder to remove history
-3. `git init`
-4. Link to your project repository you'll give to your students : `git remote add origin ...`
-5. Edit `.travis.yml` file to change default e-mails settings to get notification checking tasks end
-6. Remove trainers instructions *(from Prerequisites to Configure you repository parts)*
-5. `git add .`
-6. `git commit -m "Init project repository"`
-7. `git push -u origin master`
 
 ### Check on Travis
 
