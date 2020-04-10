@@ -10,7 +10,7 @@ For this one, just a simple example where users can choose one of their database
 ### Prerequisites
 
 Use this template repository to a new Github repository in WildCodeSchool organization following this exemple :
-**ville-session-language-project** as **bordeaux-0219-php-servyy**
+**<campus>-<langage>-<YYMM>-<type>-<name>** as **bordeaux-php-1903-project2-servyy**
 
 ### Check on Travis
 
