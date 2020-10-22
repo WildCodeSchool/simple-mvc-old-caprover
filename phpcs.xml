@@ -9,7 +9,7 @@
     <arg name="extensions" value="php"/>
     <arg name="extensions" value="php"/>
 
-    <rule ref="PSR2"/>
+    <rule ref="PSR12"/>
 
     <rule ref="Generic.Files.LineEndings.InvalidEOLChar">
         <message>End of line character is invalid.
