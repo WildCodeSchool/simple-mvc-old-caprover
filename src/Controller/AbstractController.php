@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: root
@@ -21,8 +22,7 @@ abstract class AbstractController
     /**
      * @var Environment
      */
-    protected $twig;
-
+    protected Environment $twig;
 
     /**
      *  Initializes this class.

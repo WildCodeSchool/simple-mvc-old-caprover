@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: aurelwcs
@@ -10,7 +11,6 @@ namespace App\Controller;
 
 class HomeController extends AbstractController
 {
-
     /**
      * Display home page
      *
