@@ -15,9 +15,6 @@ namespace App\Model;
  */
 class ItemManager extends AbstractManager
 {
-    /**
-     *
-     */
     public const TABLE = 'item';
 
     /**
@@ -38,9 +35,8 @@ class ItemManager extends AbstractManager
         $statement = $this->pdo->prepare("INSERT INTO " . self::TABLE . " (`title`) VALUES (:title)");
         $statement->bindValue('title', $item['title'], \PDO::PARAM_STR);
 
-        if ($statement->execute()) {
-            return (int)$this->pdo->lastInsertId();
-        }
+        $statement->execute();
+        return (int)$this->pdo->lastInsertId();
     }
 
 
@@ -60,9 +56,8 @@ class ItemManager extends AbstractManager
      * @param array $item
      * @return bool
      */
-    public function update(array $item):bool
+    public function update(array $item): bool
     {
-
         // prepared request
         $statement = $this->pdo->prepare("UPDATE " . self::TABLE . " SET `title` = :title WHERE id=:id");
         $statement->bindValue('id', $item['id'], \PDO::PARAM_INT);

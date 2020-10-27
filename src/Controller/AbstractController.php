@@ -14,9 +14,6 @@ use Twig\Environment;
 use Twig\Extension\DebugExtension;
 use Twig\Loader\FilesystemLoader;
 
-/**
- *
- */
 abstract class AbstractController
 {
     /**
@@ -33,7 +30,7 @@ abstract class AbstractController
         $this->twig = new Environment(
             $loader,
             [
-                'cache' => !APP_DEV,
+                'cache' => !APP_DEV, // @phpstan-ignore-line
                 'debug' => APP_DEV,
             ]
         );

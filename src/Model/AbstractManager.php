@@ -32,7 +32,8 @@ abstract class AbstractManager
     {
         $this->table = $table;
         $this->className = __NAMESPACE__ . '\\' . ucfirst($table);
-        $this->pdo = (new Connection())->getPdoConnection();
+        $connection = new Connection();
+        $this->pdo = $connection->getPdoConnection();
     }
 
     /**
