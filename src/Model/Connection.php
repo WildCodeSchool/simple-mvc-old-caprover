@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Database connection
  *
@@ -11,7 +12,8 @@
 
 namespace App\Model;
 
-use \PDO;
+use PDO;
+use PDOException;
 
 /**
  *
@@ -24,20 +26,15 @@ use \PDO;
  */
 class Connection
 {
-    /**
-     * @var PDO
-     *
-     * @access private
-     */
-    private $pdoConnection;
+    private PDO $pdoConnection;
 
-    private $user;
+    private string $user;
 
-    private $host;
+    private string $host;
 
-    private $password;
+    private string $password;
 
-    private $dbName;
+    private string $dbName;
 
     /**
      * Initialize connection
@@ -66,14 +63,13 @@ class Connection
             $this->pdoConnection->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 
             // show errors in DEV environment
-            if (APP_DEV) {
+            if (APP_DEV) { // @phpstan-ignore-line
                 $this->pdoConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             }
-        } catch (\PDOException $e) {
-            echo('<div class="error">Error !: ' . $e->getMessage() . '</div>');
+        } catch (PDOException $e) {
+            echo '<div class="error">Error !: ' . $e->getMessage() . '</div>';
         }
     }
-
 
     /**
      * @return PDO $pdo

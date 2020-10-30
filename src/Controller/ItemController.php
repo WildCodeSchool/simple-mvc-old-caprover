@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: root
@@ -17,8 +18,6 @@ use App\Model\ItemManager;
  */
 class ItemController extends AbstractController
 {
-
-
     /**
      * Display item listing
      *

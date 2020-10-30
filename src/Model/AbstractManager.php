@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: sylvain
@@ -6,29 +7,22 @@
  * Time: 20:52
  * PHP version 7
  */
+
 namespace App\Model;
 
 use App\Model\Connection;
+use PDO;
 
 /**
  * Abstract class handling default manager.
  */
 abstract class AbstractManager
 {
-    /**
-     * @var \PDO
-     */
-    protected $pdo; //variable de connexion
+    protected PDO $pdo; //variable de connexion
 
-    /**
-     * @var string
-     */
-    protected $table;
-    /**
-     * @var string
-     */
-    protected $className;
+    protected string $table;
 
+    protected string $className;
 
     /**
      * Initializes Manager Abstract class.
@@ -38,7 +32,8 @@ abstract class AbstractManager
     {
         $this->table = $table;
         $this->className = __NAMESPACE__ . '\\' . ucfirst($table);
-        $this->pdo = (new Connection())->getPdoConnection();
+        $connection = new Connection();
+        $this->pdo = $connection->getPdoConnection();
     }
 
     /**
