@@ -18,14 +18,6 @@ class ItemManager extends AbstractManager
     public const TABLE = 'item';
 
     /**
-     *  Initializes this class.
-     */
-    public function __construct()
-    {
-        parent::__construct(self::TABLE);
-    }
-
-    /**
      * @param array $item
      * @return int
      */
