@@ -18,9 +18,8 @@ use PDO;
  */
 abstract class AbstractManager
 {
-    protected PDO $pdo; //variable de connexion
-
-    public const TABLE = '';
+    public const TABLE = ''; //variable de connexion
+    protected PDO $pdo;
 
     /**
      * Initializes Manager Abstract class.
@@ -36,15 +35,20 @@ abstract class AbstractManager
      *
      * @return array
      */
-    public function selectAll(): array
+    public function selectAll(string $orderBy = '', string $direction = 'ASC'): array
     {
-        return $this->pdo->query('SELECT * FROM ' . static::TABLE)->fetchAll();
+        $query = 'SELECT * FROM ' . static::TABLE;
+        if ($orderBy) {
+            $query .= ' ORDER BY ' . $orderBy . ' ' . $direction;
+        }
+
+        return $this->pdo->query($query)->fetchAll();
     }
 
     /**
      * Get one row from database by ID.
      *
-     * @param  int $id
+     * @param int $id
      *
      * @return array
      */
@@ -56,5 +60,16 @@ abstract class AbstractManager
         $statement->execute();
 
         return $statement->fetch();
+    }
+
+    /**
+     * @param int $id
+     */
+    public function delete(int $id): void
+    {
+        // prepared request
+        $statement = $this->pdo->prepare("DELETE FROM " . static::TABLE . " WHERE id=:id");
+        $statement->bindValue('id', $id, \PDO::PARAM_INT);
+        $statement->execute();
     }
 }
