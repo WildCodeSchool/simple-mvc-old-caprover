@@ -20,9 +20,10 @@ abstract class AbstractManager
 {
     protected PDO $pdo; //variable de connexion
 
+    public const TABLE = '';
+
     /**
      * Initializes Manager Abstract class.
-     * @param string $table
      */
     public function __construct()
     {
