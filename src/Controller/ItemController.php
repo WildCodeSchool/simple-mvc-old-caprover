@@ -1,32 +1,15 @@
 <?php
 
-/**
- * Created by PhpStorm.
- * User: root
- * Date: 11/10/17
- * Time: 16:07
- * PHP version 7
- */
-
 namespace App\Controller;
 
 use App\Model\ItemManager;
 
-/**
- * Class ItemController
- *
- */
 class ItemController extends AbstractController
 {
     /**
-     * Display item listing
-     *
-     * @return string
-     * @throws \Twig\Error\LoaderError
-     * @throws \Twig\Error\RuntimeError
-     * @throws \Twig\Error\SyntaxError
+     * List items
      */
-    public function index()
+    public function index(): string
     {
         $itemManager = new ItemManager();
         $items = $itemManager->selectAll('title');
@@ -36,15 +19,9 @@ class ItemController extends AbstractController
 
 
     /**
-     * Display item informations specified by $id
-     *
-     * @param int $id
-     * @return string
-     * @throws \Twig\Error\LoaderError
-     * @throws \Twig\Error\RuntimeError
-     * @throws \Twig\Error\SyntaxError
+     * Show informations for a specific item
      */
-    public function show(int $id)
+    public function show(int $id): string
     {
         $itemManager = new ItemManager();
         $item = $itemManager->selectOneById($id);
@@ -54,44 +31,44 @@ class ItemController extends AbstractController
 
 
     /**
-     * Display item edition page specified by $id
-     *
-     * @param int $id
-     * @return string
-     * @throws \Twig\Error\LoaderError
-     * @throws \Twig\Error\RuntimeError
-     * @throws \Twig\Error\SyntaxError
+     * Edit a specific item
      */
     public function edit(int $id): string
     {
         $itemManager = new ItemManager();
         $item = $itemManager->selectOneById($id);
+        $errors = [];
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $item['title'] = $_POST['title'];
+            // clean $_POST data
+            $item = array_map('trim', $_POST);
+
+            // TODO validations (length, format...)
+
+            // if validation is ok, update and redirection
             $itemManager->update($item);
+            header('Location: /item/show/' . $id);
         }
 
-        return $this->twig->render('Item/edit.html.twig', ['item' => $item]);
+        return $this->twig->render('Item/edit.html.twig', [
+            'item' => $item,
+        ]);
     }
 
 
     /**
-     * Display item creation page
-     *
-     * @return string
-     * @throws \Twig\Error\LoaderError
-     * @throws \Twig\Error\RuntimeError
-     * @throws \Twig\Error\SyntaxError
+     * Add a new item
      */
-    public function add()
+    public function add(): string
     {
-
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // clean $_POST data
+            $item = array_map('trim', $_POST);
+
+            // TODO validations (length, format...)
+
+            // if validation is ok, insert and redirection
             $itemManager = new ItemManager();
-            $item = [
-                'title' => $_POST['title'],
-            ];
             $id = $itemManager->insert($item);
             header('Location:/item/show/' . $id);
         }
@@ -101,14 +78,14 @@ class ItemController extends AbstractController
 
 
     /**
-     * Handle item deletion
-     *
-     * @param int $id
+     * Delete a specific item
      */
     public function delete(int $id)
     {
-        $itemManager = new ItemManager();
-        $itemManager->delete($id);
-        header('Location:/item/index');
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $itemManager = new ItemManager();
+            $itemManager->delete($id);
+            header('Location:/item/index');
+        }
     }
 }
