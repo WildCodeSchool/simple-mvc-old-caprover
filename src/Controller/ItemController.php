@@ -37,7 +37,6 @@ class ItemController extends AbstractController
     {
         $itemManager = new ItemManager();
         $item = $itemManager->selectOneById($id);
-        $errors = [];
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // clean $_POST data

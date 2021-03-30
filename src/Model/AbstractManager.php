@@ -20,7 +20,7 @@ abstract class AbstractManager
 {
     protected PDO $pdo;
 
-    const TABLE = '';
+    public const TABLE = '';
 
     public function __construct()
     {

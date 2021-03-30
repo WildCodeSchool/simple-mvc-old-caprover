@@ -7,7 +7,7 @@ class ItemManager extends AbstractManager
     public const TABLE = 'item';
 
     /**
-     * Insert new item in database 
+     * Insert new item in database
      */
     public function insert(array $item): int
     {
