@@ -18,12 +18,10 @@ use PDO;
  */
 abstract class AbstractManager
 {
-    public const TABLE = ''; //variable de connexion
     protected PDO $pdo;
 
-    /**
-     * Initializes Manager Abstract class.
-     */
+    public const TABLE = '';
+
     public function __construct()
     {
         $connection = new Connection();
@@ -32,8 +30,6 @@ abstract class AbstractManager
 
     /**
      * Get all row from database.
-     *
-     * @return array
      */
     public function selectAll(string $orderBy = '', string $direction = 'ASC'): array
     {
@@ -48,9 +44,6 @@ abstract class AbstractManager
     /**
      * Get one row from database by ID.
      *
-     * @param int $id
-     *
-     * @return array
      */
     public function selectOneById(int $id)
     {
@@ -63,7 +56,7 @@ abstract class AbstractManager
     }
 
     /**
-     * @param int $id
+     * Delete row form an ID
      */
     public function delete(int $id): void
     {

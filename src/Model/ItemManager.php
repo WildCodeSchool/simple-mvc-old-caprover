@@ -1,29 +1,16 @@
 <?php
 
-/**
- * Created by PhpStorm.
- * User: sylvain
- * Date: 07/03/18
- * Time: 18:20
- * PHP version 7
- */
-
 namespace App\Model;
 
-/**
- *
- */
 class ItemManager extends AbstractManager
 {
     public const TABLE = 'item';
 
     /**
-     * @param array $item
-     * @return int
+     * Insert new item in database
      */
     public function insert(array $item): int
     {
-        // prepared request
         $statement = $this->pdo->prepare("INSERT INTO " . self::TABLE . " (`title`) VALUES (:title)");
         $statement->bindValue('title', $item['title'], \PDO::PARAM_STR);
 
@@ -31,17 +18,11 @@ class ItemManager extends AbstractManager
         return (int)$this->pdo->lastInsertId();
     }
 
-
-
-
-
     /**
-     * @param array $item
-     * @return bool
+     * Update item in database
      */
     public function update(array $item): bool
     {
-        // prepared request
         $statement = $this->pdo->prepare("UPDATE " . self::TABLE . " SET `title` = :title WHERE id=:id");
         $statement->bindValue('id', $item['id'], \PDO::PARAM_INT);
         $statement->bindValue('title', $item['title'], \PDO::PARAM_STR);
