@@ -12,6 +12,7 @@
 
 namespace App\Model;
 
+use Exception;
 use PDO;
 use PDOException;
 
@@ -54,9 +55,10 @@ class Connection
             $this->password = APP_DB_PWD;
             $this->dbName = APP_DB_NAME;
         }
+
         try {
             $this->pdoConnection = new PDO(
-                'mysql:host=' . $this->host . '; dbname=' . $this->dbName . '; charset=utf8',
+                'mysql:host=' . $this->host . ';dbname=' . $this->dbName . ';charset=utf8',
                 $this->user,
                 $this->password
             );
@@ -67,7 +69,9 @@ class Connection
                 $this->pdoConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             }
         } catch (PDOException $e) {
-            echo '<div class="error">Error !: ' . $e->getMessage() . '</div>';
+            throw new Exception(
+                'Unable to connect to ' . 'mysql:host=' . $this->host . ';dbname=' . $this->dbName . ';charset=utf8'
+            );
         }
     }
 
