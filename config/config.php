@@ -1,15 +1,5 @@
 <?php
 
-/**
- * This file define config constants .
- *
- * PHP version 7
- *
- * @author   WCS <contact@wildcodeschool.fr>
- *
- * @link     https://github.com/WildCodeSchool/simple-mvc
- */
-
 define('APP_DEV', true);
 
 //Model (for connexion data, see unversionned db.php)
@@ -18,3 +8,6 @@ define('APP_VIEW_PATH', __DIR__ . '/../src/View/');
 define('APP_CACHE_PATH', __DIR__ . '/../temp/cache/');
 
 define('HOME_PAGE', 'home/index');
+
+// database dump file path for automatic import
+define('DB_DUMP_PATH', __DIR__ . '/database.sql');
