@@ -1,6 +1,6 @@
 #!/bin/sh
 
-php /var/www/migration.sql
+php /var/www/migration.php
 
 chmod -R 777 /var/www/public/uploads
 
