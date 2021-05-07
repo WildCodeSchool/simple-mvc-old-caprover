@@ -11,7 +11,7 @@
  */
 
 // Removes the querystring from the requested URL so "/myMethod?q=var" becomes "/myMethod".
-$requestedUrl = preg_replace('/\?.*/', '', ltrim($_SERVER['REQUEST_URI'], '/')) ?: HOME_PAGE;
+$requestedUrl = substr(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), 1) ?: HOME_PAGE;
 
 // Split the URL in fragments
 $routeParts = explode('/', $requestedUrl);

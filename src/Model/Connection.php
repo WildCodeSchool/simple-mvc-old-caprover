@@ -56,22 +56,17 @@ class Connection
             $this->dbName = APP_DB_NAME;
         }
 
-        try {
-            $this->pdoConnection = new PDO(
-                'mysql:host=' . $this->host . ';dbname=' . $this->dbName . ';charset=utf8',
-                $this->user,
-                $this->password
-            );
-            $this->pdoConnection->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+        $this->pdoConnection = new PDO(
+            'mysql:host=' . $this->host . ';dbname=' . $this->dbName . ';charset=utf8',
+            $this->user,
+            $this->password
+        );
 
-            // show errors in DEV environment
-            if (APP_DEV) { // @phpstan-ignore-line
-                $this->pdoConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            }
-        } catch (PDOException $e) {
-            throw new Exception(
-                'Unable to connect to ' . 'mysql:host=' . $this->host . ';dbname=' . $this->dbName . ';charset=utf8'
-            );
+        $this->pdoConnection->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+
+        // show errors in DEV environment
+        if (APP_DEV) { // @phpstan-ignore-line
+            $this->pdoConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }
     }
 
