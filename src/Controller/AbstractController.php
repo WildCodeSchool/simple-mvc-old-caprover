@@ -19,7 +19,7 @@ abstract class AbstractController
         $this->twig = new Environment(
             $loader,
             [
-                'cache' => ENV === 'prod' ? APP_CACHE_PATH : false,
+                'cache' => false,
                 'debug' => (ENV === 'dev'),
             ]
         );
