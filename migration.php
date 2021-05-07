@@ -8,7 +8,7 @@ require 'config/db.php';
 
 try {
     $pdo = (new Connection())->getPdoConnection();
-    if (file_exists(DB_DUMP_PATH)) {
+    if (is_file(DB_DUMP_PATH) && is_readable(DB_DUMP_PATH)) {
         $sql = file_get_contents(DB_DUMP_PATH);
         $statement = $pdo->prepare($sql);
         $statement->execute();
