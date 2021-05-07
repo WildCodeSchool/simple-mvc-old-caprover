@@ -10,4 +10,4 @@ define('APP_CACHE_PATH', __DIR__ . '/../temp/cache/');
 define('HOME_PAGE', 'home/index');
 
 // database dump file path for automatic import
-define('DB_DUMP_PATH', __DIR__ . '/database.sql');
+define('DB_DUMP_PATH', __DIR__ . '/../database.sql');
