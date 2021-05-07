@@ -16,7 +16,7 @@ For this one, just a simple example where users can choose one of their database
 define('APP_DB_HOST', 'your_db_host');
 define('APP_DB_NAME', 'your_db_name');
 define('APP_DB_USER', 'your_db_user_wich_is_not_root');
-define('APP_DB_PWD', 'your_db_password');
+define('APP_DB_PASSWORD', 'your_db_password');
 ```
 4. Import `simple-mvc.sql` in your SQL server,
 5. Run the internal PHP webserver with `php -S localhost:8000 -t public/`. The option `-t` with `public` as parameter means your localhost will target the `/public` folder.
