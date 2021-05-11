@@ -27,7 +27,6 @@
 				<div class='col border border-style-solid m-2 text-start' id="description">
 					<output>
 						<p>
-						<span class='text-danger'>NASA Com-link:</span>
 						{% block description %}{% endblock %}
 						</p>
 					</output>
@@ -36,19 +35,19 @@
 
 			<div class='row'>
 				<div class='col m-3'>
-					<p>{% block test %}{% endblock %}</p>
+					{% block test %}{% endblock %}
 				</div>
 			</div>
 
 			<div class='row'>
-				{% if name == 'Percy' %}
+				{% if condition %}
 				<div id="robot-image" class='mb-3 mt-5'>
                     <p class='text-primary'>
 						Percy
 					</p>
 					<img src="/assets/images/percy.png" alt="C'est Percy ma gueule" width="550" height="300">
 				</div>
-				{% elseif name == 'Ginny' %}
+				{% elseif condition %}
 				<div id="robot-image" class='mb-3 mt-5'>
 					<p class='text-primary'>
 						Ginny
@@ -60,20 +59,18 @@
 
 			<div class='row justify-content-between'>
 				<div class='col mb-3'>
-					<a href="{% block href_party %}{% endblock %}" class="btn btn-outline-warning">
-                        <p>{% block btn_party %}{% endblock %}</p>
+					<a href="/Home/start" class="btn btn-outline-success">
+                        <p>
+							Retry
+						</p>
 					</a>
 				</div>
 
-				<div class='col mb-3 offset-2'>
-					<a href="{% block href_serious %}{% endblock %}" class="btn btn-outline-success">
-                        <p>{% block btn_serious %}{% endblock %}</p>
-					</a>
-				</div>
-
-				<div class='col mb-3 offset-2'>
-					<a href="{% block href_skynet %}{% endblock %}" class="btn btn-outline-danger">
-                        <p>{% block btn_skynet %}{% endblock %}</p>
+				<div class='col mb-3 offset-5'>
+					<a href="/" class="btn btn-outline-danger">
+                        <p>
+							Back to menu
+						</p>
 					</a>
 				</div>
             </div>
