@@ -21,11 +21,13 @@ return $this->twig->render('/index.html.twig');
 }
 
 
-    public function start()
+public function start()
     {
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $cookie_name = $_POST['name'];       
-        }
-        return $this->twig->render('/Home/start.html.twig', ['name' => $cookie_name]);
+        if (empty($_POST)) {
+            header('Location: /home/index');            
+        } else {
+            $cookie_name = $_POST['name']; 
+            return $this->twig->render('/Home/start.html.twig', ['name' => $cookie_name]);
+        }        
     }
 }
