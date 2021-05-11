@@ -1,31 +1,33 @@
 #bg-layout {
-  /* background-size: 100em; */
-  background-repeat: no-repeat;
-  background-size: cover;
+    /* background-size: 100em; */
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 html,
 body {
-  text-align: center;
+    text-align: center;
 }
 
 body,
 footer,
-header {
-  font-family: "Trispace", sans-serif;
+header,
+p {
+    font-family: "Trispace", sans-serif;
 }
 
 header,
 footer {
-  overflow: hidden;
-  height: 50px;
+    overflow: hidden;
+    height: 50px;
 }
 
 footer {
-  bottom: 0;
-  width: 100%;
+    bottom: 0;
+    width: 100%;
 }
 
+<<<<<<< HEAD
 #description {
   background-color: black;
   background-image: radial-gradient(
@@ -55,6 +57,8 @@ footer {
     pointer-events: none;
   }
 }
+=======
+>>>>>>> some contents for layout
 
 /* @media (max-width: 890px) {
   body.url {
