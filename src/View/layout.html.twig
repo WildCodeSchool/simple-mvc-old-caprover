@@ -24,8 +24,11 @@
 
 		<div class='container scrollable'>
 			<div class='row'>
-				<div class='col border border-style-solid m-3'>
-					{% block description %}{% endblock %}
+				<div class='col border border-style-solid m-2 text-start' id="description">
+					<output>
+						{% block description %}
+						{% endblock %}
+					</output>
 				</div>
 			</div>
 
