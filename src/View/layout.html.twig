@@ -37,46 +37,11 @@
 				</div>
 			</div>
 
-				{# <div class='row'>
-					{% if condition %}
-						<div id="robot-image" class='mb-3 mt-5'>
-							<p class='text-primary'>
-								Percy
-							</p>
-							<img src="/assets/images/percy.png" alt="C'est Percy ma gueule" width="550" height="300">
-						</div>
-					{% elseif condition %}
-						<div id="robot-image" class='mb-3 mt-5'>
-							<p class='text-primary'>
-								Ginny
-							</p>
-							<img src="/assets/images/ginny.png" alt="C'est Ginny ma gueule" width="100" height="125">
-						</div>
-					{% endif %}
-				</div> #}
-
-				{% block activities %}{% endblock %}
-				<div class='row justify-content-between'>
-					<div class='col mb-3'>
-						<a href="{% block href_party %}{% endblock %}" class="btn btn-outline-warning"> {% block btn_party %}{% endblock %}
-							</a>
-						</div>
-
-						<div class='col mb-3 offset-2'>
-							<a href="{% block href_serious %}{% endblock %}" class="btn btn-outline-success"> {% block btn_serious %}{% endblock %}
-								</a>
-							</div>
-
-							<div class='col mb-3 offset-2'>
-								<a href="{% block href_skynet %}{% endblock %}" class="btn btn-outline-danger"> {% block btn_skynet %}{% endblock %}
-									</a>
-								</div>
-							</div>
-						</div>
-						{% block robot %}{% endblock %}
-						<footer class='text-warning text-center pt-2' style="background-image:url('/assets/images/header-sky.jpg')">
-							Created By Léa, Lionel, Pierre-Emmanuel et Emmanuel
-						</footer>
+			<div class='row'>
+				<div class='col m-3'>
+					{% block test %}{% endblock %}
+				</div>
+			</div>
 
 			<div class='row'>
 				{% if name == 'Percy' %}
