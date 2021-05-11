@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>
+			{% block title %}{% endblock %}
+		</title>
+
+		<link rel="stylesheet" href="/assets/css/style.css">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous"> {% block stylesheet %}{% endblock %}
+		<link rel="icon" href="/assets/images/favicon.png">
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Trispace&display=swap" rel="stylesheet">
+	</head>
+
+	<body id='bg-layout' style="background-image:url('{% block image %}{% endblock %}');">
+
+		<header class='text-warning text-center pt-2' style="background-image:url('/assets/images/header-sky.jpg')">
+			<h4>Robots Gone Wild &#129302;</h4>
+		</header>
+
+		<div class='container scrollable'>
+			<div class='row'>
+				<div class='col border border-style-solid m-3'>
+					{% block description %}{% endblock %}
+				</div>
+			</div>
+
+			<div class='row'>
+				<div class='col border border-style-solid m-3'>
+					{% block test %}{% endblock %}
+				</div>
+			</div>
+
+			<div class='row'>
+				{% if condition %}
+				<div id="robot-image" class='mb-3 mt-5'>
+                    <p class='text-primary'>
+						Percy
+					</p>
+					<img src="/assets/images/percy.png" alt="C'est Percy ma gueule" width="550" height="300">
+				</div>
+				{% elseif condition %}
+				<div id="robot-image" class='mb-3 mt-5'>
+					<p class='text-primary'>
+						Ginny
+					</p>
+					<img src="/assets/images/ginny.png" alt="C'est Ginny ma gueule" width="100" height="125">
+                </div>
+				{% endif %}
+			</div>
+
+			<div class='row justify-content-between'>
+				<div class='col mb-3'>
+					<a href="{% block href_party %}{% endblock %}" class="btn btn-outline-warning">
+                        {% block btn_party %}{% endblock %}
+					</a>
+				</div>
+
+            </div>
+            
+		</div>
+
+		<footer class='text-warning text-center pt-2' style="background-image:url('/assets/images/header-sky.jpg')">
+			Created By Léa, Lionel, Pierre-Emmanuel et Emmanuel
+		</footer>
+
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
+	</body>
+</html>

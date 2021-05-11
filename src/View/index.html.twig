@@ -1,5 +1,19 @@
-{% extends 'layout.html.twig' %}
 
-{% block content %}
+{% extends 'layout-accueil.html.twig' %}
+
+
+{% block btn_party %}
+
+<form method="post" action="/home/start">
+  <div class="mb-3 form-check">
+    <input type="radio" class="form-check-input" id="Ginny" name="name" value="Ginny">
+    <label class="form-check-label" for="exampleCheck1">Ginny</label>
+  </div>
+  <div class="mb-3 form-check">
+    <input type="radio" class="form-check-input" id="Percy" name='name' value="Percy">
+    <label class="form-check-label" for="exampleCheck1">Percy</label>
+  </div>
+  <button type="submit" class="btn btn-primary" value="submit">Submit</button>
+</form>
 
 {% endblock %}

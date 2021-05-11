@@ -1,4 +1,23 @@
 {% extends 'layout.html.twig' %}
 
-{% block content %}
+{% block description %}
+        Hum… {robotname}? Do you copy? Reading your position right now it seems you have not reached destination yet. Is everything all right? Please run a diagnostic on your system and send back the details asap so we can figure out what is going on.
+{% endblock %}
+
+{% block test %}{% endblock %}
+
+{% block href_party %}/../Party/partystart{% endblock %}
+{% block btn_party %}
+    Diagnostics report says someone needs a large drink of oil to put me on track. Know who that someone is ? ME ?
+{% endblock %}
+
+{% block href_serious %}/../Serious/seriousstart{% endblock %}
+{% block btn_serious %}
+    Diagnostic is completed and corrupted files have been corrected, returning to position and starting digging
+{% endblock %}
+
+{% block href_skynet %}/../Skynet/skynetend{% endblock %}
+{% block btn_skynet %}
+    (build fake diagnostic report and send it to Houston)
+    No worries it’s all under control, I will be the least of your worries very soon.
 {% endblock %}
