@@ -19,5 +19,4 @@ class SeriousController extends AbstractController
     {
         return $this->twig->render('Serious/serious-end.html.twig');
     }
-
 }
