@@ -4,13 +4,13 @@ namespace App\Controller;
 
 class SeriousController extends AbstractController
 {
-    public function start()
+    public function startSerious()
     {
-        return $this->twig->render('/serious-start.html.twig');
+        return $this->twig->render('Serious/serious-start.html.twig');
     }
 
-    public function end()
+    public function endSerious()
     {
-        return $this->twig->render('/serious-end.html.twig');
+        return $this->twig->render('Serious/serious-end.html.twig');
     }
 }
