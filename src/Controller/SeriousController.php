@@ -8,12 +8,11 @@ class SeriousController extends AbstractController
 {
     public function startSerious()
     {
-        // Récupérer l'API, est-ce qu'on s'en sert ???
+        // Get the images from the API but do really need it ???????
         $client = HttpClient::create();
-        $imageSerious1 = $client->request('GET', 'https://mars.nasa.gov/msl-raw-images/proj/msl/redops/ods/surface/sol/00060/opgs/edr/fcam/FRA_402820707EDR_F0050104FHAZ00202M_.JPG');
-        return $this->twig->render('Serious/serious-start.html.twig', [
-            'imageSerious1' => $imageSerious1
-        ]);
+        // $response = $client->request('GET', 'https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2015-6-3&api_key=DEMO_KEY');
+        // $results = $response->toArray();
+        return $this->twig->render('Serious/serious-start.html.twig');
     }
 
     public function endSerious()
