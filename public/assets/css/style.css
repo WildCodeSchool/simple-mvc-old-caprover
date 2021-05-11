@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Slab:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Slab:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --primary-color: #160401;
+    --primary-color-transparence: #1604018c;
+    --secondary-color: #FFFDF1;
+    --element-color: #FDA148;
+    --white-color: #ffffff;
+    --shadow-color: rgba(0, 0, 0, 0.2);
+
+    --text-font: 'Montserrat', sans-serif;
+    --title-font: 'Josefin Slab', serif;
+
+    --title-size: 2.3em;
+    --paragraph-size: 1.5em;
+    --primary-spacing: 8px;
+    --secondary-spacing: 16px;
+    --third-spacing: 24px;
+}
+
+body {
+    background-color: var(--primary-color);
+    font-family: var(--text-font);
+    scroll-behavior: smooth;
+}
+
+h1,
+h2 {
+    margin: 40px;
+    padding: 0;
+    font-family: var(--title-font);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-weight: bold;
+    color: var(--secondary-color);
+    text-align: center;
+}
+
+h1::after,
+h2::after {
+    content: '';
+    width: 150px;
+    height: 2px;
+    background: var(--secondary-color);
+    display: block;
+    margin: 10px auto;
+}
