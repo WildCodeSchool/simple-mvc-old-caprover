@@ -18,8 +18,8 @@
 	</head>
 
 	<body id='bg-layout' style="background-image:url('{{ backgroundImg }}')">
-		<header class='text-warning text-center pt-2' style="background-image:url('/assets/images/header-sky.jpg')">
-			<h4>Robots Gone Wild &#129302;</h4>
+		<header class='text-warning text-center pt-3 pb-5' style="background-image:url('/assets/images/header-sky.jpg')">
+			<h2 class = "pb-3">Robots Gone Wild &#129302;</h2>
 		</header>
 
 		{% block robot %}{% endblock %}
@@ -69,23 +69,23 @@
 			<div class='row'>
 				{% if name == 'Percy' %}
 					<div id="robot-image" class='mb-3 mt-5'>
-						<h4 class='text-warning'>
+						<h4 class='text-danger'>
 							Playing as Percy
 						</h4>
-						<img class='img-fluid mt-2' src="/assets/images/percy.png" alt="C'est Percy ma gueule" width="550" height="300">
+						<img class='img-fluid mt-2 mb-5' src="/assets/images/percy.png" alt="C'est Percy ma gueule" width="550" height="300">
 					</div>
 				{% elseif name == 'Ginny' %}
 					<div id="robot-image" class='mb-3 mt-5'>
-						<h4 class='text-warning'>
+						<h4 class='text-danger'>
 							Playing as Ginny
 						</h4>
-						<img class='img-fluid mt-2' src="/assets/images/ginny.png" alt="C'est Ginny ma gueule" width="550" height="300">
+						<img class='img-fluid mt-2 mb-5' src="/assets/images/ginny.png" alt="C'est Ginny ma gueule" width="550" height="300">
 					</div>
 				{% endif %}
 			</div>
 		</div>
 
-		<footer class='text-warning text-center pt-2' style="background-image:url('/assets/images/header-sky.jpg')">
+		<footer class='text-warning text-center mt-4 pt-2' style="background-image:url('/assets/images/header-sky.jpg')">
 		Created By Léa, Lionel, Pierre-Emmanuel et Emmanuel
 		</footer>
 
