@@ -12,7 +12,8 @@ class HomeController extends AbstractController
             $_SESSION['name'] = $_POST['name'];
             header('Location: /home/start');
         }
-        return $this->twig->render('/index.html.twig');
+        return $this->twig->render('/index.html.twig', [
+            'backgroundImg' => $this->generateRandomImg()]);
     }
 
 
