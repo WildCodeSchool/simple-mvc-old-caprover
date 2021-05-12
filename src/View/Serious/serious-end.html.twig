@@ -99,13 +99,17 @@
 
 		<span class='text-danger'>NASA Com-link:
 		</span>
-        It’s been a very busy day for {robotname} but {he}/{she} seems to have enjoyed it. Some robots are just satisfied with doing basic tasks for all their day and get their happiness from receiving new user instructions. {robotname} can enjoy a nice rest and dream about future instructions and tasks he will receive for tomorrow.
+		{% if name == 'Ginny' %}
+        It’s been a very busy day for {{ name }} but she seems to have enjoyed it. Some robots are just satisfied with doing basic tasks for all their day and get their happiness from receiving new user instructions. {{ name }} can enjoy a nice rest and dream about future instructions and tasks he will receive for tomorrow.
+		{% elseif name == 'Percy' %}
+		It’s been a very busy day for {{ name }} but he seems to have enjoyed it. Some robots are just satisfied with doing basic tasks for all their day and get their happiness from receiving new user instructions. {{ name }} can enjoy a nice rest and dream about future instructions and tasks he will receive for tomorrow.
+		{% endif %}
 	</p>
 {% endblock %}
 
 
 {% block activities %}
-	
+	<img src="https://img.buzzfeed.com/buzzfeed-static/static/2018-12/20/18/asset/buzzfeed-prod-web-06/anigif_sub-buzz-31994-1545347472-1.gif" alt="" width="600px" height="400px">
 {% endblock %}
 
 
