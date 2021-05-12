@@ -10,30 +10,30 @@
 
 {% block choice %}
 
-<iframe class="mt-4" autoplay loop muted width="800" height="600" src="https://www.youtube.com/embed/rzmd7RouGrM?controls=0&amp;start=120&end=145" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe class="mt-4 rounded-3" autoplay loop muted width="600" height="500" src="https://www.youtube.com/embed/rzmd7RouGrM?controls=0&amp;start=120&end=145" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 <div class='container'>
   <form action="" method="POST">
     <div class='row text-center my-4'>
 
       <div class="col">
-        <img src="/assets/images/ginny.png" alt="" width="300" height="200">
+        <img class='rounded-3' src="/assets/images/ginny.png" alt="" width="300" height="200">
         <div class='m-2'>
-          <label class="form-check-label text-warning mx-2" for="Ginny">Play as Ginny</label>
-          <input type="radio" class="form-check-input mx-2" id="Ginny" name="name" value="Ginny"></input>
+          <label class="form-check-label text-danger fs-3 mx-2" for="Ginny">Play as Ginny</label>
         </div>
+        <input type="radio" class="form-check-input mx-2" id="Ginny" name="name" value="Ginny"></input>
       </div>
         
       <div class="col text-center">
-        <img src="/assets/images/percy.png" alt="" width="300" height="200">
+        <img class='rounded-3' src="/assets/images/percy.png" alt="" width="300" height="200">
         <div class='m-2'>
-          <label class="form-check-label text-warning mx-2" for="Percy">Play as Percy</label>
-          <input type="radio" class="form-check-input mx-2" id="Percy" name='name' value="Percy">
+          <label class="form-check-label text-danger fs-3 mx-2" for="Percy">Play as Percy</label>
         </div>
+        <input type="radio" class="form-check-input mx-2" id="Percy" name='name' value="Percy">
       </div>
 
       <div class="col-12 text-center">
-        <button type="submit" class="btn btn-warning" value="submit">Let's rock !</button>
+        <button type="submit" class="btn btn-warning btn-lg" value="submit">Let's rock !</button>
       </div>
       
     </div>
