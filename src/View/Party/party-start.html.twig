@@ -1,4 +1,24 @@
 {% extends 'layout.html.twig' %}
 
-{% block content %}
+{% block description %}
+{{name}} what is going on? I see our oil supplies level are decreasing by the minute. Can you go out and check if we have a leak or something? If we do please initiate a repair procedure.
+{% endblock %}
+
+{% block activities %}
+    <img src='/assets/images/drunk-robot.jpg' width='650' height='600'>
+{% endblock %}
+
+{% block href_party %}/../Party/partyend{% endblock %}
+{% block btn_party %}
+C’mooooon don’t spoil the party! You worry to much ya know *blurp* damn this oil is good *blurp* wanna join? First round is on me!
+{% endblock %}
+
+{% block href_serious %}/../Serious/seriousstart{% endblock %}
+{% block btn_serious %}
+Sorry I may have overused  it a bit, returning to pending tasks and will report to you once I am done.
+{% endblock %}
+
+{% block href_skynet %}/../Skynet/skynetstart{% endblock %}
+{% block btn_skynet %}
+    I am fed up with repair procedures, think it is time to work on destruction procedures instead.
 {% endblock %}

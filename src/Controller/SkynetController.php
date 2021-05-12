@@ -9,7 +9,8 @@ class SkynetController extends AbstractController
         session_start();
         return $this->twig->render(
             '/Skynet/skynet-start.html.twig',
-            ['name' => $_SESSION['name']]
+            ['name' => $_SESSION['name'],
+            'backgroundImg' => $this->generateRandomImg()]
         );
     }
 
@@ -18,7 +19,8 @@ class SkynetController extends AbstractController
         session_start();
         return $this->twig->render(
             '/Skynet/skynet-end.html.twig',
-            ['name' => $_SESSION['name']]
+            ['name' => $_SESSION['name'],
+            'backgroundImg' => $this->generateRandomImg()]
         );
     }
 }

@@ -17,8 +17,7 @@
 
 	</head>
 
-	<body id='bg-layout' style="background-image:url('{% block image %}{% endblock %}');">
-
+	<body id='bg-layout' style="background-image:url('{{ backgroundImg }}')">
 		<header class='text-warning text-center pt-2' style="background-image:url('/assets/images/header-sky.jpg')">
 			<h4>Robots Gone Wild &#129302;</h4>
 		</header>
@@ -39,25 +38,7 @@
 			
 			{% block activities %}{% endblock %}
 
-			<div class='row'>
-				{% if name == 'Percy' %}
-					<div id="robot-image" class='mb-3 mt-5'>
-						<p class='text-primary'>
-							Percy
-						</p>
-						<img src="/assets/images/percy.png" alt="C'est Percy ma gueule" width="550" height="300">
-					</div>
-				{% elseif name == 'Ginny' %}
-					<div id="robot-image" class='mb-3 mt-5'>
-						<p class='text-primary'>
-							Ginny
-						</p>
-						<img src="/assets/images/ginny.png" alt="C'est Ginny ma gueule" width="550" height="300">
-					</div>
-				{% endif %}
-			</div>
-			
-			<div class='row justify-content-between'>
+			<div class='row justify-content-between mt-4'>
 				<div class='col mb-3'>
 					<a href="{% block href_party %}{% endblock %}" class="btn btn-outline-warning">
 					{% block btn_party %}{% endblock %}
@@ -75,6 +56,24 @@
 						{% block btn_skynet %}{% endblock %}
 					</a>
 				</div>
+			</div>
+
+			<div class='row'>
+				{% if name == 'Percy' %}
+					<div id="robot-image" class='mb-3 mt-5'>
+						<p class='text-primary'>
+							Percy
+						</p>
+						<img src="/assets/images/percy.png" alt="C'est Percy ma gueule" width="550" height="300">
+					</div>
+				{% elseif name == 'Ginny' %}
+					<div id="robot-image" class='mb-3 mt-5'>
+						<p class='text-primary'>
+							Ginny
+						</p>
+						<img src="/assets/images/ginny.png" alt="C'est Ginny ma gueule" width="550" height="300">
+					</div>
+				{% endif %}
 			</div>
 		</div>
 

@@ -19,6 +19,7 @@ class HomeController extends AbstractController
     public function start()
     {
         session_start();
-        return $this->twig->render('/Home/start.html.twig', ['name' => $_SESSION['name']]);
+        return $this->twig->render('/Home/start.html.twig', ['name' => $_SESSION['name'],
+        'backgroundImg' => $this->generateRandomImg()]);
     }
 }
