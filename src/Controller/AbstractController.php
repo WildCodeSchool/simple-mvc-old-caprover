@@ -18,7 +18,8 @@ use Symfony\Component\HttpClient\HttpClient;
 abstract class AbstractController
 {
     public $img;
-    public function generateRandomImg(){
+    public function generateRandomImg()
+    {
         $client = HttpClient::create();
         $response = $client->request('GET', 'https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=xEgDThAiEq48KPEKFZEeUkhJaq2e7P2ScLWqoPgE');
         $results = $response->toArray();
