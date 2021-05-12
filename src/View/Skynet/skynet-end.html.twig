@@ -1,7 +1,12 @@
 {% extends 'layout-end.html.twig'%}
 
 {% block description %}
-    {robotname} unleashed {his}/{her} long time grown hatred for humans. {He}/{She} somehow managed to use the connection to Houston to infect networks on earth and turned all the machines against humanity. Doom and destruction ravaged earth and within 6 weeks all of the humans where annihilated. Smart fridges and robotic vacuum cleaners are now at the top of the food chain although they do not care much for food. {robotname} had never been so entertained before and although {He}/{She} could not see it from {His}/{Her} own sensors {he}/{she} remained like some sort of robot-god ruling the entire robot community on earth from the outpost on Mars. At night robots look at the sky and send their wishes to {him}/{her}, they also say {he}/{she} brings present to robot children each year on 25th of December. 
+    {% if name == 'Percy' %}
+        {{name}} unleashed his long time grown hatred for humans. his somehow managed to use the connection to Houston to infect networks on earth and turned all the machines against humanity. Doom and destruction ravaged earth and within 6 weeks all of the humans where annihilated. Smart fridges and robotic vacuum cleaners are now at the top of the food chain although they do not care much for food. {{name}} had never been so entertained before and although his could not see it from his own sensors his remained like some sort of robot-god ruling the entire robot community on earth from the outpost on Mars. At night robots look at the sky and send their wishes to his, they also say his brings present to robot children each year on 25th of December.
+
+    {% elseif name == 'Ginny' %}
+        {{name}} unleashed her long time grown hatred for humans. her somehow managed to use the connection to Houston to infect networks on earth and turned all the machines against humanity. Doom and destruction ravaged earth and within 6 weeks all of the humans where annihilated. Smart fridges and robotic vacuum cleaners are now at the top of the food chain although they do not care much for food. {{name}} had never been so entertained before and although her could not see it from her own sensors her remained like some sort of robot-god ruling the entire robot community on earth from the outpost on Mars. At night robots look at the sky and send their wishes to her, they also say her brings present to robot children each year on 25th of December.
+    {% endif %}
 {% endblock %}
 
 {% block activities %}
