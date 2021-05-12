@@ -41,21 +41,27 @@
 			{% block activities %}{% endblock %}
 
 			<div class='row justify-content-between mt-4'>
-				<div class='col-12 col-md-2 mb-3'>
+				<div class='col-12 col-md-4 mb-3'>
 					<a href="{% block href_party %}{% endblock %}" class="btn btn-outline-warning">
+					<h4>
 					{% block btn_party %}{% endblock %}
+					</h4>
 					</a>
 				</div>
 
-				<div class='col-12 col-md-2 mb-3'>
+				<div class='col-12 col-md-4 mb-3'>
 					<a href="{% block href_serious %}{% endblock %}" class="btn btn-outline-success">
+					<h4>
 					{% block btn_serious %}{% endblock %}
+					</h4>
 					</a>
 				</div>
 
-				<div class='col-12 col-md-2 mb-3'>
+				<div class='col-12 col-md-4 mb-3'>
 					<a href="{% block href_skynet %}{% endblock %}" class="btn btn-outline-danger">
+					<h4>
 						{% block btn_skynet %}{% endblock %}
+					</h4>
 					</a>
 				</div>
 			</div>
@@ -63,17 +69,17 @@
 			<div class='row'>
 				{% if name == 'Percy' %}
 					<div id="robot-image" class='mb-3 mt-5'>
-						<p class='text-primary'>
-							Percy
-						</p>
-						<img class='img-fluid' src="/assets/images/percy.png" alt="C'est Percy ma gueule" width="550" height="300">
+						<h4 class='text-warning'>
+							Playing as Percy
+						</h4>
+						<img class='img-fluid mt-2' src="/assets/images/percy.png" alt="C'est Percy ma gueule" width="550" height="300">
 					</div>
 				{% elseif name == 'Ginny' %}
 					<div id="robot-image" class='mb-3 mt-5'>
-						<p class='text-primary'>
-							Ginny
-						</p>
-						<img class='img-fluid' src="/assets/images/ginny.png" alt="C'est Ginny ma gueule" width="550" height="300">
+						<h4 class='text-warning'>
+							Playing as Ginny
+						</h4>
+						<img class='img-fluid mt-2' src="/assets/images/ginny.png" alt="C'est Ginny ma gueule" width="550" height="300">
 					</div>
 				{% endif %}
 			</div>
