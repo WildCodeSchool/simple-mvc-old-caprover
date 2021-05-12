@@ -5,29 +5,20 @@ namespace App\Controller;
 class HomeController extends AbstractController
 {
 
-public function index()
-{
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $cookie_name = $_POST['name'];
-            if ($cookie_name == 'Ginny') {
-                setcookie($cookie_name, time() + (86400 * 30), "/"); // 86400 = 1 day
-                echo "Cookie named '" . $cookie_name . "' is set!";
-            } elseif ($cookie_name == 'Percy') {
-                setcookie($cookie_name, time() + (86400 * 30), "/"); // 86400 = 1 day
-                echo "Cookie named '" . $cookie_name . "' is set!";
-            }
-        }
-return $this->twig->render('/index.html.twig');
-}
-
-
-public function start()
+    public function index()
     {
-        if (empty($_POST)) {
-            header('Location: /home/index');            
-        } else {
-            $cookie_name = $_POST['name']; 
-            return $this->twig->render('/Home/start.html.twig', ['name' => $cookie_name]);
-        }        
+        session_start();
+        if ($_SERVER["REQUEST_METHOD"] === "POST") {
+            $_SESSION['name'] = $_POST['name'];
+            header('Location: /home/start');
+        }
+        return $this->twig->render('/index.html.twig');
+    }
+
+
+    public function start()
+    {
+        session_start();
+        return $this->twig->render('/Home/start.html.twig', ['name' => $_SESSION['name']]);
     }
 }
