@@ -29,78 +29,77 @@
 					<output>
 
 						<p>
-						<span class='text-danger'>NASA Com-link:</span>
-						{% block description %}{% endblock %}
+							<span class='text-danger'>NASA Com-link:</span>
+							{% block description %}{% endblock %}
 						</p>
-            
+
 					</output>
 				</div>
 			</div>
 
-				{# <div class='row'>
-					{% if condition %}
-						<div id="robot-image" class='mb-3 mt-5'>
-							<p class='text-primary'>
-								Percy
-							</p>
-							<img src="/assets/images/percy.png" alt="C'est Percy ma gueule" width="550" height="300">
-						</div>
-					{% elseif condition %}
-						<div id="robot-image" class='mb-3 mt-5'>
-							<p class='text-primary'>
-								Ginny
-							</p>
-							<img src="/assets/images/ginny.png" alt="C'est Ginny ma gueule" width="100" height="125">
-						</div>
-					{% endif %}
-				</div> #}
+			{# <div class='row'>
+								{% if condition %}
+									<div id="robot-image" class='mb-3 mt-5'>
+										<p class='text-primary'>
+											Percy
+										</p>
+										<img src="/assets/images/percy.png" alt="C'est Percy ma gueule" width="550" height="300">
+									</div>
+								{% elseif condition %}
+									<div id="robot-image" class='mb-3 mt-5'>
+										<p class='text-primary'>
+											Ginny
+										</p>
+										<img src="/assets/images/ginny.png" alt="C'est Ginny ma gueule" width="100" height="125">
+									</div>
+								{% endif %}
+							</div> #}
 
-				{% block activities %}{% endblock %}
-				<div class='row justify-content-between'>
-					<div class='col mb-3'>
-						<a href="{% block href_party %}{% endblock %}" class="btn btn-outline-warning"> {% block btn_party %}{% endblock %}
+			{% block activities %}{% endblock %}
+			<div class='row justify-content-between'>
+				<div class='col mb-3'>
+					<a href="{% block href_party %}{% endblock %}" class="btn btn-outline-warning"> {% block btn_party %}{% endblock %}
+						</a>
+					</div>
+
+					<div class='col mb-3 offset-2'>
+						<a href="{% block href_serious %}{% endblock %}" class="btn btn-outline-success"> {% block btn_serious %}{% endblock %}
 							</a>
 						</div>
 
 						<div class='col mb-3 offset-2'>
-							<a href="{% block href_serious %}{% endblock %}" class="btn btn-outline-success"> {% block btn_serious %}{% endblock %}
+							<a href="{% block href_skynet %}{% endblock %}" class="btn btn-outline-danger"> {% block btn_skynet %}{% endblock %}
 								</a>
 							</div>
-
-							<div class='col mb-3 offset-2'>
-								<a href="{% block href_skynet %}{% endblock %}" class="btn btn-outline-danger"> {% block btn_skynet %}{% endblock %}
-									</a>
-								</div>
-							</div>
 						</div>
-						{% block robot %}{% endblock %}
-						<footer class='text-warning text-center pt-2' style="background-image:url('/assets/images/header-sky.jpg')">
-							Created By Léa, Lionel, Pierre-Emmanuel et Emmanuel
-						</footer>
+					</div>
+					{% block robot %}{% endblock %}
+					<footer class='text-warning text-center pt-2' style="background-image:url('/assets/images/header-sky.jpg')">
+						Created By Léa, Lionel, Pierre-Emmanuel et Emmanuel
+					</footer>
 
-			<div class='row'>
-				{% if name == 'Percy' %}
-				<div id="robot-image" class='mb-3 mt-5'>
-                    <p class='text-primary'>
-						Percy
-					</p>
-					<img src="/assets/images/percy.png" alt="C'est Percy ma gueule" width="550" height="300">
-				</div>
-				{% elseif name == 'Ginny' %}
-				<div id="robot-image" class='mb-3 mt-5'>
-					<p class='text-primary'>
-						Ginny
-					</p>
-					<img src="/assets/images/ginny.png" alt="C'est Ginny ma gueule" width="100" height="125">
-                </div>
-				{% endif %}
-			</div>
-
-
-            
+					<div class='row'>
+						{% if name == 'Percy' %}
+							<div id="robot-image" class='mb-3 mt-5'>
+								<p class='text-primary'>
+									Percy
+								</p>
+								<img src="/assets/images/percy.png" alt="C'est Percy ma gueule" width="550" height="300">
+							</div>
+						{% elseif name == 'Ginny' %}
+							<div id="robot-image" class='mb-3 mt-5'>
+								<p class='text-primary'>
+									Ginny
+								</p>
+								<img src="/assets/images/ginny.png" alt="C'est Ginny ma gueule" width="100" height="125">
+							</div>
+						{% endif %}
+					</div>
+				</body>
+			</html>
 		</div>
 
-						<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
 
-					</body>
-				</html>
+	</body>
+</html>

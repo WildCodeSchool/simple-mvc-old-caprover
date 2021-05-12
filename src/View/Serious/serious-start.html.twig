@@ -96,8 +96,6 @@
 {% block description %}
 	<p>
 
-		<span class='text-danger'>NASA Com-link:
-		</span>
 		Excellent work {robotname}!  Now please continue to dig to make sure we have a comfortable amount of data for our experts to analyze. Do you know we work with the best soil experts in here? Some have a MIT degree, that’s so exciting! Well, to me at least. You never went to high school of course. Fun times… Anyway let’s get back to it, we are making great progress!
 																		        We do make a great time, don’t we?
 	</p>
@@ -119,7 +117,7 @@
 			</h2>
 			<div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
 				<div class="accordion-body">
-					I have to collect approximately 300 tubes full of Martian rock on Olympus Mons and take 404 images of the interesting rocks I find
+					I have to collect approximately <strong>300</strong> tubes full of Martian rock on Olympus Mons and take <strong>404</strong> images of the interesting rocks I find
 				</div>
 			</div>
 		</div>
@@ -135,7 +133,7 @@
 			</h2>
 			<div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
 				<div class="accordion-body">
-					My mission is to analyze the gray scale images of the rocks, extract their properties, identify rocks of interest for little humans, and do it again to take additional imagery of the identified target if needed
+					My mission is to <strong>analyze the gray scale images of the rocks, extract their properties, identify rocks of interest for little humans</strong>, and do it again to take additional imagery of the identified target if needed
 				</div>
 			</div>
 		</div>
@@ -158,18 +156,19 @@
 	</div>
 {% endblock %}
 
-{% block href_party %}{% endblock %}
-{% block btn_party %}Choix serieux
-									Interesting but I am not programmed to have fun. Going back to digging and will report asap.
-									(move to serieux fin)
+{% block href_serious %} /serious/endSerious/ {% endblock %}
+{% block btn_serious %}
+Choix serieux
+Interesting but I am not programmed to have fun. Going back to digging and will report asap.
+(move to serieux fin)
 {% endblock %}
-{% block href_serious %}{% endblock %}
-{% block btn_serious %}Choix skynet
+{% block href_skynet %}/skynet/skynetStart/{% endblock %}
+{% block btn_skynet %}Choix skynet
 									Sure I’ll keep digging so that the hole is big enough to burry the whole mankind
 									(move to skynet 1)
 {% endblock %}
-{% block href_skynet %}{% endblock %}
-{% block btn_skynet %}Choix fête
+{% block href_party %}/party/partyStart/{% endblock %}
+{% block btn_party %}Choix fête
 									Sure will do, just need one more little glass of oil to get me started and I’ll get to it
 									(move to fete 1)
 {% endblock %}
