@@ -2,18 +2,41 @@
 {% extends 'layout-accueil.html.twig' %}
 
 
+
+
+
+
 {% block btn_party %}
+
+<div class='row'>
+				{% if name == 'Percy' %}
+					<div id="robot-image" class='mb-3 mt-5'>
+						<p class='text-primary'>
+							Percy
+						</p>
+						<img src="/assets/images/percy.png" alt="C'est Percy ma gueule" width="550" height="300">
+					</div>
+				{% elseif name == 'Ginny' %}
+					<div id="robot-image" class='mb-3 mt-5'>
+						<p class='text-primary'>
+							Ginny
+						</p>
+						<img src="/assets/images/ginny.png" alt="C'est Ginny ma gueule" width="100" height="125">
+					</div>
+				{% endif %}
+			</div>
 
 <form method="post" action="">
   <div class="mb-3 form-check">
+		<img src="/assets/images/ginny.png" alt="" width="100" height="125"></div>
     <input type="radio" class="form-check-input" id="Ginny" name="name" value="Ginny">
     <label class="form-check-label" for="exampleCheck1">Ginny</label>
-  </div>
   <div class="mb-3 form-check">
+    <img src="/assets/images/percy.png" alt="" width="100" height="125"></div>
     <input type="radio" class="form-check-input" id="Percy" name='name' value="Percy">
-    <label class="form-check-label" for="exampleCheck1">Percy</label>
+    <label class="form-check-label" for="exampleCheck1">Percy</label><br><br>
+    <button type="submit" class="btn btn-primary" value="submit">Submit</button>
   </div>
-  <button type="submit" class="btn btn-primary" value="submit">Submit</button>
 </form>
 
 {% endblock %}
