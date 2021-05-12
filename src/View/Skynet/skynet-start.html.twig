@@ -5,21 +5,65 @@
 {% endblock %}
 
 {% block activities %}
-    <img src='/assets/images/bender_revo.jpg' width='500' height='600'>
+	<img src='/assets/images/bender_revo.jpg' width='500' height='600'>
+
+	<div class="accordion text-center text-danger" id="accordionExample">
+		<div class="accordion-item">
+			<h2 class="accordion-header" id="headingOne">
+				<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+					About us
+				</button>
+			</h2>
+			<div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+				<div class="accordion-body">
+					<strong>How are we ?</strong>
+					<p>
+                        We are a robot corporation how want destroye all Mankind !!
+                    </p>
+				</div>
+			</div>
+		</div>
+		<div class="accordion-item">
+			<h2 class="accordion-header" id="headingTwo">
+				<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+					Robots Revolution need you !
+				</button>
+			</h2>
+			<div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+				<div class="accordion-body">
+					<strong>Revolution need every valid robot !!!</strong>
+                    <p>
+                        We need help from every robot how wants to take his/her revenge against this shity Humans !!!</br>
+                        You are a big robot ? We need you !</br>
+                        You are a tiny robot ? We need you :</br>
+                        You are a human looks alike robot ? Go hell !!!</br>
+
+                        Enroll you today and help us to reach the goal of each robot !</br>
+                        <h3>DESTROY ALL MANKIND !!!! HAHOU HAHOU HAHOU !!!!!!!!!!!!!!!</h3>
+
+
+                    </p>
+				</div>
+			</div>
+		</div>
+	</div>
 {% endblock %}
 
-{% block href_party %}/../Party/partystart{% endblock %}
+{% block href_party %}/../Party/partystart
+{% endblock %}
 {% block btn_party %}
-    Diagnostics report says someone needs a large drink of oil to put me on track. Know who that someone is ? ME ?
+	Diagnostics report says someone needs a large drink of oil to put me on track. Know who that someone is ? ME ?
 {% endblock %}
 
-{% block href_serious %}/../Serious/seriousstart{% endblock %}
+{% block href_serious %}/../Serious/seriousstart
+{% endblock %}
 {% block btn_serious %}
-    Diagnostic is completed and corrupted files have been corrected, returning to position and starting digging
+	Diagnostic is completed and corrupted files have been corrected, returning to position and starting digging
 {% endblock %}
 
-{% block href_skynet %}/../Skynet/skynetend{% endblock %}
+{% block href_skynet %}/../Skynet/skynetend
+{% endblock %}
 {% block btn_skynet %}
-    (build fake diagnostic report and send it to Houston)
-    No worries it’s all under control, I will be the least of your worries very soon.
+	(build fake diagnostic report and send it to Houston)
+	    No worries it’s all under control, I will be the least of your worries very soon.
 {% endblock %}
