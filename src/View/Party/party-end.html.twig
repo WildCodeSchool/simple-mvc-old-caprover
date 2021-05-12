@@ -1,4 +1,15 @@
-{% extends 'layout.html.twig' %}
+{% extends 'layout-end.html.twig'%}
 
-{% block content %}
+{% block description %}
+{% if name == "Percy" %}
+
+{{name}} felt asleep and awoke in a random pit on Mars with some of his linings missing and a terrible headache. He noticed that he carved a tattoo on his right arm that read “best party ever” which made him smile for a minute and then drove a lot of regrets thinking about the impossibility to ever remove it. He also checked his message logs and noticed that many unprofessional message where sent to Houston and Ginny. One of them read “send nukes” but he was pretty sure that it was a misspell and went back to the outpost covered in shame. 
+{% elseif name == 'Ginny' %}
+{{name}} felt asleep and awoke in a random pit on Mars with some of her linings missing and a terrible headache. She noticed that she carved a tattoo on her right arm that read “best party ever” which made her smile for a minute and then drove a lot of regrets thinking about the impossibility to ever remove it. She also checked her message logs and noticed that many unprofessional message where sent to Houston and Percy. One of them read “send nukes” but she was pretty sure that it was a misspell and went back to the outpost covered in shame. 
+{% endif %}
+
+{% endblock %}
+
+{% block activities %}
+    <img src='/assets/images/drunk-robot-2.jpg' width='980' height='600'>
 {% endblock %}
