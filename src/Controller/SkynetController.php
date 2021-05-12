@@ -6,11 +6,15 @@ class SkynetController extends AbstractController
 {
     public function skynetStart()
     {
-        return $this->twig->render('/Skynet/skynet-start.html.twig');
+        session_start();
+        return $this->twig->render('/Skynet/skynet-start.html.twig',
+        ['name' => $_SESSION['name']]);
     }
 
     public function skynetEnd()
     {
-        return $this->twig->render('/Skynet/skynet-end.html.twig');
+        session_start();
+        return $this->twig->render('/Skynet/skynet-end.html.twig',
+            ['name' => $_SESSION['name']]);
     }
 }
