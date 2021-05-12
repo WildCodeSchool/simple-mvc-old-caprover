@@ -7,16 +7,20 @@ class SkynetController extends AbstractController
     public function skynetStart()
     {
         session_start();
-        return $this->twig->render('/Skynet/skynet-start.html.twig',
-        ['name' => $_SESSION['name'],
-        'backgroundImg' => $this->generateRandomImg()]);
+        return $this->twig->render(
+            '/Skynet/skynet-start.html.twig',
+            ['name' => $_SESSION['name'],
+            'backgroundImg' => $this->generateRandomImg()]
+        );
     }
 
     public function skynetEnd()
     {
         session_start();
-        return $this->twig->render('/Skynet/skynet-end.html.twig',
+        return $this->twig->render(
+            '/Skynet/skynet-end.html.twig',
             ['name' => $_SESSION['name'],
-            'backgroundImg' => $this->generateRandomImg()]);
+            'backgroundImg' => $this->generateRandomImg()]
+        );
     }
 }
