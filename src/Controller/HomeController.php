@@ -5,29 +5,25 @@ namespace App\Controller;
 class HomeController extends AbstractController
 {
 
-public function index()
-{
+    public function index()
+    {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $cookie_name = $_POST['name'];
-            if ($cookie_name == 'Ginny') {
-                setcookie($cookie_name, time() + (86400 * 30), "/"); // 86400 = 1 day
-                echo "Cookie named '" . $cookie_name . "' is set!";
-            } elseif ($cookie_name == 'Percy') {
-                setcookie($cookie_name, time() + (86400 * 30), "/"); // 86400 = 1 day
-                echo "Cookie named '" . $cookie_name . "' is set!";
+            $cookieName = $_POST['name'];
+            if ($cookieName == 'Ginny') {
+                setcookie($cookieName, time() + (86400 * 30), "/"); // 86400 = 1 day
+                echo "Cookie named '" . $cookieName . "' is set!";
+            } elseif ($cookieName == 'Percy') {
+                setcookie($cookieName, time() + (86400 * 30), "/"); // 86400 = 1 day
+                echo "Cookie named '" . $cookieName . "' is set!";
             }
         }
-return $this->twig->render('/index.html.twig');
-}
+        return $this->twig->render('/index.html.twig');
+    }
 
 
-public function start()
+    public function start()
     {
-        if (empty($_POST)) {
-            header('Location: /home/index');            
-        } else {
-            $cookie_name = $_POST['name']; 
-            return $this->twig->render('/Home/start.html.twig', ['name' => $cookie_name]);
-        }        
+            $cookieName = $_POST['name'];
+            return $this->twig->render('/Home/start.html.twig', ['name' => $cookieName]);
     }
 }
