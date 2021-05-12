@@ -23,29 +23,19 @@
 		</header>
 
 		<div class='container scrollable'>
-			<div class='row'>
-				<div class='col border border-style-solid m-3'>
-					{% block description %}{% endblock %}
-				</div>
-			</div>
-
-			<div class='row'>
-				<div class='col border border-style-solid m-3'>
-					{% block test %}{% endblock %}
-				</div>
-			</div>
+	
 
 			<div class='row'>
 				{% if condition %}
 				<div id="robot-image" class='mb-3 mt-5'>
-                    <p class='text-primary'>
+                    <p class='text-warning'>
 						Percy
 					</p>
 					<img class='img-fluid' src="/assets/images/percy.png" alt="C'est Percy ma gueule" width="550" height="300">
 				</div>
 				{% elseif condition %}
 				<div id="robot-image" class='mb-3 mt-5'>
-					<p class='text-primary'>
+					<p class='text-warning'>
 						Ginny
 					</p>
 					<img class='img-fluid' src="/assets/images/ginny.png" alt="C'est Ginny ma gueule" width="550" height="300">
@@ -55,7 +45,7 @@
 
 			<div class='row justify-content-between'>
 				<div class='col mb-3'>
-					<a href="{% block href_party %}{% endblock %}" class="btn btn-outline-warning">
+					<a href="{% block href_party %}{% endblock %}" >
                         {% block btn_party %}{% endblock %}
 					</a>
 				</div>

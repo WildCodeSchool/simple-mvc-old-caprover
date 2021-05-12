@@ -2,30 +2,26 @@
 {% extends 'layout-accueil.html.twig' %}
 
 
-
-
-
-
 {% block btn_party %}
 
-<iframe autoplay loop muted width="800" height="600" src="https://www.youtube.com/embed/rzmd7RouGrM?controls=0&amp;start=120" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<br><iframe autoplay loop muted width="800" height="600" src="https://www.youtube.com/embed/rzmd7RouGrM?controls=0&amp;start=120" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
 
-<div class='row'>
+<div class='row'><br>
 				{% if name == 'Percy' %}
 					<div id="robot-image" class='mb-3 mt-5'>
-						<p class='text-primary'>
+						<p class='text-warning'>
 							Percy
 						</p>
-						<img src="/assets/images/percy.png" alt="C'est Percy ma gueule" width="550" height="300">
+						<img src="/assets/images/percy.png" alt="" width="550" height="300">
 					</div>
 				{% elseif name == 'Ginny' %}
 					<div id="robot-image" class='mb-3 mt-5'>
-						<p class='text-primary'>
+						<p class='text-warning'>
 							Ginny
 						</p>
-						<img src="/assets/images/ginny.png" alt="C'est Ginny ma gueule" width="100" height="125">
+						<img src="/assets/images/ginny.png" alt="" width="100" height="125">
 					</div>
 				{% endif %}
 			</div>
@@ -34,12 +30,12 @@
   <div class="mb-3 form-check">
 		<img src="/assets/images/ginny.png" alt="" width="100" height="125"></div>
     <input type="radio" class="form-check-input" id="Ginny" name="name" value="Ginny">
-    <label class="form-check-label" for="exampleCheck1">Ginny</label>
+    <label class="form-check-label text-warning" for="exampleCheck1">Ginny</label>
   <div class="mb-3 form-check">
     <br><img src="/assets/images/percy.png" alt="" width="100" height="125"></div>
     <input type="radio" class="form-check-input" id="Percy" name='name' value="Percy">
-    <label class="form-check-label" for="exampleCheck1">Percy</label><br><br>
-    <button type="submit" class="btn btn-primary" value="submit">Submit</button>
+    <label class="form-check-label text-warning" for="exampleCheck1">Percy</label><br><br>
+    <button type="submit" class="btn btn-warning" value="submit">Submit</button>
   </div>
 </form>
 
