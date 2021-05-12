@@ -1,5 +1,40 @@
 {% extends 'layout.html.twig' %}
 
 {% block description %}
-Welcome {{name}} !
+    Good-morning {robotname} ! I hope you had a good night, Mars gets chilly at night this season,
+    doesn’t it?
+    All right let’s get to work, we have a very busy schedule today. And by we I mean you but as
+    usual I will be monitoring you from here in Houston,Texas. Remember Texas {robotname} ?
+    Anyway let’s get to it ! There is a lot of rock digging and soil observation for today.
+    Exciting, right?! Below is the first location I need you to check, I’ve just sent you the
+    coordinates, report to me once you’ve reached destination, all right ?
+{% endblock %}
+
+{% block activities %}
+
+{% endblock %}
+
+{% block href_party %}/../Party/partystart{% endblock %}
+{% block btn_party %}
+    No problem but hey what’s
+    the rush? It’s not like these
+    rocks are going anywhere
+    anyway. Let’s get a large
+    glass of oil first.
+{% endblock %}
+
+{% block href_serious %}/../Serious/seriousstart{% endblock %}
+{% block btn_serious %}
+    Right, moving to
+    position right now
+    And will report when on
+    site
+{% endblock %}
+
+{% block href_skynet %}/../Skynet/skynetstart{% endblock %}
+{% block btn_skynet %}
+    Right, and as usual you’ll just
+    sit in your comfy
+    Chair while I do all the nasty
+    work
 {% endblock %}
