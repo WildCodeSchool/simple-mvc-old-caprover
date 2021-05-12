@@ -7,15 +7,17 @@ class HomeController extends AbstractController
 
     public function index()
     {
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $cookieName = $_POST['name'];
-            if ($cookieName == 'Ginny') {
-                setcookie($cookieName, time() + (86400 * 30), "/"); // 86400 = 1 day
-                echo "Cookie named '" . $cookieName . "' is set!";
-            } elseif ($cookieName == 'Percy') {
-                setcookie($cookieName, time() + (86400 * 30), "/"); // 86400 = 1 day
-                echo "Cookie named '" . $cookieName . "' is set!";
-            }
+        session_start();
+        if ($_SERVER["REQUEST_METHOD"] === "POST") {
+            $_SESSION['name'] = $_POST['name'];
+            header('Location: /home/start');
+            // if ($cookieName == 'Ginny') {
+            //     setcookie($cookieName, time() + (86400 * 30), "/"); // 86400 = 1 day
+            //     echo "Cookie named '" . $cookieName . "' is set!";
+            // } elseif ($cookieName == 'Percy') {
+            //     setcookie($cookieName, time() + (86400 * 30), "/"); // 86400 = 1 day
+            //     echo "Cookie named '" . $cookieName . "' is set!";
+            // }
         }
         return $this->twig->render('/index.html.twig');
     }
@@ -23,7 +25,7 @@ class HomeController extends AbstractController
 
     public function start()
     {
-            $cookieName = $_POST['name'];
-            return $this->twig->render('/Home/start.html.twig', ['name' => $cookieName]);
+        session_start();
+        return $this->twig->render('/Home/start.html.twig', ['name' => $_SESSION['name']]);
     }
 }
