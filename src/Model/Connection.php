@@ -43,17 +43,10 @@ class Connection
      */
     public function __construct()
     {
-        if (getenv('ENV') === 'prod') {
-            $this->user = getenv('DB_USER');
-            $this->host = getenv('DB_HOST');
-            $this->password = getenv('DB_PASSWORD');
-            $this->dbName = getenv('DB_NAME');
-        } else {
-            $this->user = APP_DB_USER;
-            $this->host = APP_DB_HOST;
-            $this->password = APP_DB_PWD;
-            $this->dbName = APP_DB_NAME;
-        }
+        $this->user = DB_USER;
+        $this->host = DB_HOST;
+        $this->password = DB_PASSWORD;
+        $this->dbName = DB_NAME;
         try {
             $this->pdoConnection = new PDO(
                 'mysql:host=' . $this->host . '; dbname=' . $this->dbName . '; charset=utf8',
@@ -63,7 +56,7 @@ class Connection
             $this->pdoConnection->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 
             // show errors in DEV environment
-            if (APP_DEV) { // @phpstan-ignore-line
+            if (ENV === 'dev') {
                 $this->pdoConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             }
         } catch (PDOException $e) {
