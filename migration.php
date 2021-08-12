@@ -3,7 +3,13 @@
 use App\Model\Connection;
 
 require 'vendor/autoload.php';
-require 'config/db.php';
+if(file_exists('config/db.php')){
+    require 'config/db.php';
+}else{
+    require 'config/db.php.dist';
+}
+
+
 require 'config/config.php';
 
 try {
