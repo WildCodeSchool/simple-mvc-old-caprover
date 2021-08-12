@@ -1,5 +1,5 @@
-#!/bin/sh
+#!/usr/bin/env sh
+set -e
 
-## server config
-php-fpm &
-nginx -g "daemon off;"
+php-fpm -D
+nginx -g 'daemon off;'
