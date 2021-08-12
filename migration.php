@@ -3,9 +3,9 @@
 use App\Model\Connection;
 
 require 'vendor/autoload.php';
-if(file_exists('config/db.php')){
+if (file_exists('config/db.php')) {
     require 'config/db.php';
-}else{
+} else {
     require 'config/db.php.dist';
 }
 

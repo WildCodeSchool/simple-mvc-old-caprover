@@ -41,7 +41,7 @@ COPY --from=vendor /app/vendor/ /var/www/vendor
 
 RUN mkdir /var/www/public/uploads/
 
-RUN chown -R www-data:www-data *
+RUN chown -R www-data:www-data /var/www
 RUN adduser nginx www-data \
     && chgrp -R www-data /var/www/public/uploads/ \
     && chmod -R 775 /var/www/public/uploads/
