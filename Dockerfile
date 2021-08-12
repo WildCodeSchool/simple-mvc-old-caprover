@@ -27,12 +27,24 @@ RUN apk update \
     && apk upgrade \    
     && apk add nginx
 
+# silently install 'docker-php-ext-install' extensions
+RUN set -x
+
+RUN docker-php-ext-install pdo_mysql bcmath > /dev/null
+
 COPY nginx.conf /etc/nginx/nginx.conf
 
 WORKDIR /var/www
 
 COPY . /var/www/
 COPY --from=vendor /app/vendor/ /var/www/vendor
+
+RUN mkdir /var/www/public/uploads/
+
+RUN chown -R www-data:www-data *
+RUN adduser nginx www-data \
+    && chgrp -R www-data /var/www/public/uploads/ \
+    && chmod -R 775 /var/www/public/uploads/
 
 
 EXPOSE 80
