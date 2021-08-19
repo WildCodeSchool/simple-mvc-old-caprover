@@ -34,11 +34,13 @@ If you develop on Windows, you should edit you git configuration to change your 
 An example (a basic list of items) is provided (you can load the *simple-mvc.sql* file in a test database). The accessible URLs are :
 
 * Home page at [localhost:8000/](localhost:8000/)
-* Items list at [localhost:8000/item/index](localhost:8000/item/index)
-* Item details [localhost:8000/item/index/show/:id](localhost:8000/item/show/2)
-* Item edit [localhost:8000/item/index/edit/:id](localhost:8000/item/edit/2)
-* Item add [localhost:8000/item/index/add](localhost:8000/item/add)
-* Item deletion [localhost:8000/item/index/delete/:id](localhost:8000/item/delete/2)
+* Items list at [localhost:8000/items](localhost:8000/items)
+* Item details [localhost:8000/items/show?id=:id](localhost:8000/item/show?id=2)
+* Item edit [localhost:8000/items/edit?id=:id](localhost:8000/items/edit?id=2)
+* Item add [localhost:8000/items/add](localhost:8000/items/add)
+* Item deletion [localhost:8000/items/delete?id=:id](localhost:8000/items/delete?id=2)
+
+You can find all these routes declared in the file `src/routes.php`. This is the very same file where you'll add your own new routes to the application.
 
 ## How does URL routing work ?
 
