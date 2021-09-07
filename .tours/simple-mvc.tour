@@ -1,0 +1,95 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "01 - Simple-MVC Introduction",
+  "steps": [
+    {
+      "file": "public/.htaccess",
+      "selection": {
+        "start": {
+          "line": 1,
+          "character": 1
+        },
+        "end": {
+          "line": 9,
+          "character": 1
+        }
+      },
+      "description": "Here is the rule that redirect every request to index.php\r\n\r\n.htaccess files are a way give specific rules to follow to your PHP server. "
+    },
+    {
+      "file": "public/index.php",
+      "selection": {
+        "start": {
+          "line": 1,
+          "character": 1
+        },
+        "end": {
+          "line": 1,
+          "character": 6
+        }
+      },
+      "description": "index.php is the entry point of the Simple-MVC. Every request will be redirected to this file thanks to the .htaccess file"
+    },
+    {
+      "file": "public/index.php",
+      "description": "The first step here is to load various tools we need :\r\n- the autoload (to load class files on the fly)\r\n- the debug configuration\r\n- the configuration of your MVC application",
+      "selection": {
+        "start": {
+          "line": 10,
+          "character": 1
+        },
+        "end": {
+          "line": 16,
+          "character": 48
+        }
+      },
+      "line": 9
+    },
+    {
+      "file": "public/index.php",
+      "description": "This file requires your attention : this is where you give your MVC application to connect to your database.",
+      "line": 14,
+      "selection": {
+        "start": {
+          "line": 14,
+          "character": 1
+        },
+        "end": {
+          "line": 14,
+          "character": 48
+        }
+      }
+    },
+    {
+      "file": "config/db.php",
+      "description": "When you start a new application with this simple-mvc template, remember to replace the database parameters here : \r\n- APP_DB_USER : the login to connect your database\r\n- APP_DB_PWD : the password to connect your database\r\n- APP_DB_HOST : the address to your database\r\n- APP_DB_NAME : the name of your database",
+      "selection": {
+        "start": {
+          "line": 16,
+          "character": 1
+        },
+        "end": {
+          "line": 20,
+          "character": 1
+        }
+      },
+      "line": 20
+    },
+    {
+      "file": "public/index.php",
+      "description": "Once all the configuration is loaded, the application will `routing.php` to distribute the request to right part of your code (in a MVC application, it will be to a Controller)",
+      "line": 16,
+      "selection": {
+        "start": {
+          "line": 17,
+          "character": 1
+        },
+        "end": {
+          "line": 17,
+          "character": 46
+        }
+      }
+    }
+  ],
+  "isPrimary": true
+}
