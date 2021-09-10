@@ -44,4 +44,4 @@ You can find all these routes declared in the file `src/routes.php`. This is the
 
 ## How does URL routing work ?
 
-![Simple MVC.png](https://raw.githubusercontent.com/WildCodeSchool/simple-mvc/master/Simple%20-%20MVC.png)
+![simple_MVC.png](.tours/simple_MVC.png)

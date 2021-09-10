@@ -14,7 +14,7 @@
           "character": 6
         }
       },
-      "description": "index.php is the entry point of the Simple-MVC. Every request will be redirected to this file thanks to the .htaccess file"
+      "description": "`index.php` is the entry point of the Simple-MVC. Every HTTP request will be redirected to this file thanks to the .htaccess file\r\n\r\n![Simple MVC](./.tours/simple_MVC.png)"
     },
     {
       "file": "public/.htaccess",
