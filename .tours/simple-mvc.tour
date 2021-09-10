@@ -3,20 +3,6 @@
   "title": "01 - Simple-MVC Introduction",
   "steps": [
     {
-      "file": "public/.htaccess",
-      "selection": {
-        "start": {
-          "line": 1,
-          "character": 1
-        },
-        "end": {
-          "line": 9,
-          "character": 1
-        }
-      },
-      "description": "Here is the rule that redirect every request to index.php\r\n\r\n.htaccess files are a way give specific rules to follow to your PHP server. "
-    },
-    {
       "file": "public/index.php",
       "selection": {
         "start": {
@@ -29,6 +15,20 @@
         }
       },
       "description": "index.php is the entry point of the Simple-MVC. Every request will be redirected to this file thanks to the .htaccess file"
+    },
+    {
+      "file": "public/.htaccess",
+      "selection": {
+        "start": {
+          "line": 1,
+          "character": 1
+        },
+        "end": {
+          "line": 9,
+          "character": 1
+        }
+      },
+      "description": "Here is the rule that redirect every request to index.php\r\n\r\n.htaccess files are a way give specific rules to follow to your PHP server. "
     },
     {
       "file": "public/index.php",

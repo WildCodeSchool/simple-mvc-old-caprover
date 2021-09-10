@@ -4,11 +4,11 @@
   "steps": [
     {
       "title": "le routing",
-      "description": "The routing is the step where we get the URL targeted in the HTTP REQUEST to call a specific function in a controller : \r\n\r\n![Schéma](./.tours/schema_1_routing.png)"
+      "description": "The routing is the step where we extract the URL from the HTTP REQUEST to call a specific function in a controller : \r\n\r\n![Schema](./.tours/schema_1_routing.png)\r\n[Schema](./.tours/schema_1_routing.png)"
     },
     {
       "file": "src/routing.php",
-      "description": "First we get the route asked by the user, which is the url without domain part.\r\nFor exemple :  \r\n`localhost/items/edit?id=5`\r\n- the domain is : `localhost`\r\n- the route is : `items/edit?id=5`\r\n\r\nThe route is easily available thanks to $_SERVER which, like $_GET or $_POST, is an array containing a lot of informations form your server (also see  [Doc](https://www.php.net/manual/fr/reserved.variables.server.php)). Here we get the `PATH_INFO`",
+      "description": "First we get the route requested by the user (which is the url without domain part).\r\n\r\nFor exemple :  \r\n`localhost/items/edit?id=5`\r\n- the domain is : `localhost`\r\n- the route is : `items/edit?id=5`\r\n\r\nThe route is easily available thanks to $_SERVER.Like $_GET or $_POST, $_SERVER is an array containing a lot of informations from your server (also see  [Doc](https://www.php.net/manual/fr/reserved.variables.server.php)). Here we get the `PATH_INFO`",
       "line": 4,
       "selection": {
         "start": {
@@ -33,7 +33,7 @@
           "character": 55
         }
       },
-      "description": "In order to know what par of the code to call, we to get all the routes of our application. Those routes are declares in `routes.php` "
+      "description": "In order to know what part of the code to call, we need to get all the routes of our application. Those routes are declared in `routes.php` "
     },
     {
       "file": "src/routes.php",
@@ -62,7 +62,7 @@
           "character": 12
         }
       },
-      "description": "This the route `items`, which means that our application have the entry point :\r\n\r\n[http://localhost:8000/items/](http://localhost:8000/items/)"
+      "description": "Here we have the route `items`. That means our application have the entry point :\r\n\r\n[http://localhost:8000/items/](http://localhost:8000/items/)"
     },
     {
       "file": "src/routes.php",
@@ -90,7 +90,7 @@
           "character": 48
         }
       },
-      "description": "A controller is just a class, but with a very important role : give a HTTP response to the HTTP request."
+      "description": "As you can see a controller is just a class, but it has a very important role : give a HTTP response to the HTTP request."
     },
     {
       "file": "src/Controller/ItemController.php",
@@ -104,7 +104,7 @@
           "character": 6
         }
       },
-      "description": "As you can see this controller already have a lot of function to call : index(), show(), edit(), ...\r\n\r\nBut only one should be called."
+      "description": "This controller already has a lot of function to call : index(), show(), edit(), ...\r\n\r\nEach function will return an HTML string (thanks to [TWIG](https://twig.symfony.com)) of a full page and will send as a response to our user.\r\n\r\nBut of course, as only one page will be return, only one function should be called."
     },
     {
       "file": "src/routes.php",
@@ -118,7 +118,7 @@
           "character": 42
         }
       },
-      "description": "And that's the job of this second parameter. Here, we declare that if someone ask for the route `items` (aka [http://localhost:8000/items/](http://localhost:8000/items/)). The executed code will be ..."
+      "description": "And that's the job of this second parameter. \n\nHere, we declare that if someone ask for the route `items` (aka [http://localhost:8000/items/](http://localhost:8000/items/)). The executed code will be ..."
     },
     {
       "file": "src/Controller/ItemController.php",
@@ -132,7 +132,7 @@
           "character": 6
         }
       },
-      "description": "... This one !"
+      "description": "... This one !\n\nNow let's see how to create a controller.\n"
     }
   ]
 }
