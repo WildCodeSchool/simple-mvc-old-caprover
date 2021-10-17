@@ -8,7 +8,7 @@
     },
     {
       "file": "src/routing.php",
-      "description": "Pour commencer nous récupérons la route demandée par notre utilisateur (ce qui n'est autre que l'URL sans la partie concernant le domaine).\r\n\r\nFor exemple :  \r\n`localhost/items/edit?id=5`\r\n- the domain is : `localhost`\r\n- the route is : `items/edit?id=5`\r\n\r\nThe route is easily available thanks to $_SERVER.Like $_GET or $_POST, $_SERVER is an array containing a lot of informations from your server (also see  [Doc](https://www.php.net/manual/fr/reserved.variables.server.php)). Here we get the `PATH_INFO`",
+      "description": "Pour commencer nous récupérons la route demandée par notre utilisateur (ce qui n'est autre que l'URL sans la partie concernant le domaine).\r\n\r\nPar exemple :  \r\n`localhost/items/edit?id=5`\r\n- Le domaine est : `localhost`\r\n- La route est : `items/edit?id=5`\r\n\r\nLa route est facilement récupérable grace à $_SERVER. A l'instar de $_GET ou de  $_POST, $_SERVER est un tableau qui contient de nombreuses informations sur le server web (pour en savoir plus : [Doc](https://www.php.net/manual/fr/reserved.variables.server.php)). Ici nous récupérons l'index `PATH_INFO`",
       "line": 4,
       "selection": {
         "start": {
@@ -33,11 +33,11 @@
           "character": 55
         }
       },
-      "description": "In order to know what part of the code to call, we need to get all the routes of our application. Those routes are declared in `routes.php` "
+      "description": "Afin de savoir quelle partie de notre code appeler, nous devons d'abord charger toutes les routes définies pour notre application. Toutes ses routes sont déclarées dans `routes.php` "
     },
     {
       "file": "src/routes.php",
-      "description": "In this array, we will declare all the routes of our application.\r\nEach route will call a specific part of our code and then will show a different result.\r\n\r\nThe route's goal is to target an action of a controller.\r\n\r\nLet's take a exemple :",
+      "description": "Dans ce tableau, nous déclarons toutes les routes de notre application.\r\n\r\nChaque route appellera une partie spécifique de notre code, et donc présentera un résultat différent.\r\n\r\nLe but d'une route est de guider une requête vers une action d'un controller.\r\n\r\nPrenons un exemple :",
       "line": 8,
       "selection": {
         "start": {
@@ -62,7 +62,7 @@
           "character": 12
         }
       },
-      "description": "Here we have the route `items`. That means our application have the entry point :\r\n\r\n[http://localhost:8000/items/](http://localhost:8000/items/)"
+      "description": "Ici nous avons la route `items`. Celà signife que notre application a comme porte d'entrée l'url suivante :\r\n\r\n[http://localhost:8000/items/](http://localhost:8000/items/)"
     },
     {
       "file": "src/routes.php",
@@ -76,7 +76,7 @@
           "character": 33
         }
       },
-      "description": "We link this entry point to a controller : `ItemController`"
+      "description": "On associe ce point d'entrée à un controller : `ItemController`"
     },
     {
       "file": "src/Controller/ItemController.php",
@@ -90,7 +90,7 @@
           "character": 48
         }
       },
-      "description": "As you can see a controller is just a class, but it has a very important role : give a HTTP response to the HTTP request."
+      "description": "Comme vous pouvez le voir un controller n'est rien qu'une classe. Elle a néanmoins un role cruciale dans notre application MVC : c'est elle qui traite la requête HTTP d'entrée, et c'est également qui retourner la requête HTTP de réponse."
     },
     {
       "file": "src/Controller/ItemController.php",
@@ -104,7 +104,7 @@
           "character": 6
         }
       },
-      "description": "This controller already has a lot of function to call : index(), show(), edit(), ...\r\n\r\nEach function will return an HTML string (thanks to [TWIG](https://twig.symfony.com)) of a full page and will send as a response to our user.\r\n\r\nBut of course, as only one page will be return, only one function should be called."
+      "description": "Ce controller a déjà plusieurs fonctions : index(), show(), edit(), ...\r\n\r\nChacune de ces fonctions est une action possible de notre application.\r\n\r\nToutes ces actions retournerons une requête HTTP, qui transportera (ou non) le code HTML de la page à présenter (nottament grace à [TWIG](https://twig.symfony.com)).\r\n\r\nBien sur, comme seule une page doit etre retournée, seule une action doit etre appelée."
     },
     {
       "file": "src/routes.php",
@@ -118,7 +118,7 @@
           "character": 42
         }
       },
-      "description": "And that's the job of this second parameter. \n\nHere, we declare that if someone ask for the route `items` (aka [http://localhost:8000/items/](http://localhost:8000/items/)). The executed code will be ..."
+      "description": "Et c'est précisément le rôle de ce second parametre.\n\nIci nous déclarons que si on appelle la route `items` (alias [http://localhost:8000/items/](http://localhost:8000/items/)), on appellera alors la function index() du controller `ItemController`. Le code déclenché sera donc ..."
     },
     {
       "file": "src/Controller/ItemController.php",
@@ -132,11 +132,11 @@
           "character": 6
         }
       },
-      "description": "... This one !\n\n"
+      "description": "... Celui-ci !\n\n"
     },
     {
       "file": "src/routes.php",
-      "description": "So now, we know how to add a simple route. Nice 💪!\r\n\r\n![But...](./.tours/routing_meme.jpg)\r\n\r\nSince our pages are not only statics anymore, we sometimes need to give informations to dynamically what we want to show.\r\nThat's why the routing allows params 😃!",
+      "description": "Donc maintenant nous savons créer une route simple dans notre application. Beau boulot 💪!\r\n\r\n![But...](./.tours/routing_meme.jpg)\r\n\r\nNéanmoins, comme nos pages ne sont plus seulement statiques à présent, nous devons leur transmettre des informations qui leur permettront de se construire dynamiquement.\r\n\r\nEt c'est pour cette raison que nous routes peuvent également prendre des paramètres 😃!",
       "line": 17
     },
     {
@@ -151,7 +151,7 @@
           "character": 17
         }
       },
-      "description": "Take this route : its goal is to show the informations of one specific item. But in order to do that, we need to know what specific item our user wants to see.\r\n"
+      "description": "Prenons cette route : son but est de présenter les informations d'un item spécifique. Le problème est que dans notre base de données, des items on peut en avoir des millions ! Alors comment ne présenter que l'item que l'on souhaite voir 😰?"
     },
     {
       "file": "src/routes.php",
@@ -165,7 +165,7 @@
           "character": 54
         }
       },
-      "description": "And that's the role of this third part.\r\n\r\nAs you can see this is an array, that means we can add as many params as we want in a route."
+      "description": "Et bien c'est le rôle de ce troisième paramètre 😎. Grace à lui on pourra transmettre l'id de l'item spécifique que l'on cherche à voir.\r\n\r\nComme on peut le voir ce troisième paramètre est un tableau, c'est à dire qu'on peut avoir autant de paramètres que nécéssaire dans une route."
     },
     {
       "file": "src/routes.php",
@@ -179,7 +179,7 @@
           "character": 53
         }
       },
-      "description": "On this route we only have one : id\r\n\r\nSo to contact this page, the url will looks something like that : \r\n[http://localhost:8000/items/show?id=1](http://localhost:8000/items/show?id=1)"
+      "description": "Sur cette route il n'y en a qu'un : id\r\n\r\nAussi pour contacter cette page, l'url ressemblera à ceci : \r\n[http://localhost:8000/items/show?id=1](http://localhost:8000/items/show?id=1)"
     },
     {
       "file": "src/Controller/ItemController.php",
@@ -193,7 +193,7 @@
           "character": 6
         }
       },
-      "description": "And this action will be called."
+      "description": "Et l'action show() sera appelée."
     },
     {
       "file": "src/Controller/ItemController.php",
@@ -207,7 +207,7 @@
           "character": 33
         }
       },
-      "description": "As you can see, this time, the function is waiting for a param.\r\n\r\nAnd that is the role of the router to pass to the function.\r\n\r\nSo if the URL requested is [http://localhost:8000/items/show?id=1](http://localhost:8000/items/show?id=1), the value of `$id` will be `1`"
+      "description": "Cette fois la fonction attend un paramètre en entrée.\r\n\r\nEt bien c'est notre router qui lui fournira (dés lors qu'on a bien dit dans la route qu'un paramètre devait etre passé).\r\n\r\nDonc si l'URL [http://localhost:8000/items/show?id=1](http://localhost:8000/items/show?id=1) est appelée, la valeur de `$id` sera de `1`"
     },
     {
       "file": "src/Controller/ItemController.php",
@@ -221,7 +221,7 @@
           "character": 50
         }
       },
-      "description": "Then you can use it to get the right item in the database throught the `ItemManager` (which belongs to the Model side) "
+      "description": "Ensuite on peut utiliser `$id` pour récupérer le bon item dans notre base de données à l'aide de notre `ItemManager`(qui appartient à la couche Modèle de notre MVC)"
     }
   ]
 }
