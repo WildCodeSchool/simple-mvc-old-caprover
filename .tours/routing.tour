@@ -3,12 +3,12 @@
   "title": "02 - Routing",
   "steps": [
     {
-      "title": "le routing",
-      "description": "The routing is the step where we extract the URL from the HTTP REQUEST to call a specific function in a controller : \r\n\r\n![Schema](./.tours/schema_1_routing.png)"
+      "title": "Le routage",
+      "description": "Le routage est l'étape ou l'on extrait l'url d'une requête HTTP pour appeler une fonction spécifique de notre controller : \r\n\r\n![Schema](./.tours/schema_1_routing.png)"
     },
     {
       "file": "src/routing.php",
-      "description": "First we get the route requested by the user (which is the url without domain part).\r\n\r\nFor exemple :  \r\n`localhost/items/edit?id=5`\r\n- the domain is : `localhost`\r\n- the route is : `items/edit?id=5`\r\n\r\nThe route is easily available thanks to $_SERVER.Like $_GET or $_POST, $_SERVER is an array containing a lot of informations from your server (also see  [Doc](https://www.php.net/manual/fr/reserved.variables.server.php)). Here we get the `PATH_INFO`",
+      "description": "Pour commencer nous récupérons la route demandée par notre utilisateur (ce qui n'est autre que l'URL sans la partie concernant le domaine).\r\n\r\nFor exemple :  \r\n`localhost/items/edit?id=5`\r\n- the domain is : `localhost`\r\n- the route is : `items/edit?id=5`\r\n\r\nThe route is easily available thanks to $_SERVER.Like $_GET or $_POST, $_SERVER is an array containing a lot of informations from your server (also see  [Doc](https://www.php.net/manual/fr/reserved.variables.server.php)). Here we get the `PATH_INFO`",
       "line": 4,
       "selection": {
         "start": {

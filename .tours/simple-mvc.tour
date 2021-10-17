@@ -14,7 +14,7 @@
           "character": 6
         }
       },
-      "description": "`index.php` is the entry point of the Simple-MVC. Every HTTP request will be redirected to this file thanks to the .htaccess file\r\n\r\n![Simple MVC](./.tours/simple_MVC.png)"
+      "description": "`index.php` est la porte d'entrée de notre application. Chaque requête HTTP sera rediriger vers de fichier grace aux instructions figurant dans `.htaccess`\r\n\r\n\r\n![Simple MVC](./.tours/simple_MVC.png)"
     },
     {
       "file": "public/.htaccess",
@@ -28,11 +28,11 @@
           "character": 1
         }
       },
-      "description": "Here is the rule that redirect every request to index.php\r\n\r\n.htaccess files are a way give specific rules to follow to your PHP server. "
+      "description": "Voici la règle qui redirige toutes les requêtes HTTP vers `index.php`.\r\n\r\nDans les projets web, les fichiers `.htaccess` sont un moyen de modifier le comprtement de nos servers web."
     },
     {
       "file": "public/index.php",
-      "description": "The first step here is to load various tools we need :\r\n- the autoload (to load class files on the fly)\r\n- the debug configuration\r\n- the configuration of your MVC application",
+      "description": "Retour sur `index.php`, ici la première étape est de charger différents outils dont on a besoin :\r\n- L'autoload (qui permet d'inclure les fihiers php des classes que l'on appelle à la volée)\r\n- La configuration du debug\r\n- La configuration de notre application MVC",
       "selection": {
         "start": {
           "line": 10,
@@ -47,7 +47,7 @@
     },
     {
       "file": "public/index.php",
-      "description": "This file requires your attention : this is where you give your MVC application to connect to your database.",
+      "description": "J'attire votre attention sur cette ligne : il s'agit du fichier qui contient les informations de connection de notre application  à notre base de données. Il est donc primordiale de le personnaliser pour que l'application MVC fonctionne sur votre environnement.",
       "line": 14,
       "selection": {
         "start": {
@@ -61,8 +61,8 @@
       }
     },
     {
-      "file": "config/db.php",
-      "description": "When you start a new application with this simple-mvc template, remember to replace the database parameters here : \r\n- APP_DB_USER : the login to connect your database\r\n- APP_DB_PWD : the password to connect your database\r\n- APP_DB_HOST : the address to your database\r\n- APP_DB_NAME : the name of your database",
+      "file": "config/db.php.dist",
+      "description": "Quand vous débutez une application qui utilise le framework simple-mvc, pensez bien à copier ce fichier pour créer votre propre `db.php`. Il vous faudra ensuite remplacer les paramètres de connection à la BDD : \r\n- APP_DB_USER : L'identifiant de connection à votre BDD\r\n- APP_DB_PWD : Le mot de passe de connextion à votre DB\r\n- APP_DB_HOST : L'adresse de votre server de BDD\r\n- APP_DB_NAME : Le nom de la BDD à laquelle vous voulez vous connecter",
       "selection": {
         "start": {
           "line": 16,
@@ -77,7 +77,7 @@
     },
     {
       "file": "public/index.php",
-      "description": "Once all the configuration is loaded, the application will `routing.php` to distribute the request to right part of your code (in a MVC application, it will be to a Controller)",
+      "description": "Une fois toute la configuration chargée, l'application appelle le fichier `routing.php` afin de distribuer la requête HTTP à la bonne partie de votre code (Dans une application MVC, ce sera à un controller)",
       "line": 16,
       "selection": {
         "start": {
