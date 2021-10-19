@@ -4,11 +4,11 @@
   "steps": [
     {
       "title": "Le routage",
-      "description": "Le routage est l'étape ou l'on extrait l'url d'une requête HTTP pour appeler une fonction spécifique de notre controller : \r\n\r\n![Schema](./.tours/schema_1_routing.png)"
+      "description": "Le routage est l'étape ou l'on extrait l'URL d'une requête HTTP (la route) afin d'appeler la méthode de contrôleur associée : \r\n\r\n![Schema](./.tours/schema_1_routing.png)"
     },
     {
       "file": "src/routing.php",
-      "description": "Pour commencer nous récupérons la route demandée par notre utilisateur (ce qui n'est autre que l'URL sans la partie concernant le domaine).\r\n\r\nPar exemple :  \r\n`localhost/items/edit?id=5`\r\n- Le domaine est : `localhost`\r\n- La route est : `items/edit?id=5`\r\n\r\nLa route est facilement récupérable grace à $_SERVER. A l'instar de $_GET ou de  $_POST, $_SERVER est un tableau qui contient de nombreuses informations sur le server web (pour en savoir plus : [Doc](https://www.php.net/manual/fr/reserved.variables.server.php)). Ici nous récupérons l'index `PATH_INFO`",
+      "description": "Pour commencer nous récupérons la route demandée par notre utilisateur (ce qui n'est autre que l'URL sans la partie concernant le domaine).\r\n\r\nPar exemple :  \r\n`localhost/items/edit?id=5`\r\n- Le domaine est : `localhost`\r\n- La route est : `items/edit?id=5`\r\n\r\nLa route est facilement récupérable grace à $_SERVER. À l'instar de $_GET ou de  $_POST, $_SERVER est un tableau qui contient de nombreuses informations sur le server web (pour en savoir plus : [Doc](https://www.php.net/manual/fr/reserved.variables.server.php)). Ici nous récupérons l'index `PATH_INFO`",
       "line": 4,
       "selection": {
         "start": {
@@ -37,7 +37,7 @@
     },
     {
       "file": "src/routes.php",
-      "description": "Dans ce tableau, nous déclarons toutes les routes de notre application.\r\n\r\nChaque route appellera une partie spécifique de notre code, et donc présentera un résultat différent.\r\n\r\nLe but d'une route est de guider une requête vers une action d'un controller.\r\n\r\nPrenons un exemple :",
+      "description": "Dans ce tableau, nous déclarons toutes les routes de notre application.\r\n\r\nChaque route appellera une partie spécifique de notre code, et donc présentera un résultat différent.\r\n\r\nLe but d'une route est de guider une requête vers une action d'un contrôleur.\r\n\r\nPar exemple :",
       "line": 8,
       "selection": {
         "start": {
@@ -62,7 +62,7 @@
           "character": 12
         }
       },
-      "description": "Ici nous avons la route `items`. Celà signife que notre application a comme porte d'entrée l'url suivante :\r\n\r\n[http://localhost:8000/items/](http://localhost:8000/items/)"
+      "description": "Ici nous avons la route `items`. Cela signife que notre application a comme porte d'entrée l'URL suivante :\r\n\r\n[http://localhost:8000/items/](http://localhost:8000/items/)"
     },
     {
       "file": "src/routes.php",
@@ -76,7 +76,7 @@
           "character": 33
         }
       },
-      "description": "On associe ce point d'entrée à un controller : `ItemController`"
+      "description": "On associe ce point d'entrée à un contrôleur : `ItemController`"
     },
     {
       "file": "src/Controller/ItemController.php",
@@ -90,7 +90,7 @@
           "character": 48
         }
       },
-      "description": "Comme vous pouvez le voir un controller n'est rien qu'une classe. Elle a néanmoins un role cruciale dans notre application MVC : c'est elle qui traite la requête HTTP d'entrée, et c'est également qui retourner la requête HTTP de réponse."
+      "description": "Comme tu peux le voir, un contrôleur n'est rien d'autre qu'une classe. Elle a néanmoins un role cruciale dans notre application MVC : c'est elle qui traite la requête HTTP d'entrée, et c'est également elle qui retourne la requête HTTP de réponse."
     },
     {
       "file": "src/Controller/ItemController.php",
@@ -118,7 +118,7 @@
           "character": 42
         }
       },
-      "description": "Et c'est précisément le rôle de ce second parametre.\n\nIci nous déclarons que si on appelle la route `items` (alias [http://localhost:8000/items/](http://localhost:8000/items/)), on appellera alors la function index() du controller `ItemController`. Le code déclenché sera donc ..."
+      "description": "Et c'est précisément le rôle de ce second parametre.\n\nIci nous déclarons que si on appelle la route `items` (alias [http://localhost:8000/items/](http://localhost:8000/items/)), on appellera alors la function `index()` du contrôleur `ItemController`. Le code déclenché sera donc ..."
     },
     {
       "file": "src/Controller/ItemController.php",
@@ -136,7 +136,7 @@
     },
     {
       "file": "src/routes.php",
-      "description": "Donc maintenant nous savons créer une route simple dans notre application. Beau boulot 💪!\r\n\r\n![But...](./.tours/routing_meme.jpg)\r\n\r\nNéanmoins, comme nos pages ne sont plus seulement statiques à présent, nous devons leur transmettre des informations qui leur permettront de se construire dynamiquement.\r\n\r\nEt c'est pour cette raison que nous routes peuvent également prendre des paramètres 😃!",
+      "description": "Donc maintenant tu sais créer une route simple dans notre application. Beau boulot 💪!\r\n\r\n![But...](./.tours/routing_meme.jpg)\r\n\r\nNéanmoins, comme les pages ne sont plus seulement statiques à présent, tu devras parfois transmettre des informations supplémentaires qui leur permettront de se construire dynamiquement.\r\n\r\nEt c'est pour cette raison que les routes peuvent également prendre des paramètres 😃!",
       "line": 17
     },
     {
@@ -151,7 +151,7 @@
           "character": 17
         }
       },
-      "description": "Prenons cette route : son but est de présenter les informations d'un item spécifique. Le problème est que dans notre base de données, des items on peut en avoir des millions ! Alors comment ne présenter que l'item que l'on souhaite voir 😰?"
+      "description": "Cette route par exemple : son but est de présenter les informations d'un item spécifique. Le problème est que dans la base de données, il pourrait y avoir des millions d'items ! Alors comment ne présenter que l'item que l'on souhaite voir 😰?"
     },
     {
       "file": "src/routes.php",
@@ -179,7 +179,7 @@
           "character": 53
         }
       },
-      "description": "Sur cette route il n'y en a qu'un : id\r\n\r\nAussi pour contacter cette page, l'url ressemblera à ceci : \r\n[http://localhost:8000/items/show?id=1](http://localhost:8000/items/show?id=1)"
+      "description": "Sur cette route il n'y en a qu'un : id\r\n\r\nAussi pour contacter cette page, l'url ressemblera à ceci : \r\n[http://localhost:8000/items/show?id=1](http://localhost:8000/items/show?id=1)\r\nCes paramètres supplémentaires sont à passer via la *query string*."
     },
     {
       "file": "src/Controller/ItemController.php",
