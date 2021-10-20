@@ -14,21 +14,7 @@
           "character": 6
         }
       },
-      "description": "`index.php` est la porte d'entrée de notre application. Chaque requête HTTP sera rediriger vers de fichier grace aux instructions figurant dans `.htaccess`\r\n\r\n\r\n![Simple MVC](./.tours/simple_MVC.png)"
-    },
-    {
-      "file": "public/.htaccess",
-      "selection": {
-        "start": {
-          "line": 1,
-          "character": 1
-        },
-        "end": {
-          "line": 9,
-          "character": 1
-        }
-      },
-      "description": "Voici la règle qui redirige toutes les requêtes HTTP vers `index.php`.\r\n\r\nDans les projets web, les fichiers `.htaccess` sont un moyen de modifier le comprtement de nos servers web."
+      "description": "`index.php` est la porte d'entrée de notre application. Chaque requête HTTP devra obligatoirement passer par ce fichier.\r\n\r\n![Simple MVC](./.tours/simple_MVC.png)"
     },
     {
       "file": "public/index.php",
@@ -47,7 +33,7 @@
     },
     {
       "file": "public/index.php",
-      "description": "J'attire votre attention sur cette ligne : il s'agit du fichier qui contient les informations de connection de notre application  à notre base de données. Il est donc primordiale de le personnaliser pour que l'application MVC fonctionne sur votre environnement.",
+      "description": "Fais bien attention à cette ligne : il s'agit du fichier qui contient les informations de connexion de l'application à ta base de données. Il est donc primordial de le personnaliser pour que l'application MVC fonctionne sur ton environnement.",
       "line": 14,
       "selection": {
         "start": {
@@ -62,7 +48,7 @@
     },
     {
       "file": "config/db.php.dist",
-      "description": "Quand vous débutez une application qui utilise le framework simple-mvc, pensez bien à copier ce fichier pour créer votre propre `db.php`. Il vous faudra ensuite remplacer les paramètres de connection à la BDD : \r\n- APP_DB_USER : L'identifiant de connection à votre BDD\r\n- APP_DB_PWD : Le mot de passe de connextion à votre DB\r\n- APP_DB_HOST : L'adresse de votre server de BDD\r\n- APP_DB_NAME : Le nom de la BDD à laquelle vous voulez vous connecter",
+      "description": "Avant de débuter une application qui utilise le framework simple-mvc, pense bien à copier ce fichier pour créer ton propre `db.php`. Il te faudra ensuite remplacer les paramètres de connection à la BDD : \r\n- APP_DB_USER : L'identifiant de connexion à ta BDD\r\n- APP_DB_PASSWORD : Le mot de passe de connexion à ta DB\r\n- APP_DB_HOST : L'adresse de ton server de BDD\r\n- APP_DB_NAME : Le nom de la BDD à laquelle tu veux te connecter",
       "selection": {
         "start": {
           "line": 16,
@@ -77,7 +63,7 @@
     },
     {
       "file": "public/index.php",
-      "description": "Une fois toute la configuration chargée, l'application appelle le fichier `routing.php` afin de distribuer la requête HTTP à la bonne partie de votre code (Dans une application MVC, ce sera à un controller)",
+      "description": "Une fois toute la configuration chargée, l'application appelle le fichier `routing.php` afin de distribuer la requête HTTP à la bonne partie de ton code (dans une application MVC, ce sera à un contrôleur)",
       "line": 16,
       "selection": {
         "start": {
