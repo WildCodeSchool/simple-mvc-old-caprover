@@ -1,0 +1,227 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "02 - Routing",
+  "steps": [
+    {
+      "title": "Le routage",
+      "description": "Le routage est l'étape ou l'on extrait l'URL d'une requête HTTP (la route) afin d'appeler la méthode de contrôleur associée : \r\n\r\n![Schema](./.tours/schema_1_routing.png)"
+    },
+    {
+      "file": "src/routing.php",
+      "description": "Pour commencer nous récupérons la route demandée par notre utilisateur (ce qui n'est autre que l'URL sans la partie concernant le domaine).\r\n\r\nPar exemple :  \r\n`localhost/items/edit?id=5`\r\n- Le domaine est : `localhost`\r\n- La route est : `items/edit?id=5`\r\n\r\nLa route est facilement récupérable grace à $_SERVER. À l'instar de $_GET ou de  $_POST, $_SERVER est un tableau qui contient de nombreuses informations sur le server web (pour en savoir plus : [Doc](https://www.php.net/manual/fr/reserved.variables.server.php)). Ici nous récupérons l'index `PATH_INFO`",
+      "line": 4,
+      "selection": {
+        "start": {
+          "line": 4,
+          "character": 1
+        },
+        "end": {
+          "line": 4,
+          "character": 49
+        }
+      }
+    },
+    {
+      "file": "src/routing.php",
+      "selection": {
+        "start": {
+          "line": 7,
+          "character": 1
+        },
+        "end": {
+          "line": 7,
+          "character": 55
+        }
+      },
+      "description": "Afin de savoir quelle partie de notre code appeler, nous devons d'abord charger toutes les routes définies pour notre application. Toutes ses routes sont déclarées dans `routes.php` "
+    },
+    {
+      "file": "src/routes.php",
+      "description": "Dans ce tableau, nous déclarons toutes les routes de notre application.\r\n\r\nChaque route appellera une partie spécifique de notre code, et donc présentera un résultat différent.\r\n\r\nLe but d'une route est de guider une requête vers une action d'un contrôleur.\r\n\r\nPar exemple :",
+      "line": 8,
+      "selection": {
+        "start": {
+          "line": 9,
+          "character": 1
+        },
+        "end": {
+          "line": 16,
+          "character": 3
+        }
+      }
+    },
+    {
+      "file": "src/routes.php",
+      "selection": {
+        "start": {
+          "line": 11,
+          "character": 5
+        },
+        "end": {
+          "line": 11,
+          "character": 12
+        }
+      },
+      "description": "Ici nous avons la route `items`. Cela signife que notre application a comme porte d'entrée l'URL suivante :\r\n\r\n[http://localhost:8000/items/](http://localhost:8000/items/)"
+    },
+    {
+      "file": "src/routes.php",
+      "selection": {
+        "start": {
+          "line": 11,
+          "character": 17
+        },
+        "end": {
+          "line": 11,
+          "character": 33
+        }
+      },
+      "description": "On associe ce point d'entrée à un contrôleur : `ItemController`"
+    },
+    {
+      "file": "src/Controller/ItemController.php",
+      "selection": {
+        "start": {
+          "line": 7,
+          "character": 1
+        },
+        "end": {
+          "line": 7,
+          "character": 48
+        }
+      },
+      "description": "Comme tu peux le voir, un contrôleur n'est rien d'autre qu'une classe. Elle a néanmoins un role cruciale dans notre application MVC : c'est elle qui traite la requête HTTP d'entrée, et c'est également elle qui retourne la requête HTTP de réponse."
+    },
+    {
+      "file": "src/Controller/ItemController.php",
+      "selection": {
+        "start": {
+          "line": 12,
+          "character": 4
+        },
+        "end": {
+          "line": 90,
+          "character": 6
+        }
+      },
+      "description": "Ce controller a déjà plusieurs fonctions : index(), show(), edit(), ...\r\n\r\nChacune de ces fonctions est une action possible de notre application.\r\n\r\nToutes ces actions retournerons une requête HTTP, qui transportera (ou non) le code HTML de la page à présenter (nottament grace à [TWIG](https://twig.symfony.com)).\r\n\r\nBien sur, comme seule une page doit etre retournée, seule une action doit etre appelée."
+    },
+    {
+      "file": "src/routes.php",
+      "selection": {
+        "start": {
+          "line": 11,
+          "character": 35
+        },
+        "end": {
+          "line": 11,
+          "character": 42
+        }
+      },
+      "description": "Et c'est précisément le rôle de ce second parametre.\n\nIci nous déclarons que si on appelle la route `items` (alias [http://localhost:8000/items/](http://localhost:8000/items/)), on appellera alors la function `index()` du contrôleur `ItemController`. Le code déclenché sera donc ..."
+    },
+    {
+      "file": "src/Controller/ItemController.php",
+      "selection": {
+        "start": {
+          "line": 12,
+          "character": 5
+        },
+        "end": {
+          "line": 18,
+          "character": 6
+        }
+      },
+      "description": "... Celui-ci !\n\n"
+    },
+    {
+      "file": "src/routes.php",
+      "description": "Donc maintenant tu sais créer une route simple dans notre application. Beau boulot 💪!\r\n\r\n![But...](./.tours/routing_meme.jpg)\r\n\r\nNéanmoins, comme les pages ne sont plus seulement statiques à présent, tu devras parfois transmettre des informations supplémentaires qui leur permettront de se construire dynamiquement.\r\n\r\nEt c'est pour cette raison que les routes peuvent également prendre des paramètres 😃!",
+      "line": 17
+    },
+    {
+      "file": "src/routes.php",
+      "selection": {
+        "start": {
+          "line": 13,
+          "character": 5
+        },
+        "end": {
+          "line": 13,
+          "character": 17
+        }
+      },
+      "description": "Cette route par exemple : son but est de présenter les informations d'un item spécifique. Le problème est que dans la base de données, il pourrait y avoir des millions d'items ! Alors comment ne présenter que l'item que l'on souhaite voir 😰?"
+    },
+    {
+      "file": "src/routes.php",
+      "selection": {
+        "start": {
+          "line": 13,
+          "character": 48
+        },
+        "end": {
+          "line": 13,
+          "character": 54
+        }
+      },
+      "description": "Et bien c'est le rôle de ce troisième paramètre 😎. Grace à lui on pourra transmettre l'id de l'item spécifique que l'on cherche à voir.\r\n\r\nComme on peut le voir ce troisième paramètre est un tableau, c'est à dire qu'on peut avoir autant de paramètres que nécéssaire dans une route."
+    },
+    {
+      "file": "src/routes.php",
+      "selection": {
+        "start": {
+          "line": 13,
+          "character": 49
+        },
+        "end": {
+          "line": 13,
+          "character": 53
+        }
+      },
+      "description": "Sur cette route il n'y en a qu'un : id\r\n\r\nAussi pour contacter cette page, l'url ressemblera à ceci : \r\n[http://localhost:8000/items/show?id=1](http://localhost:8000/items/show?id=1)\r\nCes paramètres supplémentaires sont à passer via la *query string*."
+    },
+    {
+      "file": "src/Controller/ItemController.php",
+      "selection": {
+        "start": {
+          "line": 24,
+          "character": 5
+        },
+        "end": {
+          "line": 30,
+          "character": 6
+        }
+      },
+      "description": "Et l'action show() sera appelée."
+    },
+    {
+      "file": "src/Controller/ItemController.php",
+      "selection": {
+        "start": {
+          "line": 24,
+          "character": 26
+        },
+        "end": {
+          "line": 24,
+          "character": 33
+        }
+      },
+      "description": "Cette fois la fonction attend un paramètre en entrée.\r\n\r\nEt bien c'est notre router qui lui fournira (dés lors qu'on a bien dit dans la route qu'un paramètre devait etre passé).\r\n\r\nDonc si l'URL [http://localhost:8000/items/show?id=1](http://localhost:8000/items/show?id=1) est appelée, la valeur de `$id` sera de `1`"
+    },
+    {
+      "file": "src/Controller/ItemController.php",
+      "selection": {
+        "start": {
+          "line": 27,
+          "character": 8
+        },
+        "end": {
+          "line": 27,
+          "character": 50
+        }
+      },
+      "description": "Ensuite on peut utiliser `$id` pour récupérer le bon item dans notre base de données à l'aide de notre `ItemManager`(qui appartient à la couche Modèle de notre MVC)"
+    }
+  ]
+}

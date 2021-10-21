@@ -44,4 +44,17 @@ You can find all these routes declared in the file `src/routes.php`. This is the
 
 ## How does URL routing work ?
 
-![Simple MVC.png](https://raw.githubusercontent.com/WildCodeSchool/simple-mvc/master/Simple%20-%20MVC.png)
+![simple_MVC.png](.tours/simple_MVC.png)
+
+
+## Ask for a tour !
+
+<img src="https://pixabay.com/get/g0331c2b48fc494e8b7e78620f44e084095ee6d103f77538ce22e091e5bdb76bc9348ac4d544173c0ca92dbedb7937e50c941345acb2136df97dbc21ef5f652bab708e28c6edca9fb697d3cf931d1532e_640.jpg" alt="Guided tour" width="150"/>
+
+We prepare a little guided tour to start with the simple-MVC.
+
+To take it, you need to install the `Code Tour` extension for Visual Studio Code : [Code Tour](https://marketplace.visualstudio.com/items?itemName=vsls-contrib.codetour)
+
+It will give access to a new menu on your IDE where you'll find the different tours about the simple-MVC. Click on play to start one : 
+
+![menu](.tours/code_tour_menu.jpg)

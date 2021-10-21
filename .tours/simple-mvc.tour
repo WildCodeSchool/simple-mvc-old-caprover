@@ -1,0 +1,81 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "01 - Simple-MVC Introduction",
+  "steps": [
+    {
+      "file": "public/index.php",
+      "selection": {
+        "start": {
+          "line": 1,
+          "character": 1
+        },
+        "end": {
+          "line": 1,
+          "character": 6
+        }
+      },
+      "description": "`index.php` est la porte d'entrée de notre application. Chaque requête HTTP devra obligatoirement passer par ce fichier.\r\n\r\n![Simple MVC](./.tours/simple_MVC.png)"
+    },
+    {
+      "file": "public/index.php",
+      "description": "Retour sur `index.php`, ici la première étape est de charger différents outils dont on a besoin :\r\n- L'autoload (qui permet d'inclure les fihiers php des classes que l'on appelle à la volée)\r\n- La configuration du debug\r\n- La configuration de notre application MVC",
+      "selection": {
+        "start": {
+          "line": 10,
+          "character": 1
+        },
+        "end": {
+          "line": 16,
+          "character": 48
+        }
+      },
+      "line": 9
+    },
+    {
+      "file": "public/index.php",
+      "description": "Fais bien attention à cette ligne : il s'agit du fichier qui contient les informations de connexion de l'application à ta base de données. Il est donc primordial de le personnaliser pour que l'application MVC fonctionne sur ton environnement.",
+      "line": 14,
+      "selection": {
+        "start": {
+          "line": 14,
+          "character": 1
+        },
+        "end": {
+          "line": 14,
+          "character": 48
+        }
+      }
+    },
+    {
+      "file": "config/db.php.dist",
+      "description": "Avant de débuter une application qui utilise le framework simple-mvc, pense bien à copier ce fichier pour créer ton propre `db.php`. Il te faudra ensuite remplacer les paramètres de connection à la BDD : \r\n- APP_DB_USER : L'identifiant de connexion à ta BDD\r\n- APP_DB_PASSWORD : Le mot de passe de connexion à ta DB\r\n- APP_DB_HOST : L'adresse de ton server de BDD\r\n- APP_DB_NAME : Le nom de la BDD à laquelle tu veux te connecter",
+      "selection": {
+        "start": {
+          "line": 16,
+          "character": 1
+        },
+        "end": {
+          "line": 20,
+          "character": 1
+        }
+      },
+      "line": 20
+    },
+    {
+      "file": "public/index.php",
+      "description": "Une fois toute la configuration chargée, l'application appelle le fichier `routing.php` afin de distribuer la requête HTTP à la bonne partie de ton code (dans une application MVC, ce sera à un contrôleur)",
+      "line": 16,
+      "selection": {
+        "start": {
+          "line": 17,
+          "character": 1
+        },
+        "end": {
+          "line": 17,
+          "character": 46
+        }
+      }
+    }
+  ],
+  "isPrimary": true
+}
