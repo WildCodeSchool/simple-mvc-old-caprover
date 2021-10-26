@@ -25,7 +25,9 @@ $method = $matchingRoute[1];
 // directly manage in the controller
 $parameters = [];
 foreach ($matchingRoute[2] ?? [] as $parameter) {
-    $parameters[] = $_GET[$parameter] ?? null;
+    if (isset($_GET[$parameter])) {
+        $parameters[] = $_GET[$parameter];
+    }
 }
 
 // instance the controller, call the method with given parameters
