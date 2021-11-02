@@ -1,7 +1,7 @@
 <?php
 
 // Get the required route (without query string) and remove trailing slashes
-$route = trim($_SERVER['PATH_INFO'] ?? '', '/');
+$route = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? '', '/');
 
 // $routes comes from 'routes.php' required here
 $routes = require_once __DIR__ . '/../src/routes.php';
