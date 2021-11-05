@@ -49,7 +49,7 @@ You can find all these routes declared in the file `src/routes.php`. This is the
 
 ## Ask for a tour !
 
-<img src="https://pixabay.com/get/g0331c2b48fc494e8b7e78620f44e084095ee6d103f77538ce22e091e5bdb76bc9348ac4d544173c0ca92dbedb7937e50c941345acb2136df97dbc21ef5f652bab708e28c6edca9fb697d3cf931d1532e_640.jpg" alt="Guided tour" width="150"/>
+<img src="https://raw.githubusercontent.com/WildCodeSchool/simple-mvc/codetour/.tours/photo-1632178151697-fd971baa906f.jpg" alt="Guided tour" width="150"/>
 
 We prepare a little guided tour to start with the simple-MVC.
 
@@ -57,4 +57,25 @@ To take it, you need to install the `Code Tour` extension for Visual Studio Code
 
 It will give access to a new menu on your IDE where you'll find the different tours about the simple-MVC. Click on play to start one : 
 
-![menu](.tours/code_tour_menu.jpg)
+![menu](https://raw.githubusercontent.com/WildCodeSchool/simple-mvc/codetour/.tours/code_tour_menu.png)
+
+
+
+## Run it on docker
+
+If you don't know what is docker, skip this chapter. ;) 
+
+Otherwise, you probably see, this project is ready to use with docker. 
+
+To build the image, go into the project directory and in your CLI type:
+
+```
+docker build -t simple-mvc-container .
+```
+
+then, run it to open it on your localhot :
+
+```
+docker run -i -t --name simple-mvc  -p 80:80 simple-mvc-container
+```
+
