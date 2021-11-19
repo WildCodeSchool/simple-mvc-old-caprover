@@ -39,7 +39,7 @@ WORKDIR /var/www
 COPY . /var/www/
 COPY --from=vendor /app/vendor/ /var/www/vendor
 
-RUN mkdir /var/www/public/uploads/
+RUN mkdir -p /var/www/public/uploads/
 
 # RUN chown -R www-data:www-data /var/www/
 
