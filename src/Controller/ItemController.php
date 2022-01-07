@@ -47,7 +47,7 @@ class ItemController extends AbstractController
             // if validation is ok, update and redirection
             $itemManager->update($item);
             header('Location: /items/show?id=' . $id);
-            
+
             // we don't want any content as we are redirecting
             return;
         }
