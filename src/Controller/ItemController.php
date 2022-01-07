@@ -47,6 +47,9 @@ class ItemController extends AbstractController
             // if validation is ok, update and redirection
             $itemManager->update($item);
             header('Location: /items/show?id=' . $id);
+            
+            // we don't want any content as we are redirecting
+            return;
         }
 
         return $this->twig->render('Item/edit.html.twig', [
@@ -70,6 +73,7 @@ class ItemController extends AbstractController
             $itemManager = new ItemManager();
             $id = $itemManager->insert($item);
             header('Location:/items/show?id=' . $id);
+            return;
         }
 
         return $this->twig->render('Item/add.html.twig');
@@ -86,6 +90,7 @@ class ItemController extends AbstractController
             $itemManager = new ItemManager();
             $itemManager->delete((int)$id);
             header('Location:/items');
+            return;
         }
     }
 }
