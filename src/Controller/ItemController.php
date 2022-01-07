@@ -32,6 +32,7 @@ class ItemController extends AbstractController
 
     /**
      * Edit a specific item
+     * TODO php8.1 : return type void|string and remove the returned empty string
      */
     public function edit(int $id): string
     {
@@ -49,7 +50,7 @@ class ItemController extends AbstractController
             header('Location: /items/show?id=' . $id);
 
             // we don't want any content as we are redirecting
-            return;
+            return '';
         }
 
         return $this->twig->render('Item/edit.html.twig', [
@@ -73,7 +74,7 @@ class ItemController extends AbstractController
             $itemManager = new ItemManager();
             $id = $itemManager->insert($item);
             header('Location:/items/show?id=' . $id);
-            return;
+            return '';
         }
 
         return $this->twig->render('Item/add.html.twig');
