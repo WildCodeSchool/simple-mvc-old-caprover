@@ -75,7 +75,7 @@ class ItemController extends AbstractController
     /**
      * Delete a specific item
      */
-    public function delete()
+    public function delete(): string
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $id = trim($_POST['id']);
@@ -83,5 +83,7 @@ class ItemController extends AbstractController
             $itemManager->delete((int)$id);
             header('Location:/items');
         }
+
+        return '';
     }
 }
