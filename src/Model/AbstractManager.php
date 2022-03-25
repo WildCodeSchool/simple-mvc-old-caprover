@@ -1,13 +1,5 @@
 <?php
 
-/**
- * Created by PhpStorm.
- * User: sylvain
- * Date: 07/03/18
- * Time: 20:52
- * PHP version 7
- */
-
 namespace App\Model;
 
 use App\Model\Connection;
@@ -25,7 +17,7 @@ abstract class AbstractManager
     public function __construct()
     {
         $connection = new Connection();
-        $this->pdo = $connection->getPdoConnection();
+        $this->pdo = $connection->getConnection();
     }
 
     /**
@@ -33,7 +25,7 @@ abstract class AbstractManager
      */
     public function selectAll(string $orderBy = '', string $direction = 'ASC'): array
     {
-        $query = 'SELECT * FROM ' . static::TABLE;
+        $query = 'SELECT * FRO M ' . static::TABLE;
         if ($orderBy) {
             $query .= ' ORDER BY ' . $orderBy . ' ' . $direction;
         }
@@ -43,9 +35,8 @@ abstract class AbstractManager
 
     /**
      * Get one row from database by ID.
-     *
      */
-    public function selectOneById(int $id)
+    public function selectOneById(int $id): array|false
     {
         // prepared request
         $statement = $this->pdo->prepare("SELECT * FROM " . static::TABLE . " WHERE id=:id");

@@ -32,4 +32,12 @@ foreach ($matchingRoute[2] ?? [] as $parameter) {
 
 // instance the controller, call the method with given parameters
 // controller method will return a twig template (HTML string) which is displayed here
-echo (new $controller())->$method(...$parameters);
+try {
+    echo (new $controller())->$method(...$parameters);
+} catch (Exception $e) {
+    if (isset($whoops) && ENV === 'dev') {
+        echo $whoops->handleException($e);
+    } else {
+        echo $e->getMessage();
+    }
+}
