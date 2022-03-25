@@ -1,6 +1,6 @@
 <?php
 
-define('ENV', getenv('ENV') ? getenv('ENV') : 'prod');
+define('ENV', getenv('ENV') ? getenv('ENV') : 'dev');
 
 //Model (for connexion data, see unversionned db.php)
 define('DB_USER', getenv('DB_USER') ? getenv('DB_USER') : APP_DB_USER);
