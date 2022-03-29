@@ -1,0 +1,18 @@
+# This file is an automatic configuration of some points for this project
+# In order for your IDE to handle this file, you probably must install an plugin to it.
+# Just look for somthing like "editorconfig" plugin. Then, you have nothing else to do :).
+# https://EditorConfig.org
+
+root = true
+
+[*]
+trim_trailing_whitespace = true
+insert_final_newline = true
+end_of_line = lf
+charset = utf-8
+tab_width = 4
+indent_size = 4
+indent_style = space
+
+[Makefile*]
+indent_style = tab
