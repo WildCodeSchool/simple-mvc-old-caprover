@@ -17,7 +17,6 @@ class ItemController extends AbstractController
         return $this->twig->render('Item/index.html.twig', ['items' => $items]);
     }
 
-
     /**
      * Show informations for a specific item
      */
@@ -28,7 +27,6 @@ class ItemController extends AbstractController
 
         return $this->twig->render('Item/show.html.twig', ['item' => $item]);
     }
-
 
     /**
      * Edit a specific item
@@ -57,7 +55,6 @@ class ItemController extends AbstractController
         ]);
     }
 
-
     /**
      * Add a new item
      */
@@ -79,7 +76,6 @@ class ItemController extends AbstractController
         return $this->twig->render('Item/add.html.twig');
     }
 
-
     /**
      * Delete a specific item
      */
@@ -91,7 +87,6 @@ class ItemController extends AbstractController
             $itemManager->delete((int)$id);
             
             header('Location:/items');
-            return;
         }
     }
 }

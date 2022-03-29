@@ -32,4 +32,18 @@ foreach ($matchingRoute[2] ?? [] as $parameter) {
 
 // instance the controller, call the method with given parameters
 // controller method will return a twig template (HTML string) which is displayed here
-echo (new $controller())->$method(...$parameters);
+try {
+    // execute the controller
+    echo (new $controller())->$method(...$parameters);
+} catch (Exception $e) {
+    // if an exception is thrown during controller execution
+    // and if mode 'dev' is activated, error is displayed using *Whoops*
+    // else if mode 'prod', a HTTP error 500 is returned
+    if (isset($whoops) && ENV === 'dev') {
+        echo $whoops->handleException($e);
+    } else {
+        header("HTTP/1.0 500 Internal Server Error");
+        echo '500 - Internal Server Error';
+        exit();
+    }
+}
