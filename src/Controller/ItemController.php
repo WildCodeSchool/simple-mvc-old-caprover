@@ -31,7 +31,7 @@ class ItemController extends AbstractController
     /**
      * Edit a specific item
      */
-    public function edit(int $id): string|void
+    public function edit(int $id): ?string
     {
         $itemManager = new ItemManager();
         $item = $itemManager->selectOneById($id);
@@ -44,10 +44,11 @@ class ItemController extends AbstractController
 
             // if validation is ok, update and redirection
             $itemManager->update($item);
+
             header('Location: /items/show?id=' . $id);
 
             // we are redirecting so we don't want any content rendered
-            return;
+            return null;
         }
 
         return $this->twig->render('Item/edit.html.twig', [
@@ -58,7 +59,7 @@ class ItemController extends AbstractController
     /**
      * Add a new item
      */
-    public function add(): string|void
+    public function add(): ?string
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // clean $_POST data
@@ -69,8 +70,9 @@ class ItemController extends AbstractController
             // if validation is ok, insert and redirection
             $itemManager = new ItemManager();
             $id = $itemManager->insert($item);
+
             header('Location:/items/show?id=' . $id);
-            return;
+            return null;
         }
 
         return $this->twig->render('Item/add.html.twig');
