@@ -85,7 +85,7 @@ class ItemController extends AbstractController
             $id = trim($_POST['id']);
             $itemManager = new ItemManager();
             $itemManager->delete((int)$id);
-            
+
             header('Location:/items');
         }
     }
