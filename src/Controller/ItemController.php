@@ -32,9 +32,8 @@ class ItemController extends AbstractController
 
     /**
      * Edit a specific item
-     * TODO php8.1 : return type void|string and remove the returned empty string
      */
-    public function edit(int $id): string
+    public function edit(int $id): string|void
     {
         $itemManager = new ItemManager();
         $item = $itemManager->selectOneById($id);
@@ -49,8 +48,8 @@ class ItemController extends AbstractController
             $itemManager->update($item);
             header('Location: /items/show?id=' . $id);
 
-            // we don't want any content as we are redirecting
-            return '';
+            // we are redirecting so we don't want any content rendered
+            return;
         }
 
         return $this->twig->render('Item/edit.html.twig', [
@@ -62,7 +61,7 @@ class ItemController extends AbstractController
     /**
      * Add a new item
      */
-    public function add(): string
+    public function add(): string|void
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // clean $_POST data
@@ -74,7 +73,7 @@ class ItemController extends AbstractController
             $itemManager = new ItemManager();
             $id = $itemManager->insert($item);
             header('Location:/items/show?id=' . $id);
-            return '';
+            return;
         }
 
         return $this->twig->render('Item/add.html.twig');
@@ -84,12 +83,13 @@ class ItemController extends AbstractController
     /**
      * Delete a specific item
      */
-    public function delete()
+    public function delete(): void
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $id = trim($_POST['id']);
             $itemManager = new ItemManager();
             $itemManager->delete((int)$id);
+            
             header('Location:/items');
             return;
         }
