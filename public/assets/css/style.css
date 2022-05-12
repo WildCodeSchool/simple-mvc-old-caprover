@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto+Slab:wght@200;400;800&display=swap');
+:root {
+    --bs-primary-rgb: 255, 244, 226;
+    --bs-primary: #0B1D16;
+    --bs-secondary-rgb: 21, 198, 92;
+    --bs-secondary: #15c65c;
+    --bs-light-rgb: 126, 246, 198;
+    --bs-light: #7EF6C6;
+    --shadow-color: rgba(77, 60, 60, 0.2);
+    --title-font: 'Roboto Slab', serif;
+    --text-font: 'Bebas Neue', cursive;
+    --font-size: 1rem;
+    --font-size-link: 1.5rem;
+    --header-font-size: 7rem;
+    --title-font-size: 4rem;
+
+    --spacing: 8px;
+    --spacing2: calc(--spacing * 2);
+    --spacing3: calc(--spacing * 3);
+    --spacing4: calc(--spacing * 4);
+    --spacing5: calc(--spacing * 5);
+
+    --shadow: 2px 1px 4px var(--shadow-color);
+
+    --line-height: 1.5;
+}
