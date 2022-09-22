@@ -37,9 +37,7 @@ try {
     echo (new $controller())->$method(...$parameters);
 } catch (Exception $e) {
     // if an exception is thrown during controller execution
-    // and if mode 'dev' is activated, error is displayed using *Whoops*
-    // else if mode 'prod', a HTTP error 500 is returned
-    if (isset($whoops) && ENV === 'dev') {
+    if (isset($whoops)) {
         echo $whoops->handleException($e);
     } else {
         header("HTTP/1.0 500 Internal Server Error");
