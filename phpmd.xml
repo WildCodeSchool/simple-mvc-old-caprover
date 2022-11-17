@@ -16,6 +16,7 @@
     </rule>
     <rule ref="rulesets/design.xml" >
         <exclude name="CouplingBetweenObjects" />
+        <exclude name="ExitExpression" />
     </rule>
     <rule ref="rulesets/design.xml/CouplingBetweenObjects">
         <properties>
